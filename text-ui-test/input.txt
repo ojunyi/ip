@@ -1,8 +1,10 @@
 todo borrow book
 deadline return book /by Sunday
 event project meeting /from Mon 2pm /to 4pm
-todo return book
 event project meeting /from A /to mazon
+todo return book
+deadline bake bread /by Sunday
+testtest
 list
 mark 1
 mark 3

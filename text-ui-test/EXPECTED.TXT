@@ -33,6 +33,13 @@
 
 ============================================================
 
+> Command: event project meeting /from A /to mazon
+============================================================
+
+    < Added: [E][ ] project meeting (From: A To: mazon)
+
+============================================================
+
 > Command: todo return book
 ============================================================
 
@@ -40,10 +47,17 @@
 
 ============================================================
 
-> Command: event project meeting /from A /to mazon
+> Command: deadline bake bread /by Sunday
 ============================================================
 
-    < Added: [E][ ] project meeting (From: A To: mazon)
+    < Added: [D][ ] bake bread (by: Sunday)
+
+============================================================
+
+> Command: testtest
+============================================================
+
+    < Echo: testtest
 
 ============================================================
 
@@ -54,8 +68,9 @@
     < 1. [T][ ] borrow book
     < 2. [D][ ] return book (by: Sunday)
     < 3. [E][ ] project meeting (From: Mon 2pm To: 4pm)
-    < 4. [T][ ] return book
-    < 5. [E][ ] project meeting (From: A To: mazon)
+    < 4. [E][ ] project meeting (From: A To: mazon)
+    < 5. [T][ ] return book
+    < 6. [D][ ] bake bread (by: Sunday)
 
 ============================================================
 
@@ -79,7 +94,7 @@
 ============================================================
 
     < Alright! Done that task shall be:
-    <   [X] project meeting
+    <   [X] return book
 
 ============================================================
 
@@ -90,8 +105,9 @@
     < 1. [T][X] borrow book
     < 2. [D][ ] return book (by: Sunday)
     < 3. [E][X] project meeting (From: Mon 2pm To: 4pm)
-    < 4. [T][ ] return book
-    < 5. [E][X] project meeting (From: A To: mazon)
+    < 4. [E][ ] project meeting (From: A To: mazon)
+    < 5. [T][X] return book
+    < 6. [D][ ] bake bread (by: Sunday)
 
 ============================================================
 
@@ -123,7 +139,7 @@
 ============================================================
 
     < Alright! Done that task shall be:
-    <   [X] return book
+    <   [X] project meeting
 
 ============================================================
 
@@ -134,8 +150,9 @@
     < 1. [T][ ] borrow book
     < 2. [D][X] return book (by: Sunday)
     < 3. [E][ ] project meeting (From: Mon 2pm To: 4pm)
-    < 4. [T][X] return book
-    < 5. [E][X] project meeting (From: A To: mazon)
+    < 4. [E][X] project meeting (From: A To: mazon)
+    < 5. [T][X] return book
+    < 6. [D][ ] bake bread (by: Sunday)
 
 ============================================================
 
