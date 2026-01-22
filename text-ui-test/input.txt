@@ -11,6 +11,7 @@ mark 3
 mark 5
 list
 unmark 1
+unmark 2
 unmark 3
 mark 2
 mark 4
@@ -23,6 +24,7 @@ unmark 101
 unmark das
 todo 
 todo 123asd
+todo asd 321
 list
 deadline error by today
 deadline error /by today /by next week
@@ -31,4 +33,12 @@ event error from today to next week
 event error /from today /to next week /from tomorrow
 event error /from today /to next week /to tomorrow
 event error /to today /from next week
+delete 6
+delete 6
+delete 3
+delete 2
+list
+delete 10
+delete 
+delete 1 asd
 bye

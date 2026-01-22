@@ -157,7 +157,7 @@
 > Command: mark 
 ============================================================
 
-    < Invalid task number due to possible reasons:
+    < Invalid command due to possible reasons:
     < - Empty input
     < - Not a number
     < - Number exceeds total tasks
@@ -168,7 +168,7 @@
 > Command: mark 101
 ============================================================
 
-    < Invalid task number due to possible reasons:
+    < Invalid command due to possible reasons:
     < - Empty input
     < - Not a number
     < - Number exceeds total tasks
@@ -179,7 +179,7 @@
 > Command: mark asd
 ============================================================
 
-    < Invalid task number due to possible reasons:
+    < Invalid command due to possible reasons:
     < - Empty input
     < - Not a number
     < - Number exceeds total tasks
@@ -190,7 +190,7 @@
 > Command: unmark 
 ============================================================
 
-    < Invalid task number due to possible reasons:
+    < Invalid command due to possible reasons:
     < - Empty input
     < - Not a number
     < - Number exceeds total tasks
@@ -201,7 +201,7 @@
 > Command: unmark 101
 ============================================================
 
-    < Invalid task number due to possible reasons:
+    < Invalid command due to possible reasons:
     < - Empty input
     < - Not a number
     < - Number exceeds total tasks
@@ -212,7 +212,7 @@
 > Command: unmark das
 ============================================================
 
-    < Invalid task number due to possible reasons:
+    < Invalid command due to possible reasons:
     < - Empty input
     < - Not a number
     < - Number exceeds total tasks
@@ -223,7 +223,7 @@
 > Command: todo 
 ============================================================
 
-    < Description cannot be empty.
+    < Invalid command due to possible reasons:
     < Please use - todo <description>
 
 ============================================================
@@ -252,7 +252,7 @@
 > Command: deadline error by today
 ============================================================
 
-    < Invalid deadline format due to possible reasons:
+    < Invalid command due to possible reasons:
     < - No /by was found
     < - More than one /by was found
     < Please use - deadline <description> /by <deadline>
@@ -262,7 +262,7 @@
 > Command: deadline error /by today /by next week
 ============================================================
 
-    < Invalid deadline format due to possible reasons:
+    < Invalid command due to possible reasons:
     < - No /by was found
     < - More than one /by was found
     < Please use - deadline <description> /by <deadline>
@@ -272,7 +272,7 @@
 > Command: deadline error /by today /by next week /by next month
 ============================================================
 
-    < Invalid deadline format due to possible reasons:
+    < Invalid command due to possible reasons:
     < - No /by was found
     < - More than one /by was found
     < Please use - deadline <description> /by <deadline>
@@ -282,7 +282,7 @@
 > Command: event error from today to next week
 ============================================================
 
-    < Invalid event format due to possible reasons:
+    < Invalid command due to possible reasons:
     < - No /from was found
     < - More than one /from was found
     < - /from and /to are in the wrong order
@@ -293,7 +293,7 @@
 > Command: event error /from today /to next week /from tomorrow
 ============================================================
 
-    < Invalid event format due to possible reasons:
+    < Invalid command due to possible reasons:
     < - No /from was found
     < - More than one /from was found
     < - /from and /to are in the wrong order
@@ -304,7 +304,7 @@
 > Command: event error /from today /to next week /to tomorrow
 ============================================================
 
-    < Invalid event format due to possible reasons:
+    < Invalid command due to possible reasons:
     < - No /to was found
     < - More than one /to was found
     < Please use - event <description> /from <start date> /to <end date>
@@ -314,7 +314,7 @@
 > Command: event error /to today /from next week
 ============================================================
 
-    < Invalid event format due to possible reasons:
+    < Invalid command due to possible reasons:
     < - No /to was found
     < - More than one /to was found
     < Please use - event <description> /from <start date> /to <end date>
