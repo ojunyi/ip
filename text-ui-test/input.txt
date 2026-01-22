@@ -1,11 +1,16 @@
-read book
-return book
-buy bread
-sell bread
+todo borrow book
+deadline return book /by Sunday
+event project meeting /from Mon 2pm /to 4pm
+todo return book
+event project meeting /from A /to mazon
+list
 mark 1
+mark 3
+mark 5
+list
+unmark 1
+unmark 3
 mark 2
 mark 4
-list
-unmark 2
 list
 bye

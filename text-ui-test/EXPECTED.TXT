@@ -12,31 +12,50 @@
 
 ============================================================
 
-> Command: read book
+> Command: todo borrow book
 ============================================================
 
-    < Added: read book
-
-============================================================
-
-> Command: return book
-============================================================
-
-    < Added: return book
+    < Added: [T][ ] borrow book
 
 ============================================================
 
-> Command: buy bread
+> Command: deadline return book /by Sunday
 ============================================================
 
-    < Added: buy bread
+    < Added: [D][ ] return book (by: Sunday)
 
 ============================================================
 
-> Command: sell bread
+> Command: event project meeting /from Mon 2pm /to 4pm
 ============================================================
 
-    < Added: sell bread
+    < Added: [E][ ] project meeting (From: Mon 2pm To: 4pm)
+
+============================================================
+
+> Command: todo return book
+============================================================
+
+    < Added: [T][ ] return book
+
+============================================================
+
+> Command: event project meeting /from A /to mazon
+============================================================
+
+    < Added: [E][ ] project meeting (From: A To: mazon)
+
+============================================================
+
+> Command: list
+============================================================
+
+    < Here's your tasks lists:
+    < 1. [T][ ] borrow book
+    < 2. [D][ ] return book (by: Sunday)
+    < 3. [E][ ] project meeting (From: Mon 2pm To: 4pm)
+    < 4. [T][ ] return book
+    < 5. [E][ ] project meeting (From: A To: mazon)
 
 ============================================================
 
@@ -44,7 +63,51 @@
 ============================================================
 
     < Alright! Done that task shall be:
-    <   [X] read book
+    <   [X] borrow book
+
+============================================================
+
+> Command: mark 3
+============================================================
+
+    < Alright! Done that task shall be:
+    <   [X] project meeting
+
+============================================================
+
+> Command: mark 5
+============================================================
+
+    < Alright! Done that task shall be:
+    <   [X] project meeting
+
+============================================================
+
+> Command: list
+============================================================
+
+    < Here's your tasks lists:
+    < 1. [T][X] borrow book
+    < 2. [D][ ] return book (by: Sunday)
+    < 3. [E][X] project meeting (From: Mon 2pm To: 4pm)
+    < 4. [T][ ] return book
+    < 5. [E][X] project meeting (From: A To: mazon)
+
+============================================================
+
+> Command: unmark 1
+============================================================
+
+    < OK. Task shall be undone:
+    <   [ ] borrow book
+
+============================================================
+
+> Command: unmark 3
+============================================================
+
+    < OK. Task shall be undone:
+    <   [ ] project meeting
 
 ============================================================
 
@@ -60,7 +123,7 @@
 ============================================================
 
     < Alright! Done that task shall be:
-    <   [X] sell bread
+    <   [X] return book
 
 ============================================================
 
@@ -68,29 +131,11 @@
 ============================================================
 
     < Here's your tasks lists:
-    < 1. [X] read book
-    < 2. [X] return book
-    < 3. [ ] buy bread
-    < 4. [X] sell bread
-
-============================================================
-
-> Command: unmark 2
-============================================================
-
-    < OK. Task shal be undone:
-    <   [ ] return book
-
-============================================================
-
-> Command: list
-============================================================
-
-    < Here's your tasks lists:
-    < 1. [X] read book
-    < 2. [ ] return book
-    < 3. [ ] buy bread
-    < 4. [X] sell bread
+    < 1. [T][ ] borrow book
+    < 2. [D][X] return book (by: Sunday)
+    < 3. [E][ ] project meeting (From: Mon 2pm To: 4pm)
+    < 4. [T][X] return book
+    < 5. [E][X] project meeting (From: A To: mazon)
 
 ============================================================
 
