@@ -1,13 +1,13 @@
 ============================================================
 
     < Hey, whats up! I am
-    < ______           _     _ _______       _ 
+    < ______           _     _ _______       _
     < | ___ \         | |   | (_) ___ \     (_)
-    < | |_/ /_   _  __| | __| |_| |_/ / ___  _ 
+    < | |_/ /_   _  __| | __| |_| |_/ / ___  _
     < | ___ \ | | |/ _` |/ _` | | ___ \/ _ \| |
     < | |_/ / |_| | (_| | (_| | | |_/ / (_) | |
     < \____/ \__,_|\__,_|\__,_|_\____/ \___/|_|
-
+    < 
     < What can I do for you today?
 
 ============================================================
@@ -57,7 +57,7 @@
 > Command: testtest
 ============================================================
 
-    < Echo: testtest
+    < Echo: testtest ~~~
 
 ============================================================
 
@@ -78,7 +78,7 @@
 ============================================================
 
     < Alright! Done that task shall be:
-    <   [X] borrow book
+    < [X] borrow book
 
 ============================================================
 
@@ -86,7 +86,7 @@
 ============================================================
 
     < Alright! Done that task shall be:
-    <   [X] project meeting
+    < [X] project meeting
 
 ============================================================
 
@@ -94,7 +94,7 @@
 ============================================================
 
     < Alright! Done that task shall be:
-    <   [X] return book
+    < [X] return book
 
 ============================================================
 
@@ -114,16 +114,14 @@
 > Command: unmark 1
 ============================================================
 
-    < OK. Task shall be undone:
-    <   [ ] borrow book
+    < OK. Task shall be undone:  [ ] borrow book
 
 ============================================================
 
 > Command: unmark 3
 ============================================================
 
-    < OK. Task shall be undone:
-    <   [ ] project meeting
+    < OK. Task shall be undone:  [ ] project meeting
 
 ============================================================
 
@@ -131,7 +129,7 @@
 ============================================================
 
     < Alright! Done that task shall be:
-    <   [X] return book
+    < [X] return book
 
 ============================================================
 
@@ -139,7 +137,7 @@
 ============================================================
 
     < Alright! Done that task shall be:
-    <   [X] project meeting
+    < [X] project meeting
 
 ============================================================
 
@@ -156,10 +154,177 @@
 
 ============================================================
 
+> Command: mark 
+============================================================
+
+    < Invalid task number due to possible reasons:
+    < - Empty input
+    < - Not a number
+    < - Number exceeds total tasks
+    < Please use - mark <task number>
+
+============================================================
+
+> Command: mark 101
+============================================================
+
+    < Invalid task number due to possible reasons:
+    < - Empty input
+    < - Not a number
+    < - Number exceeds total tasks
+    < Please use - mark <task number>
+
+============================================================
+
+> Command: mark asd
+============================================================
+
+    < Invalid task number due to possible reasons:
+    < - Empty input
+    < - Not a number
+    < - Number exceeds total tasks
+    < Please use - mark <task number>
+
+============================================================
+
+> Command: unmark 
+============================================================
+
+    < Invalid task number due to possible reasons:
+    < - Empty input
+    < - Not a number
+    < - Number exceeds total tasks
+    < Please use - unmark <task number>
+
+============================================================
+
+> Command: unmark 101
+============================================================
+
+    < Invalid task number due to possible reasons:
+    < - Empty input
+    < - Not a number
+    < - Number exceeds total tasks
+    < Please use - unmark <task number>
+
+============================================================
+
+> Command: unmark das
+============================================================
+
+    < Invalid task number due to possible reasons:
+    < - Empty input
+    < - Not a number
+    < - Number exceeds total tasks
+    < Please use - unmark <task number>
+
+============================================================
+
+> Command: todo 
+============================================================
+
+    < Description cannot be empty.
+    < Please use - todo <description>
+
+============================================================
+
+> Command: todo 123asd
+============================================================
+
+    < Added: [T][ ] 123asd
+
+============================================================
+
+> Command: list
+============================================================
+
+    < Here's your tasks lists:
+    < 1. [T][ ] borrow book
+    < 2. [D][X] return book (by: Sunday)
+    < 3. [E][ ] project meeting (From: Mon 2pm To: 4pm)
+    < 4. [E][X] project meeting (From: A To: mazon)
+    < 5. [T][X] return book
+    < 6. [D][ ] bake bread (by: Sunday)
+    < 7. [T][ ] 123asd
+
+============================================================
+
+> Command: deadline error by today
+============================================================
+
+    < Invalid deadline format due to possible reasons:
+    < - No /by was found
+    < - More than one /by was found
+    < Please use - deadline <description> /by <deadline>
+
+============================================================
+
+> Command: deadline error /by today /by next week
+============================================================
+
+    < Invalid deadline format due to possible reasons:
+    < - No /by was found
+    < - More than one /by was found
+    < Please use - deadline <description> /by <deadline>
+
+============================================================
+
+> Command: deadline error /by today /by next week /by next month
+============================================================
+
+    < Invalid deadline format due to possible reasons:
+    < - No /by was found
+    < - More than one /by was found
+    < Please use - deadline <description> /by <deadline>
+
+============================================================
+
+> Command: event error from today to next week
+============================================================
+
+    < Invalid event format due to possible reasons:
+    < - No /from was found
+    < - More than one /from was found
+    < - /from and /to are in the wrong order
+    < Please use - event <description> /from <start date> /to <end date>
+
+============================================================
+
+> Command: event error /from today /to next week /from tomorrow
+============================================================
+
+    < Invalid event format due to possible reasons:
+    < - No /from was found
+    < - More than one /from was found
+    < - /from and /to are in the wrong order
+    < Please use - event <description> /from <start date> /to <end date>
+
+============================================================
+
+> Command: event error /from today /to next week /to tomorrow
+============================================================
+
+    < Invalid event format due to possible reasons:
+    < - No /to was found
+    < - More than one /to was found
+    < Please use - event <description> /from <start date> /to <end date>
+
+============================================================
+
+> Command: event error /to today /from next week
+============================================================
+
+    < Invalid event format due to possible reasons:
+    < - No /to was found
+    < - More than one /to was found
+    < Please use - event <description> /from <start date> /to <end date>
+
+============================================================
+
 > Command: bye
 ============================================================
 
-    < See you next timeee! Ciaoooo!
+    < See you next timeee! Ciaoooo ~~~
 
 ============================================================
 

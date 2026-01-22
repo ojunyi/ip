@@ -15,4 +15,20 @@ unmark 3
 mark 2
 mark 4
 list
+mark 
+mark 101
+mark asd
+unmark 
+unmark 101
+unmark das
+todo 
+todo 123asd
+list
+deadline error by today
+deadline error /by today /by next week
+deadline error /by today /by next week /by next month
+event error from today to next week
+event error /from today /to next week /from tomorrow
+event error /from today /to next week /to tomorrow
+event error /to today /from next week
 bye
