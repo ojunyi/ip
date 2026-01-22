@@ -1,6 +1,11 @@
-hello
-blah
 read book
 return book
+buy bread
+sell bread
+mark 1
+mark 2
+mark 4
+list
+unmark 2
 list
 bye
