@@ -10,6 +10,10 @@ public class Ui {
         returnText(logo + "\n" + welcomeMessage);
     }
 
+    public void showAddTask(Task task) {
+        returnText("Added: "  + task.toString() + "\n");
+    }
+
     public void showDeleteTask(Task task, int itemCount) {
         returnText("Noted. I've removed this task. Less work for you:\n"
                 + "  " + task.toString() + "\n"

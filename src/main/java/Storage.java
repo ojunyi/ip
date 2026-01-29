@@ -59,7 +59,7 @@ public class Storage {
 
         switch (type) {
         case "T":
-            task = new Todos(description);
+            task = new Todo(description);
             break;
 
         case "D":
@@ -87,7 +87,7 @@ public class Storage {
     private static String taskToLine(Task task) {
         String status = task.getStatus();
 
-        if (task instanceof Todos) {
+        if (task instanceof Todo) {
             return "T | " + status + " | " + task.getDescription();
         } else if (task instanceof Deadline) {
             Deadline d = (Deadline) task;
