@@ -1,11 +1,11 @@
 import java.util.Scanner;
 
 public class BuddiBoi {
-    
+
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         TaskList taskList = new TaskList();
         Ui ui = new Ui();
-        Scanner sc = new Scanner(System.in);
         
         taskList = (TaskList) Storage.load();
 
@@ -13,7 +13,10 @@ public class BuddiBoi {
 
         while (true) { 
             String input = sc.nextLine().trim();
-            ParseCommand command = new ParseCommand(input);
+            ParseCommand parser = new ParseCommand(input);
+            Command commandToExecute = parser.getCommand();
+            commandToExecute.execute(taskList, ui);
+
             ui.showMessage(command.toString());
 
             if (command.isGoodBye()) {
@@ -41,7 +44,7 @@ public class BuddiBoi {
                 break;
 
             } else if (command.isList()) {
-                ui.showMessage(taskList.toString());
+                
 
             } else if (command.isMark()) {
                 if (command.getArgs().matches("\\d+")) {
@@ -59,32 +62,6 @@ public class BuddiBoi {
                     taskList.unmarkTask(taskNumber);
                 } else {
                     ui.showErrorUnmark();
-                }
-
-            } else if (command.isTodo()) {
-                String description = input.substring(5);
-                
-                if (!description.isBlank()) {
-                    Task todoTask = new Todos(description);
-                    taskList.addTask(todoTask);
-                    ui.showMessage("Added: " + todoTask.toString());
-
-                } else {
-                    ui.showErrorTodo();
-                }
-
-            } else if (command.isDeadline()) {
-                String[] parts = input.substring(9).split(" /by ");
-
-                if (parts.length == 2) {
-                    String description = parts[0];
-                    String by = parts[1];
-
-                    Task deadlineTask = new Deadline(description, by);
-                    taskList.addTask(deadlineTask);
-                    ui.showMessage("Added: " + deadlineTask.toString());
-                } else {
-                    ui.showErrorDeadline();
                 }
 
             } else if (command.isEvent()) {
