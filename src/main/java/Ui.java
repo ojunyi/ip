@@ -11,7 +11,7 @@ public class Ui {
     }
 
     public void showAddTask(Task task) {
-        returnText("Added: "  + task.toString() + "\n");
+        returnText("Added: "  + task.toString());
     }
 
     public void showDeleteTask(Task task, int itemCount) {

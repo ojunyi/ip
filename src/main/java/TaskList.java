@@ -12,6 +12,10 @@ public class TaskList {
         return new ArrayList<>(tasks);
     }
 
+    public int getItemCount() {
+        return itemCount;
+    }
+
     public void addTask(Task task) {
         tasks.add(task);
         itemCount++;

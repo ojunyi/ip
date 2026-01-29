@@ -7,10 +7,6 @@ public class UnmarkCommand extends Command {
 
     @Override
     public void execute(TaskList taskList, Ui ui) {
-        if (taskIndex < 0 || taskIndex >= taskList.getTasks().size()) {
-            ui.showErrorUnmark();
-            return;
-        }
         taskList.unmarkTask(taskIndex);
         ui.showUnmarkTask(taskList.getTasks().get(taskIndex));
     }

@@ -7,10 +7,6 @@ public class MarkCommand extends Command {
 
     @Override
     public void execute(TaskList taskList, Ui ui) {
-        if (taskIndex < 0 || taskIndex >= taskList.getTasks().size()) {
-            ui.showErrorMark();
-            return;
-        }
         taskList.markTask(taskIndex);
         ui.showMarkTask(taskList.getTasks().get(taskIndex));
     }
