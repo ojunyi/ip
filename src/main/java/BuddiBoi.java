@@ -41,10 +41,10 @@ public class BuddiBoi {
                 ui.showMessage(reply.toString());
                 break;
 
-            } else if (input.equals("list")) {
+            } else if (command.isList()) {
                 ui.showMessage(taskList.toString());
 
-            } else if (input.startsWith("mark ")) {
+            } else if (command.isMark()) {
                 String taskNumberStr = input.substring(5).trim();
 
                 if (taskNumberStr.matches("\\d+")) {
@@ -54,7 +54,7 @@ public class BuddiBoi {
                     ui.showErrorMark();
                 }
                 
-            } else if (input.startsWith("unmark ")) {
+            } else if (command.isUnmark()) {
                 String taskNumberStr = input.substring(7).trim();
 
                 if (taskNumberStr.matches("\\d+")) {
@@ -64,7 +64,7 @@ public class BuddiBoi {
                     ui.showErrorUnmark();
                 }
 
-            } else if (input.startsWith("todo ")) {
+            } else if (command.isTodo()) {
                 String description = input.substring(5);
                 
                 if (!description.isBlank()) {
@@ -76,7 +76,7 @@ public class BuddiBoi {
                     ui.showErrorTodo();
                 }
 
-            } else if (input.startsWith("deadline ")) {
+            } else if (command.isDeadline()) {
                 String[] parts = input.substring(9).split(" /by ");
 
                 if (parts.length == 2) {
@@ -90,7 +90,7 @@ public class BuddiBoi {
                     ui.showErrorDeadline();
                 }
 
-            } else if (input.startsWith("event ")) {
+            } else if (command.isEvent()) {
                 String[] part_1 = input.substring(6).split(" /from ");
 
                 if (part_1.length == 2) {
@@ -110,7 +110,7 @@ public class BuddiBoi {
                 } else {
                     ui.showErrorEventFrom();
                 }
-            } else if (input.startsWith("delete ")) {
+            } else if (command.isDelete()) {
                 String taskNumberStr = input.substring(7).trim();
 
                 if (taskNumberStr.matches("\\d+")) {
