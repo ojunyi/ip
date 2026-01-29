@@ -29,6 +29,7 @@ public class Ui {
     public void showErrorMark() {
         returnText("Invalid command due to possible reasons:\n"
                 + " - Empty input\n"
+                + " - Index out of bounds\n"
                 + " - Not a number\n"
                 + "Please use - mark <task number>");
     }
@@ -36,6 +37,7 @@ public class Ui {
     public void showErrorUnmark() {
         returnText("Invalid command due to possible reasons:\n"
                 + " - Empty input\n"
+                + " - Index out of bounds\n"
                 + " - Not a number\n"
                 + "Please use - unmark <task number>");
     }
@@ -74,6 +76,7 @@ public class Ui {
     public void showErrorDelete() {
         returnText("Invalid command due to possible reasons:\n"
                 + " - Empty input\n"
+                + " - Index out of bounds\n"
                 + " - Not a number\n"
                 + "Please use - delete <task number>");
     }

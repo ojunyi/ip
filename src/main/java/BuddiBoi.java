@@ -1,20 +1,19 @@
 import java.util.Scanner;
 
 public class BuddiBoi {
-
-    static Ui ui = new Ui();
-    static TaskList taskList = new TaskList();
-
+    
     public static void main(String[] args) {
-
+        TaskList taskList = new TaskList();
+        Ui ui = new Ui();
         Scanner sc = new Scanner(System.in);
+        
         taskList = (TaskList) Storage.load();
 
         ui.showWelcome();
 
         while (true) { 
             String input = sc.nextLine().trim();
-            Command command = new Command(input);
+            ParseCommand command = new ParseCommand(input);
             ui.showMessage(command.toString());
 
             if (command.isGoodBye()) {
@@ -45,10 +44,8 @@ public class BuddiBoi {
                 ui.showMessage(taskList.toString());
 
             } else if (command.isMark()) {
-                String taskNumberStr = input.substring(5).trim();
-
-                if (taskNumberStr.matches("\\d+")) {
-                    int taskNumber = Integer.parseInt(taskNumberStr) - 1;
+                if (command.getArgs().matches("\\d+")) {
+                    int taskNumber = Integer.parseInt(command.getArgs()) - 1;
                     taskList.markTask(taskNumber);
                 } else {
                     ui.showErrorMark();

@@ -1,50 +1,49 @@
 public class ParseCommand {
     private String command;
     private String args;
-    private String[] parsedInput;
 
     public ParseCommand(String input) {
-        this.parsedInput = Parser.parse(input);
-
+        String[] parsedInput = Parser.parse(input);
         this.command = parsedInput[0];
+        this.args = parsedInput.length > 1 ? parsedInput[1] : "";
+    }
 
-        if (parsedInput.length > 1) {
-            this.args = parsedInput[1];
-        } else {
-            this.args = "";
+    public Command getCommand() {
+        switch (command.toLowerCase()) {
+        case "bye":
+            return new ExitCommand();
+        case "list":
+            return new ListCommand();
+        case "mark":
+            try {
+                int index = Integer.parseInt(args.trim()) - 1;
+                return new MarkCommand(index);
+            } catch (NumberFormatException e) {
+                return new InvalidCommand("Invalid index for mark command!");
+            }
+        case "unmark":
+            try {
+                int index = Integer.parseInt(args.trim()) - 1;
+                return new UnmarkCommand(index);
+            } catch (NumberFormatException e) {
+                return new InvalidCommand("Invalid index for unmark command!");
+            }
+        case "todo":
+            return new AddTodoCommand(args);
+        case "deadline":
+            return new AddDeadlineCommand(args);
+        case "event":
+            return new AddEventCommand(args);
+        case "delete":
+            try {
+                int index = Integer.parseInt(args.trim()) - 1;
+                return new DeleteCommand(index);
+            } catch (NumberFormatException e) {
+                return new InvalidCommand("Invalid index for delete command!");
+            }
+        default:
+            return new InvalidCommand("Unknown command!");
         }
-    }
-
-    public boolean isGoodBye() {
-        return command.toLowerCase().equals("bye");
-    }
-
-    public boolean isList() {
-        return command.toLowerCase().equals("list");
-    }
-
-    public boolean isMark() {
-        return command.toLowerCase().equals("mark");
-    }
-
-    public boolean isUnmark() {
-        return command.toLowerCase().equals("unmark");
-    }
-
-    public boolean isTodo() {
-        return command.toLowerCase().equals("todo");
-    }
-
-    public boolean isDeadline() {
-        return command.toLowerCase().equals("deadline");
-    }
-
-    public boolean isEvent() {
-        return command.toLowerCase().equals("event");
-    }
-
-    public boolean isDelete() {
-        return command.toLowerCase().equals("delete");
     }
 
     @Override
