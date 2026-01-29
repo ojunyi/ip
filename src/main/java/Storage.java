@@ -70,7 +70,7 @@ public class Storage {
             case "E":
                 String start = parts[3];
                 String end = parts[4];
-                task = new Events(description, start, end);
+                task = new Event(description, start, end);
                 break;
 
             default:
@@ -88,13 +88,13 @@ public class Storage {
         String status = task.getStatus();
 
         if (task instanceof Todos) {
-            return "T | " + status + " | " + task.description();
+            return "T | " + status + " | " + task.getDescription();
         } else if (task instanceof Deadline) {
             Deadline d = (Deadline) task;
-            return "D | " + status + " | " + task.description() + " | " + d.deadline;
-        } else if (task instanceof Events) {
-            Events e = (Events) task;
-            return "E | " + status + " | " + task.description() + " | " + e.startDate + " | " + e.endDate;
+            return "D | " + status + " | " + task.getDescription() + " | " + d.deadline;
+        } else if (task instanceof Event) {
+            Event e = (Event) task;
+            return "E | " + status + " | " + task.getDescription() + " | " + e.startDate + " | " + e.endDate;
         } else {
             return "";
         }

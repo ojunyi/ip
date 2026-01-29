@@ -15,7 +15,7 @@ public class Task {
         return (this.isDone ? "[X]" : "[ ]");
     }
 
-    public String description() {
+    public String getDescription() {
         return this.description;
     }
 
@@ -23,7 +23,7 @@ public class Task {
         this.isDone = true;
     }
 
-    public void markAsNotDone() {
+    public void markAsUndone() {
         this.isDone = false;
     }
 

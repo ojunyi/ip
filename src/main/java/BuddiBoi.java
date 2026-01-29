@@ -3,20 +3,15 @@ import java.util.Scanner;
 
 public class BuddiBoi {
 
+    static Ui ui = new Ui();
     static ArrayList<Task> tasks = new ArrayList<>();
     static int itemCount = 0;
 
     public static void main(String[] args) {
-        String logo = "______           _     _ _______       _ \n"
-                    + "| ___ \\         | |   | (_) ___ \\     (_)\n"
-                    + "| |_/ /_   _  __| | __| |_| |_/ / ___  _ \n"
-                    + "| ___ \\ | | |/ _` |/ _` | | ___ \\/ _ \\| |\n"
-                    + "| |_/ / |_| | (_| | (_| | | |_/ / (_) | |\n"
-                    + "\\____/ \\__,_|\\__,_|\\__,_|_\\____/ \\___/|_|\n";
 
         Scanner sc = new Scanner(System.in);
         
-        returnText("Hey, whats up! I am\n" + logo + "\nWhat can I do for you today?");
+        ui.showWelcome();
         tasks = (ArrayList<Task>) Storage.load();
         itemCount = tasks.size();
 
@@ -25,9 +20,9 @@ public class BuddiBoi {
             System.out.println("> Command: " + input);
 
             if (input.equals("bye")) {
-                returnText("Would you like me to save your tasks before exiting? (yes/no)");
+                ui.showMessage("Would you like me to save your tasks before exiting? (yes/no)");
                 if (!sc.hasNextLine()) {
-                    returnText("No command was given.\n"
+                    ui.showMessage("No command was given.\n"
                             + "Your tasks were not saved.\n"
                             + "See you next timeee! Ciaoooo ~~~");
                     break;
@@ -45,7 +40,7 @@ public class BuddiBoi {
                 }
 
                 reply.append("\nSee you next timeee! Ciaoooo ~~~");
-                returnText(reply.toString());
+                ui.showMessage(reply.toString());
                 break;
 
             } else if (input.equals("list")) {
@@ -58,13 +53,7 @@ public class BuddiBoi {
                     int taskNumber = Integer.parseInt(taskNumberStr) - 1;
                     markTask(taskNumber);
                 } else {
-                    // Error handling for invalid task format
-                    returnText("Invalid command due to possible reasons:\n"
-                                + " - Empty input\n"
-                                + " - Not a number\n"
-                                + " - Number exceeds total tasks\n"
-                                + "Please use - mark <task number>"
-                    );
+                    ui.showErrorMark();
                 }
                 
             } else if (input.startsWith("unmark ")) {
@@ -72,15 +61,9 @@ public class BuddiBoi {
 
                 if (taskNumberStr.matches("\\d+") && Integer.parseInt(taskNumberStr) - 1 < itemCount) {
                     int taskNumber = Integer.parseInt(taskNumberStr) - 1;
-                    unMarkTask(taskNumber);
+                    unmarkTask(taskNumber);
                 } else {
-                    // Error handling for invalid task format
-                    returnText("Invalid command due to possible reasons:\n"
-                                + " - Empty input\n"
-                                + " - Not a number\n"
-                                + " - Number exceeds total tasks\n"
-                                + "Please use - unmark <task number>"
-                    );
+                    ui.showErrorUnmark();
                 }
 
             } else if (input.startsWith("todo ")) {
@@ -91,13 +74,10 @@ public class BuddiBoi {
                     tasks.add(todoTask);
                     itemCount++;
 
-                    returnText("Added: " + todoTask.toString());
+                    ui.showMessage("Added: " + todoTask.toString());
 
                 } else {
-                    // Error handling for invalid task format
-                    returnText("Invalid command due to possible reasons:\n"
-                                + "Please use - todo <description>"
-                    );
+                    ui.showErrorTodo();
                 }
 
             } else if (input.startsWith("deadline ")) {
@@ -112,14 +92,9 @@ public class BuddiBoi {
                     tasks.add(deadlineTask);
                     itemCount++;
 
-                    returnText("Added: " + deadlineTask.toString());
+                    ui.showMessage("Added: " + deadlineTask.toString());
                 } else {
-                    // Error handling for invalid deadline format
-                    returnText("Invalid command due to possible reasons:\n"
-                                + " - No /by was found\n"
-                                + " - More than one /by was found\n"
-                                + "Please use - deadline <description> /by <deadline>"
-                    );
+                    ui.showErrorDeadline();
                 }
 
             } else if (input.startsWith("event ")) {
@@ -132,28 +107,17 @@ public class BuddiBoi {
                     if (part_2.length == 2) {
                         String from = part_2[0];
                         String to = part_2[1];
-                        Task eventTask = new Events(description, from, to);
+                        Task eventTask = new Event(description, from, to);
 
                         tasks.add(eventTask);
                         itemCount++;
 
-                        returnText("Added: " + eventTask.toString());
+                        ui.showMessage("Added: " + eventTask.toString());
                     } else {
-                        // Error handling for invalid event format
-                        returnText("Invalid command due to possible reasons:\n"
-                                    + " - No /to was found\n"
-                                    + " - More than one /to was found\n"
-                                    + "Please use - event <description> /from <start date> /to <end date>"
-                        );
+                        ui.showErrorEventTo();
                     }
                 } else {
-                    // Error handling for invalid event format
-                    returnText("Invalid command due to possible reasons:\n"
-                                + " - No /from was found\n"
-                                + " - More than one /from was found\n"
-                                + " - /from and /to are in the wrong order\n"
-                                + "Please use - event <description> /from <start date> /to <end date>"
-                    );
+                    ui.showErrorEventFrom();
                 }
             } else if (input.startsWith("delete ")) {
                 String taskNumberStr = input.substring(7).trim();
@@ -164,32 +128,15 @@ public class BuddiBoi {
                     delete(taskNumber);
                     
                 } else {
-                    // Error handling for invalid task format
-                    returnText("Invalid command due to possible reasons:\n"
-                                + " - Empty input\n"
-                                + " - Not a number\n"
-                                + " - Number exceeds total tasks\n"
-                                + "Please use - delete <task number>"
-                    );
+                    ui.showErrorDelete();
                 }
 
             } else {
-                returnText("Echo: " + input + " ~~~");
+                ui.showMessage("Echo: " + input + " ~~~");
             }
         }
 
         sc.close();
-    }
-
-    public static void returnText(String input) {
-        String divider = "============================================================\n";
-        String indent = "    < ";
-
-        System.out.println(divider);
-        for (String line : input.split("\n")) {
-            System.out.println(indent + line.replaceAll("\\s+$", ""));
-        }
-        System.out.println("\n" + divider);
     }
 
     public static void listTasks(int itemCount) {
@@ -201,26 +148,26 @@ public class BuddiBoi {
                 + tasks.get(i).toString() + "\n";
         }
 
-        returnText(str);
+        ui.showMessage(str);
     }
 
     public static void markTask(int taskNumber) {
         Task task = tasks.get(taskNumber);
         task.markAsDone();
-        returnText("Alrightyy! Congratz on completing that task!:\n"
+        ui.showMessage("Alrightyy! Congratz on completing that task!:\n"
                     + "  " + task.toString());
     }
 
-    public static void unMarkTask(int taskNumber) {
+    public static void unmarkTask(int taskNumber) {
         Task task = tasks.get(taskNumber);
-        task.markAsNotDone();
-        returnText("Okay. Task shall be undone:\n"
+        task.markAsUndone();
+        ui.showMessage("Okay. Task shall be undone:\n"
                     + "  " + task.toString());
     }
 
     public static void delete(int taskNumber) {
         Task task = tasks.get(taskNumber);
-        returnText("Noted. I've removed this task. Less work for you:\n"
+        ui.showMessage("Noted. I've removed this task. Less work for you:\n"
                     + "  " + task.toString()
                     + "\nNow you have " + (itemCount - 1) + " tasks in the list.");
         tasks.remove(taskNumber);
