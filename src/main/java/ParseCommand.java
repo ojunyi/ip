@@ -15,19 +15,9 @@ public class ParseCommand {
         case "list":
             return new ListCommand();
         case "mark":
-            try {
-                int index = Integer.parseInt(args.trim()) - 1;
-                return new MarkCommand(index);
-            } catch (NumberFormatException e) {
-                return new InvalidCommand();
-            }
+            return new MarkCommand(args);
         case "unmark":
-            try {
-                int index = Integer.parseInt(args.trim()) - 1;
-                return new UnmarkCommand(index);
-            } catch (NumberFormatException e) {
-                return new InvalidCommand();
-            }
+            return new UnmarkCommand(args);
         case "todo":
             return new AddTodoCommand(args);
         case "deadline":
@@ -35,12 +25,7 @@ public class ParseCommand {
         case "event":
             return new AddEventCommand(args);
         case "delete":
-            try {
-                int index = Integer.parseInt(args.trim()) - 1;
-                return new DeleteCommand(index);
-            } catch (NumberFormatException e) {
-                return new InvalidCommand();
-            }
+            return new DeleteCommand(args);
         default:
             return new InvalidCommand();
         }

@@ -16,6 +16,7 @@ public class BuddiBoi {
             ParseCommand parser = new ParseCommand(input);
             Command commandToExecute = parser.getCommand();
             
+            ui.showCommand(input);
             commandToExecute.execute(new CommandContext(taskList, ui, sc));
             
             if (commandToExecute.isExit()) {

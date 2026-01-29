@@ -8,6 +8,11 @@ public class TaskList {
         this.tasks = new ArrayList<>();
     }
 
+    public TaskList(ArrayList<Task> tasks) {
+        this.tasks = tasks;
+        this.itemCount = tasks.size();
+    }
+
     public ArrayList<Task> getTasks() {
         return new ArrayList<>(tasks);
     }
@@ -22,11 +27,17 @@ public class TaskList {
     }
 
     public void deleteTask(int taskNumber) {
+        if (taskNumber < 0 || taskNumber >= itemCount) {
+            throw new IndexOutOfBoundsException();
+        }
         tasks.remove(taskNumber);
         itemCount--;
     }
 
     public void markTask(int taskNumber) {
+        if (taskNumber < 0 || taskNumber >= itemCount) {
+            throw new IndexOutOfBoundsException();
+        }
         Task task = tasks.get(taskNumber);
         task.markAsDone();
     }

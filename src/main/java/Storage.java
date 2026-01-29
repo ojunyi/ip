@@ -8,12 +8,12 @@ import java.util.List;
 public class Storage {
     private static final Path FILE_PATH = Paths.get("data", "save.txt");
 
-    public static List<Task> load() {
-        List<Task> tasks = new ArrayList<>();
+    public static TaskList load() {
+        ArrayList<Task> tasks = new ArrayList<>();
 
         try {
             if (!Files.exists(FILE_PATH)) {
-                return tasks;
+                return new TaskList(tasks);
             }
 
             List<String> lines = Files.readAllLines(FILE_PATH);
@@ -28,7 +28,7 @@ public class Storage {
         } catch (Exception e) {
         }
 
-        return tasks;
+        return new TaskList(tasks);
     }
 
     public static void save(List<Task> tasks) {

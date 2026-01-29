@@ -1,13 +1,21 @@
 public class Ui {
+
+    String sender = "> ";
+    String logo = "______           _     _ _______       _ \n"
+                    + "| ___ \\         | |   | (_) ___ \\     (_)\n"
+                    + "| |_/ /_   _  __| | __| |_| |_/ / ___  _ \n"
+                    + "| ___ \\ | | |/ _` |/ _` | | ___ \\/ _ \\| |\n"
+                    + "| |_/ / |_| | (_| | (_| | | |_/ / (_) | |\n"
+                    + "\\____/ \\__,_|\\__,_|\\__,_|_\\____/ \\___/|_|\n";
+
     public void showWelcome() {
-        String logo = " ____        _     _     _ \n"
-                    + "|  _ \\ _   _| |__ | |__ (_) ___ \n"
-                    + "| |_) | | | | '_ \\| '_ \\| |/ _ \\\n"
-                    + "|  __/| |_| | |_) | |_) | |  __/\n"
-                    + "|_|    \\__,_|_.__/|_.__/|_|\\___|\n";
-        String welcomeMessage = "Hello! I'm BuddiBoi\n"
-                              + "What can I do for you?";
-        returnText(logo + "\n" + welcomeMessage);
+        returnText(logo + "\n"
+                + "Hello! I'm BuddiBoi\n"
+                + "What can I do for you?");
+    }
+
+    public void showCommand(String command) {
+        System.out.println(sender + "Command: " + command);
     }
 
     public void showAddTask(Task task) {
@@ -26,7 +34,7 @@ public class Ui {
     }
 
     public void showUnmarkTask(Task task) {
-        returnText("Okay. Task shall be undone:\n"
+        returnText("Okay. Task shall be unmarked:\n"
                 + "  " + task.toString());
     }
 
@@ -46,13 +54,13 @@ public class Ui {
                 + "Please use - unmark <task number>");
     }
 
-    public void showErrorTodo() {
+    public void showErrorAddTodo() {
         returnText("Invalid command due to possible reasons:\n"
                 + " - Empty input\n"
                 + "Please use - todo <description>");
     }
 
-    public void showErrorDeadline() {
+    public void showErrorAddDeadline() {
         returnText("Invalid command due to possible reasons:\n"
                 + " - Empty input\n"
                 + " - No /by was found\n"
@@ -60,19 +68,13 @@ public class Ui {
                 + "Please use - deadline <description> /by <deadline>");
     }
 
-    public void showErrorEventTo() {
-        returnText("Invalid command due to possible reasons:\n"
-                + " - Empty input\n"
-                + " - No /to was found\n"
-                + " - More than one /to was found\n"
-                + "Please use - event <description> /from <start date> /to <end date>");
-    }
-
-    public void showErrorEventFrom() {
+    public void showErrorAddEvent() {
         returnText("Invalid command due to possible reasons:\n"
                 + " - Empty input\n"
                 + " - No /from was found\n"
+                + " - No /to was found\n"
                 + " - More than one /from was found\n"
+                + " - More than one /to was found\n"
                 + " - /from and /to are in the wrong order\n"
                 + "Please use - event <description> /from <start date> /to <end date>");
     }
