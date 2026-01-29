@@ -77,24 +77,24 @@
 > Command: mark 1
 ============================================================
 
-    < Alright! Done that task shall be:
-    < [X] borrow book
+    < Alrightyy! Congratz on completing that task!:
+    <   [T][X] borrow book
 
 ============================================================
 
 > Command: mark 3
 ============================================================
 
-    < Alright! Done that task shall be:
-    < [X] project meeting
+    < Alrightyy! Congratz on completing that task!:
+    <   [E][X] project meeting (From: Mon 2pm To: 4pm)
 
 ============================================================
 
 > Command: mark 5
 ============================================================
 
-    < Alright! Done that task shall be:
-    < [X] return book
+    < Alrightyy! Congratz on completing that task!:
+    <   [T][X] return book
 
 ============================================================
 
@@ -114,30 +114,40 @@
 > Command: unmark 1
 ============================================================
 
-    < OK. Task shall be undone:  [ ] borrow book
+    < Okay. Task shall be undone:
+    <   [T][ ] borrow book
+
+============================================================
+
+> Command: unmark 2
+============================================================
+
+    < Okay. Task shall be undone:
+    <   [D][ ] return book (by: Sunday)
 
 ============================================================
 
 > Command: unmark 3
 ============================================================
 
-    < OK. Task shall be undone:  [ ] project meeting
+    < Okay. Task shall be undone:
+    <   [E][ ] project meeting (From: Mon 2pm To: 4pm)
 
 ============================================================
 
 > Command: mark 2
 ============================================================
 
-    < Alright! Done that task shall be:
-    < [X] return book
+    < Alrightyy! Congratz on completing that task!:
+    <   [D][X] return book (by: Sunday)
 
 ============================================================
 
 > Command: mark 4
 ============================================================
 
-    < Alright! Done that task shall be:
-    < [X] project meeting
+    < Alrightyy! Congratz on completing that task!:
+    <   [E][X] project meeting (From: A To: mazon)
 
 ============================================================
 
@@ -158,9 +168,9 @@
 ============================================================
 
     < Invalid command due to possible reasons:
-    < - Empty input
-    < - Not a number
-    < - Number exceeds total tasks
+    <  - Empty input
+    <  - Not a number
+    <  - Number exceeds total tasks
     < Please use - mark <task number>
 
 ============================================================
@@ -169,9 +179,9 @@
 ============================================================
 
     < Invalid command due to possible reasons:
-    < - Empty input
-    < - Not a number
-    < - Number exceeds total tasks
+    <  - Empty input
+    <  - Not a number
+    <  - Number exceeds total tasks
     < Please use - mark <task number>
 
 ============================================================
@@ -180,9 +190,9 @@
 ============================================================
 
     < Invalid command due to possible reasons:
-    < - Empty input
-    < - Not a number
-    < - Number exceeds total tasks
+    <  - Empty input
+    <  - Not a number
+    <  - Number exceeds total tasks
     < Please use - mark <task number>
 
 ============================================================
@@ -191,9 +201,9 @@
 ============================================================
 
     < Invalid command due to possible reasons:
-    < - Empty input
-    < - Not a number
-    < - Number exceeds total tasks
+    <  - Empty input
+    <  - Not a number
+    <  - Number exceeds total tasks
     < Please use - unmark <task number>
 
 ============================================================
@@ -202,9 +212,9 @@
 ============================================================
 
     < Invalid command due to possible reasons:
-    < - Empty input
-    < - Not a number
-    < - Number exceeds total tasks
+    <  - Empty input
+    <  - Not a number
+    <  - Number exceeds total tasks
     < Please use - unmark <task number>
 
 ============================================================
@@ -213,9 +223,9 @@
 ============================================================
 
     < Invalid command due to possible reasons:
-    < - Empty input
-    < - Not a number
-    < - Number exceeds total tasks
+    <  - Empty input
+    <  - Not a number
+    <  - Number exceeds total tasks
     < Please use - unmark <task number>
 
 ============================================================
@@ -235,6 +245,13 @@
 
 ============================================================
 
+> Command: todo asd 321
+============================================================
+
+    < Added: [T][ ] asd 321
+
+============================================================
+
 > Command: list
 ============================================================
 
@@ -246,6 +263,7 @@
     < 5. [T][X] return book
     < 6. [D][ ] bake bread (by: Sunday)
     < 7. [T][ ] 123asd
+    < 8. [T][ ] asd 321
 
 ============================================================
 
@@ -253,8 +271,8 @@
 ============================================================
 
     < Invalid command due to possible reasons:
-    < - No /by was found
-    < - More than one /by was found
+    <  - No /by was found
+    <  - More than one /by was found
     < Please use - deadline <description> /by <deadline>
 
 ============================================================
@@ -263,8 +281,8 @@
 ============================================================
 
     < Invalid command due to possible reasons:
-    < - No /by was found
-    < - More than one /by was found
+    <  - No /by was found
+    <  - More than one /by was found
     < Please use - deadline <description> /by <deadline>
 
 ============================================================
@@ -273,8 +291,8 @@
 ============================================================
 
     < Invalid command due to possible reasons:
-    < - No /by was found
-    < - More than one /by was found
+    <  - No /by was found
+    <  - More than one /by was found
     < Please use - deadline <description> /by <deadline>
 
 ============================================================
@@ -283,9 +301,9 @@
 ============================================================
 
     < Invalid command due to possible reasons:
-    < - No /from was found
-    < - More than one /from was found
-    < - /from and /to are in the wrong order
+    <  - No /from was found
+    <  - More than one /from was found
+    <  - /from and /to are in the wrong order
     < Please use - event <description> /from <start date> /to <end date>
 
 ============================================================
@@ -294,9 +312,9 @@
 ============================================================
 
     < Invalid command due to possible reasons:
-    < - No /from was found
-    < - More than one /from was found
-    < - /from and /to are in the wrong order
+    <  - No /from was found
+    <  - More than one /from was found
+    <  - /from and /to are in the wrong order
     < Please use - event <description> /from <start date> /to <end date>
 
 ============================================================
@@ -305,8 +323,8 @@
 ============================================================
 
     < Invalid command due to possible reasons:
-    < - No /to was found
-    < - More than one /to was found
+    <  - No /to was found
+    <  - More than one /to was found
     < Please use - event <description> /from <start date> /to <end date>
 
 ============================================================
@@ -315,15 +333,103 @@
 ============================================================
 
     < Invalid command due to possible reasons:
-    < - No /to was found
-    < - More than one /to was found
+    <  - No /to was found
+    <  - More than one /to was found
     < Please use - event <description> /from <start date> /to <end date>
+
+============================================================
+
+> Command: delete 6
+============================================================
+
+    < Noted. I've removed this task. Less work for you:
+    <   [D][ ] bake bread (by: Sunday)
+    < Now you have 7 tasks in the list.
+
+============================================================
+
+> Command: delete 6
+============================================================
+
+    < Noted. I've removed this task. Less work for you:
+    <   [T][ ] 123asd
+    < Now you have 6 tasks in the list.
+
+============================================================
+
+> Command: delete 3
+============================================================
+
+    < Noted. I've removed this task. Less work for you:
+    <   [E][ ] project meeting (From: Mon 2pm To: 4pm)
+    < Now you have 5 tasks in the list.
+
+============================================================
+
+> Command: delete 2
+============================================================
+
+    < Noted. I've removed this task. Less work for you:
+    <   [D][X] return book (by: Sunday)
+    < Now you have 4 tasks in the list.
+
+============================================================
+
+> Command: list
+============================================================
+
+    < Here's your tasks lists:
+    < 1. [T][ ] borrow book
+    < 2. [E][X] project meeting (From: A To: mazon)
+    < 3. [T][X] return book
+    < 4. [T][ ] asd 321
+
+============================================================
+
+> Command: delete 10
+============================================================
+
+    < Invalid command due to possible reasons:
+    <  - Empty input
+    <  - Not a number
+    <  - Number exceeds total tasks
+    < Please use - delete <task number>
+
+============================================================
+
+> Command: delete 
+============================================================
+
+    < Invalid command due to possible reasons:
+    <  - Empty input
+    <  - Not a number
+    <  - Number exceeds total tasks
+    < Please use - delete <task number>
+
+============================================================
+
+> Command: delete 1 asd
+============================================================
+
+    < Invalid command due to possible reasons:
+    <  - Empty input
+    <  - Not a number
+    <  - Number exceeds total tasks
+    < Please use - delete <task number>
 
 ============================================================
 
 > Command: bye
 ============================================================
 
+    < Would you like me to save your tasks before exiting? (yes/no)
+
+============================================================
+
+> Command: no
+============================================================
+
+    < Your tasks have not been saved.
     < See you next timeee! Ciaoooo ~~~
 
 ============================================================

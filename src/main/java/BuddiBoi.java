@@ -17,13 +17,35 @@ public class BuddiBoi {
         Scanner sc = new Scanner(System.in);
         
         returnText("Hey, whats up! I am\n" + logo + "\nWhat can I do for you today?");
+        tasks = (ArrayList<Task>) Storage.load();
+        itemCount = tasks.size();
 
         while (true) { 
             String input = sc.nextLine();
             System.out.println("> Command: " + input);
 
             if (input.equals("bye")) {
-                goodBye();
+                returnText("Would you like me to save your tasks before exiting? (yes/no)");
+                if (!sc.hasNextLine()) {
+                    returnText("No command was given.\n"
+                            + "Your tasks were not saved.\n"
+                            + "See you next timeee! Ciaoooo ~~~");
+                    break;
+                }
+
+                input = sc.nextLine();
+                System.out.println("> Command: " + input);
+                StringBuilder reply = new StringBuilder();
+
+                if (input.toLowerCase().equals("yes")) {
+                    reply.append("Your tasks have been saved.");
+                    Storage.save(tasks);
+                } else {
+                    reply.append("Your tasks have not been saved.");
+                }
+
+                reply.append("\nSee you next timeee! Ciaoooo ~~~");
+                returnText(reply.toString());
                 break;
 
             } else if (input.equals("list")) {
@@ -36,7 +58,7 @@ public class BuddiBoi {
                     int taskNumber = Integer.parseInt(taskNumberStr) - 1;
                     markTask(taskNumber);
                 } else {
-                    // Error handling for invalid task number
+                    // Error handling for invalid task format
                     returnText("Invalid command due to possible reasons:\n"
                                 + " - Empty input\n"
                                 + " - Not a number\n"
@@ -52,7 +74,7 @@ public class BuddiBoi {
                     int taskNumber = Integer.parseInt(taskNumberStr) - 1;
                     unMarkTask(taskNumber);
                 } else {
-                    // Error handling for invalid task number
+                    // Error handling for invalid task format
                     returnText("Invalid command due to possible reasons:\n"
                                 + " - Empty input\n"
                                 + " - Not a number\n"
@@ -72,7 +94,7 @@ public class BuddiBoi {
                     returnText("Added: " + todoTask.toString());
 
                 } else {
-                    // Error handling for invalid task number
+                    // Error handling for invalid task format
                     returnText("Invalid command due to possible reasons:\n"
                                 + "Please use - todo <description>"
                     );
@@ -142,7 +164,7 @@ public class BuddiBoi {
                     delete(taskNumber);
                     
                 } else {
-                    // Error handling for invalid task number
+                    // Error handling for invalid task format
                     returnText("Invalid command due to possible reasons:\n"
                                 + " - Empty input\n"
                                 + " - Not a number\n"
@@ -168,10 +190,6 @@ public class BuddiBoi {
             System.out.println(indent + line.replaceAll("\\s+$", ""));
         }
         System.out.println("\n" + divider);
-    }
-
-    public static void goodBye() {
-        returnText("See you next timeee! Ciaoooo ~~~");
     }
 
     public static void listTasks(int itemCount) {
