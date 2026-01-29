@@ -58,23 +58,23 @@ public class Storage {
         Task task;
 
         switch (type) {
-            case "T":
-                task = new Todos(description);
-                break;
+        case "T":
+            task = new Todos(description);
+            break;
 
-            case "D":
-                String by = parts[3];
-                task = new Deadline(description, by);
-                break;
+        case "D":
+            String by = parts[3];
+            task = new Deadline(description, by);
+            break;
 
-            case "E":
-                String start = parts[3];
-                String end = parts[4];
-                task = new Event(description, start, end);
-                break;
+        case "E":
+            String start = parts[3];
+            String end = parts[4];
+            task = new Event(description, start, end);
+            break;
 
-            default:
-                return null;
+        default:
+            return null;
         }
 
         if (isDone) {
