@@ -10,11 +10,26 @@ public class Ui {
         returnText(logo + "\n" + welcomeMessage);
     }
 
+    public void showDeleteTask(Task task, int itemCount) {
+        returnText("Noted. I've removed this task. Less work for you:\n"
+                + "  " + task.toString() + "\n"
+                + "Now you have " + (itemCount - 1) + " tasks in the list.");
+    }
+
+    public void showMarkTask(Task task) {
+        returnText("Alrightyy! Congratz on completing that task!:\n"
+                + "  " + task.toString());
+    }
+
+    public void showUnmarkTask(Task task) {
+        returnText("Okay. Task shall be undone:\n"
+                + "  " + task.toString());
+    }
+
     public void showErrorMark() {
         returnText("Invalid command due to possible reasons:\n"
                 + " - Empty input\n"
                 + " - Not a number\n"
-                + " - Number exceeds total tasks\n"
                 + "Please use - mark <task number>");
     }
 
@@ -22,7 +37,6 @@ public class Ui {
         returnText("Invalid command due to possible reasons:\n"
                 + " - Empty input\n"
                 + " - Not a number\n"
-                + " - Number exceeds total tasks\n"
                 + "Please use - unmark <task number>");
     }
 
@@ -61,7 +75,6 @@ public class Ui {
         returnText("Invalid command due to possible reasons:\n"
                 + " - Empty input\n"
                 + " - Not a number\n"
-                + " - Number exceeds total tasks\n"
                 + "Please use - delete <task number>");
     }
 

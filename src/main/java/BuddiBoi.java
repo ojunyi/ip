@@ -1,19 +1,16 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BuddiBoi {
 
     static Ui ui = new Ui();
-    static ArrayList<Task> tasks = new ArrayList<>();
-    static int itemCount = 0;
+    static TaskList taskList = new TaskList();
 
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        
+        taskList = (TaskList) Storage.load();
+
         ui.showWelcome();
-        tasks = (ArrayList<Task>) Storage.load();
-        itemCount = tasks.size();
 
         while (true) { 
             String input = sc.nextLine();
@@ -34,7 +31,7 @@ public class BuddiBoi {
 
                 if (input.toLowerCase().equals("yes")) {
                     reply.append("Your tasks have been saved.");
-                    Storage.save(tasks);
+                    Storage.save(taskList.getTasks());
                 } else {
                     reply.append("Your tasks have not been saved.");
                 }
@@ -44,14 +41,14 @@ public class BuddiBoi {
                 break;
 
             } else if (input.equals("list")) {
-                listTasks(itemCount);
+                ui.showMessage(taskList.toString());
 
             } else if (input.startsWith("mark ")) {
                 String taskNumberStr = input.substring(5).trim();
 
-                if (taskNumberStr.matches("\\d+") && Integer.parseInt(taskNumberStr) - 1 < itemCount) {
+                if (taskNumberStr.matches("\\d+")) {
                     int taskNumber = Integer.parseInt(taskNumberStr) - 1;
-                    markTask(taskNumber);
+                    taskList.markTask(taskNumber);
                 } else {
                     ui.showErrorMark();
                 }
@@ -59,9 +56,9 @@ public class BuddiBoi {
             } else if (input.startsWith("unmark ")) {
                 String taskNumberStr = input.substring(7).trim();
 
-                if (taskNumberStr.matches("\\d+") && Integer.parseInt(taskNumberStr) - 1 < itemCount) {
+                if (taskNumberStr.matches("\\d+")) {
                     int taskNumber = Integer.parseInt(taskNumberStr) - 1;
-                    unmarkTask(taskNumber);
+                    taskList.unmarkTask(taskNumber);
                 } else {
                     ui.showErrorUnmark();
                 }
@@ -71,9 +68,7 @@ public class BuddiBoi {
                 
                 if (!description.isBlank()) {
                     Task todoTask = new Todos(description);
-                    tasks.add(todoTask);
-                    itemCount++;
-
+                    taskList.addTask(todoTask);
                     ui.showMessage("Added: " + todoTask.toString());
 
                 } else {
@@ -88,10 +83,7 @@ public class BuddiBoi {
                     String by = parts[1];
 
                     Task deadlineTask = new Deadline(description, by);
-                
-                    tasks.add(deadlineTask);
-                    itemCount++;
-
+                    taskList.addTask(deadlineTask);
                     ui.showMessage("Added: " + deadlineTask.toString());
                 } else {
                     ui.showErrorDeadline();
@@ -108,9 +100,7 @@ public class BuddiBoi {
                         String from = part_2[0];
                         String to = part_2[1];
                         Task eventTask = new Event(description, from, to);
-
-                        tasks.add(eventTask);
-                        itemCount++;
+                        taskList.addTask(eventTask);
 
                         ui.showMessage("Added: " + eventTask.toString());
                     } else {
@@ -122,11 +112,10 @@ public class BuddiBoi {
             } else if (input.startsWith("delete ")) {
                 String taskNumberStr = input.substring(7).trim();
 
-                if (taskNumberStr.matches("\\d+") && Integer.parseInt(taskNumberStr) - 1 < itemCount) {
+                if (taskNumberStr.matches("\\d+")) {
                     int taskNumber = Integer.parseInt(taskNumberStr) - 1;
-                    
-                    delete(taskNumber);
-                    
+                    taskList.deleteTask(taskNumber);
+
                 } else {
                     ui.showErrorDelete();
                 }
@@ -137,40 +126,5 @@ public class BuddiBoi {
         }
 
         sc.close();
-    }
-
-    public static void listTasks(int itemCount) {
-        String str = "Here's your tasks lists:\n";
-        for (int i = 0; i < itemCount; i++) {
-            str = str
-                + (i + 1)
-                + ". "
-                + tasks.get(i).toString() + "\n";
-        }
-
-        ui.showMessage(str);
-    }
-
-    public static void markTask(int taskNumber) {
-        Task task = tasks.get(taskNumber);
-        task.markAsDone();
-        ui.showMessage("Alrightyy! Congratz on completing that task!:\n"
-                    + "  " + task.toString());
-    }
-
-    public static void unmarkTask(int taskNumber) {
-        Task task = tasks.get(taskNumber);
-        task.markAsUndone();
-        ui.showMessage("Okay. Task shall be undone:\n"
-                    + "  " + task.toString());
-    }
-
-    public static void delete(int taskNumber) {
-        Task task = tasks.get(taskNumber);
-        ui.showMessage("Noted. I've removed this task. Less work for you:\n"
-                    + "  " + task.toString()
-                    + "\nNow you have " + (itemCount - 1) + " tasks in the list.");
-        tasks.remove(taskNumber);
-        itemCount--;
     }
 }
