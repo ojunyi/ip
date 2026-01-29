@@ -8,6 +8,30 @@ public class TaskList {
         this.tasks = new ArrayList<>();
     }
 
+    public ArrayList<Task> getTasks() {
+        return new ArrayList<>(tasks);
+    }
+
+    public void addTask(Task task) {
+        tasks.add(task);
+        itemCount++;
+    }
+
+    public void deleteTask(int taskNumber) {
+        tasks.remove(taskNumber);
+        itemCount--;
+    }
+
+    public void markTask(int taskNumber) {
+        Task task = tasks.get(taskNumber);
+        task.markAsDone();
+    }
+
+    public void unmarkTask(int taskNumber) {
+        Task task = tasks.get(taskNumber);
+        task.markAsUndone();
+    }
+
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
