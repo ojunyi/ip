@@ -6,8 +6,8 @@ public class MarkCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList taskList, Ui ui) {
-        taskList.markTask(taskIndex);
-        ui.showMarkTask(taskList.getTasks().get(taskIndex));
+    public void execute(CommandContext context) {
+        context.taskList.markTask(taskIndex);
+        context.ui.showMarkTask(context.taskList.getTasks().get(taskIndex));
     }
 }

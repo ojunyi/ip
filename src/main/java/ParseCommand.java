@@ -19,14 +19,14 @@ public class ParseCommand {
                 int index = Integer.parseInt(args.trim()) - 1;
                 return new MarkCommand(index);
             } catch (NumberFormatException e) {
-                return new InvalidCommand("Invalid index for mark command!");
+                return new InvalidCommand();
             }
         case "unmark":
             try {
                 int index = Integer.parseInt(args.trim()) - 1;
                 return new UnmarkCommand(index);
             } catch (NumberFormatException e) {
-                return new InvalidCommand("Invalid index for unmark command!");
+                return new InvalidCommand();
             }
         case "todo":
             return new AddTodoCommand(args);
@@ -39,10 +39,10 @@ public class ParseCommand {
                 int index = Integer.parseInt(args.trim()) - 1;
                 return new DeleteCommand(index);
             } catch (NumberFormatException e) {
-                return new InvalidCommand("Invalid index for delete command!");
+                return new InvalidCommand();
             }
         default:
-            return new InvalidCommand("Unknown command!");
+            return new InvalidCommand();
         }
     }
 

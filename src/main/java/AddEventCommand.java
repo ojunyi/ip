@@ -23,9 +23,9 @@ public class AddEventCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList taskList, Ui ui) {
+    public void execute(CommandContext context) {
         Event event = new Event(description, from, to);
-        taskList.addTask(event);
-        ui.showAddTask(event);
+        context.taskList.addTask(event);
+        context.ui.showAddTask(event);
     }
 }

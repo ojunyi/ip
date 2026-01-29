@@ -6,8 +6,9 @@ public class DeleteCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList taskList, Ui ui) {
-        taskList.deleteTask(taskIndex);
-        ui.showDeleteTask(taskList.getTasks().get(taskIndex), taskList.getItemCount());
+    public void execute(CommandContext context) {
+        context.taskList.deleteTask(taskIndex);
+        context.ui.showDeleteTask(context.taskList.getTasks().get(taskIndex),
+                context.taskList.getItemCount());
     }
 }

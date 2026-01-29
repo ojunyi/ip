@@ -6,9 +6,9 @@ public class AddTodoCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList taskList, Ui ui) {
+    public void execute(CommandContext context) {
         Todo todo = new Todo(description);
-        taskList.addTask(todo);
-        ui.showAddTask(todo);
+        context.taskList.addTask(todo);
+        context.ui.showAddTask(todo);
     }
 }

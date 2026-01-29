@@ -6,8 +6,8 @@ public class UnmarkCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList taskList, Ui ui) {
-        taskList.unmarkTask(taskIndex);
-        ui.showUnmarkTask(taskList.getTasks().get(taskIndex));
+    public void execute(CommandContext context) {
+        context.taskList.unmarkTask(taskIndex);
+        context.ui.showUnmarkTask(context.taskList.getTasks().get(taskIndex));
     }
 }

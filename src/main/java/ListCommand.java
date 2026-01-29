@@ -1,7 +1,7 @@
 public class ListCommand extends Command {
 
     @Override
-    public void execute(TaskList taskList, Ui ui) {
-        ui.showMessage(taskList.toString());
+    public void execute(CommandContext context) {
+        context.ui.showMessage(context.taskList.toString());
     }
 }

@@ -14,10 +14,10 @@ public class AddDeadlineCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList taskList, Ui ui) {
+    public void execute(CommandContext context) {
         Deadline deadline = new Deadline(description, by);
-        taskList.addTask(deadline);
-        ui.showAddTask(deadline);
+        context.taskList.addTask(deadline);
+        context.ui.showAddTask(deadline);
     }
     
 }
