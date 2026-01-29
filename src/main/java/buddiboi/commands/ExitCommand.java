@@ -1,3 +1,6 @@
+package buddiboi.commands;
+
+import buddiboi.storage.Storage;
 
 public class ExitCommand extends Command {
 

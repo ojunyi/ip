@@ -1,3 +1,7 @@
+package buddiboi.commands;
+
+import buddiboi.tasks.Deadline;
+
 public class AddDeadlineCommand extends Command {
     private String description;
     private String by;

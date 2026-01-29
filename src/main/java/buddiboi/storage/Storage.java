@@ -1,3 +1,10 @@
+package buddiboi.storage;
+
+import buddiboi.tasks.Deadline;
+import buddiboi.tasks.Event;
+import buddiboi.tasks.Task;
+import buddiboi.tasks.TaskList;
+import buddiboi.tasks.Todo;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -91,10 +98,10 @@ public class Storage {
             return "T | " + status + " | " + task.getDescription();
         } else if (task instanceof Deadline) {
             Deadline d = (Deadline) task;
-            return "D | " + status + " | " + task.getDescription() + " | " + d.deadline;
+            return "D | " + status + " | " + task.getDescription() + " | " + d.getDeadline();
         } else if (task instanceof Event) {
             Event e = (Event) task;
-            return "E | " + status + " | " + task.getDescription() + " | " + e.startDate + " | " + e.endDate;
+            return "E | " + status + " | " + task.getDescription() + " | " + e.getStartDate() + " | " + e.getEndDate();
         } else {
             return "";
         }

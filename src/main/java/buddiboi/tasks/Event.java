@@ -1,3 +1,5 @@
+package buddiboi.tasks;
+
 public class Event extends Task {
 
     protected String startDate;
@@ -7,6 +9,14 @@ public class Event extends Task {
         super(description);
         this.startDate = startDate;
         this.endDate = endDate;
+    }
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public String getEndDate() {
+        return endDate;
     }
 
     @Override

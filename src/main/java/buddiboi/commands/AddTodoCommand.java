@@ -1,3 +1,7 @@
+package buddiboi.commands;
+
+import buddiboi.tasks.Todo;
+
 public class AddTodoCommand extends Command {
     private String description;
 

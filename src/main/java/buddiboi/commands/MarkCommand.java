@@ -1,3 +1,5 @@
+package buddiboi.commands;
+
 public class MarkCommand extends Command {
     private String args;
 

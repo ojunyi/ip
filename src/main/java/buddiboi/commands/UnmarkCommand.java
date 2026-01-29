@@ -1,3 +1,5 @@
+package buddiboi.commands;
+
 public class UnmarkCommand extends Command {
     private String args;
 

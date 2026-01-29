@@ -1,3 +1,11 @@
+package buddiboi;
+
+import buddiboi.commands.Command;
+import buddiboi.commands.CommandContext;
+import buddiboi.parser.ParseCommand;
+import buddiboi.storage.Storage;
+import buddiboi.tasks.TaskList;
+import buddiboi.ui.Ui;
 import java.util.Scanner;
 
 public class BuddiBoi {

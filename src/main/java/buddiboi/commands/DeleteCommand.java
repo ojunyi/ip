@@ -1,3 +1,5 @@
+package buddiboi.commands;
+
 public class DeleteCommand extends Command {
     private String args;
 

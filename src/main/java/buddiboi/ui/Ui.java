@@ -1,3 +1,7 @@
+package buddiboi.ui;
+
+import buddiboi.tasks.Task;
+
 public class Ui {
 
     String sender = "> ";

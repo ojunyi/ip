@@ -1,3 +1,5 @@
+package buddiboi.parser;
+
 public class Parser {
     public static String[] parse(String input) {
         input = input.trim();

@@ -1,3 +1,7 @@
+package buddiboi.commands;
+
+import buddiboi.tasks.Event;
+
 public class AddEventCommand extends Command {
     private String description;
     private String from;

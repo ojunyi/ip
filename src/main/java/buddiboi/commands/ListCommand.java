@@ -1,3 +1,5 @@
+package buddiboi.commands;
+
 public class ListCommand extends Command {
 
     @Override
