@@ -13,10 +13,11 @@ public class BuddiBoi {
         ui.showWelcome();
 
         while (true) { 
-            String input = sc.nextLine();
-            System.out.println("> Command: " + input);
+            String input = sc.nextLine().trim();
+            Command command = new Command(input);
+            ui.showMessage(command.toString());
 
-            if (input.equals("bye")) {
+            if (command.isGoodBye()) {
                 ui.showMessage("Would you like me to save your tasks before exiting? (yes/no)");
                 if (!sc.hasNextLine()) {
                     ui.showMessage("No command was given.\n"
