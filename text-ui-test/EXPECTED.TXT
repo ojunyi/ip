@@ -19,24 +19,24 @@
 
 =================================================
 
-> Command: deadline return book /by Sunday
+> Command: deadline return book /by 04-02-2026 2359
 =================================================
 
-    < Added: [D][ ] return book (by: Sunday)
-
-=================================================
-
-> Command: event project meeting /from Mon 2pm /to 4pm
-=================================================
-
-    < Added: [E][ ] project meeting (From: Mon 2pm To: 4pm)
+    < Added: [D][ ] return book (by: 04 Feb 2026 2359)
 
 =================================================
 
-> Command: event project meeting /from A /to mazon
+> Command: event project meeting /from 04-02-2026 1200 /to 04-02-2026 1400
 =================================================
 
-    < Added: [E][ ] project meeting (From: A To: mazon)
+    < Added: [E][ ] project meeting (From: 04 Feb 2026 1200 To: 04 Feb 2026 1400)
+
+=================================================
+
+> Command: event project meeting /from 05-02-2026 0000 /to 06-02-2026 2359
+=================================================
+
+    < Added: [E][ ] project meeting (From: 05 Feb 2026 0000 To: 06 Feb 2026 2359)
 
 =================================================
 
@@ -47,10 +47,10 @@
 
 =================================================
 
-> Command: deadline bake bread /by Sunday
+> Command: deadline bake bread /by 08-02-2026 2359
 =================================================
 
-    < Added: [D][ ] bake bread (by: Sunday)
+    < Added: [D][ ] bake bread (by: 08 Feb 2026 2359)
 
 =================================================
 
@@ -65,11 +65,11 @@
 =================================================
 
     < 1. [T][ ] borrow book
-    < 2. [D][ ] return book (by: Sunday)
-    < 3. [E][ ] project meeting (From: Mon 2pm To: 4pm)
-    < 4. [E][ ] project meeting (From: A To: mazon)
+    < 2. [D][ ] return book (by: 04 Feb 2026 2359)
+    < 3. [E][ ] project meeting (From: 04 Feb 2026 1200 To: 04 Feb 2026 1400)
+    < 4. [E][ ] project meeting (From: 05 Feb 2026 0000 To: 06 Feb 2026 2359)
     < 5. [T][ ] return book
-    < 6. [D][ ] bake bread (by: Sunday)
+    < 6. [D][ ] bake bread (by: 08 Feb 2026 2359)
 
 =================================================
 
@@ -85,7 +85,7 @@
 =================================================
 
     < Alrightyy! Congratz on completing that task!:
-    <   [E][X] project meeting (From: Mon 2pm To: 4pm)
+    <   [E][X] project meeting (From: 04 Feb 2026 1200 To: 04 Feb 2026 1400)
 
 =================================================
 
@@ -101,11 +101,11 @@
 =================================================
 
     < 1. [T][X] borrow book
-    < 2. [D][ ] return book (by: Sunday)
-    < 3. [E][X] project meeting (From: Mon 2pm To: 4pm)
-    < 4. [E][ ] project meeting (From: A To: mazon)
+    < 2. [D][ ] return book (by: 04 Feb 2026 2359)
+    < 3. [E][X] project meeting (From: 04 Feb 2026 1200 To: 04 Feb 2026 1400)
+    < 4. [E][ ] project meeting (From: 05 Feb 2026 0000 To: 06 Feb 2026 2359)
     < 5. [T][X] return book
-    < 6. [D][ ] bake bread (by: Sunday)
+    < 6. [D][ ] bake bread (by: 08 Feb 2026 2359)
 
 =================================================
 
@@ -121,7 +121,7 @@
 =================================================
 
     < Okay. Task shall be unmarked:
-    <   [D][ ] return book (by: Sunday)
+    <   [D][ ] return book (by: 04 Feb 2026 2359)
 
 =================================================
 
@@ -129,7 +129,7 @@
 =================================================
 
     < Okay. Task shall be unmarked:
-    <   [E][ ] project meeting (From: Mon 2pm To: 4pm)
+    <   [E][ ] project meeting (From: 04 Feb 2026 1200 To: 04 Feb 2026 1400)
 
 =================================================
 
@@ -137,7 +137,7 @@
 =================================================
 
     < Alrightyy! Congratz on completing that task!:
-    <   [D][X] return book (by: Sunday)
+    <   [D][X] return book (by: 04 Feb 2026 2359)
 
 =================================================
 
@@ -145,7 +145,7 @@
 =================================================
 
     < Alrightyy! Congratz on completing that task!:
-    <   [E][X] project meeting (From: A To: mazon)
+    <   [E][X] project meeting (From: 05 Feb 2026 0000 To: 06 Feb 2026 2359)
 
 =================================================
 
@@ -153,11 +153,11 @@
 =================================================
 
     < 1. [T][ ] borrow book
-    < 2. [D][X] return book (by: Sunday)
-    < 3. [E][ ] project meeting (From: Mon 2pm To: 4pm)
-    < 4. [E][X] project meeting (From: A To: mazon)
+    < 2. [D][X] return book (by: 04 Feb 2026 2359)
+    < 3. [E][ ] project meeting (From: 04 Feb 2026 1200 To: 04 Feb 2026 1400)
+    < 4. [E][X] project meeting (From: 05 Feb 2026 0000 To: 06 Feb 2026 2359)
     < 5. [T][X] return book
-    < 6. [D][ ] bake bread (by: Sunday)
+    < 6. [D][ ] bake bread (by: 08 Feb 2026 2359)
 
 =================================================
 
@@ -254,11 +254,11 @@
 =================================================
 
     < 1. [T][ ] borrow book
-    < 2. [D][X] return book (by: Sunday)
-    < 3. [E][ ] project meeting (From: Mon 2pm To: 4pm)
-    < 4. [E][X] project meeting (From: A To: mazon)
+    < 2. [D][X] return book (by: 04 Feb 2026 2359)
+    < 3. [E][ ] project meeting (From: 04 Feb 2026 1200 To: 04 Feb 2026 1400)
+    < 4. [E][X] project meeting (From: 05 Feb 2026 0000 To: 06 Feb 2026 2359)
     < 5. [T][X] return book
-    < 6. [D][ ] bake bread (by: Sunday)
+    < 6. [D][ ] bake bread (by: 08 Feb 2026 2359)
     < 7. [T][ ] 123asd
     < 8. [T][ ] asd 321
 
@@ -271,7 +271,8 @@
     <  - Empty input
     <  - No /by was found
     <  - More than one /by was found
-    < Please use - deadline <description> /by <deadline>
+    <  - Invalid date/time format
+    < Please use - deadline <description> /by <01-01-1999>
 
 =================================================
 
@@ -282,7 +283,8 @@
     <  - Empty input
     <  - No /by was found
     <  - More than one /by was found
-    < Please use - deadline <description> /by <deadline>
+    <  - Invalid date/time format
+    < Please use - deadline <description> /by <01-01-1999>
 
 =================================================
 
@@ -293,7 +295,8 @@
     <  - Empty input
     <  - No /by was found
     <  - More than one /by was found
-    < Please use - deadline <description> /by <deadline>
+    <  - Invalid date/time format
+    < Please use - deadline <description> /by <01-01-1999>
 
 =================================================
 
@@ -307,7 +310,9 @@
     <  - More than one /from was found
     <  - More than one /to was found
     <  - /from and /to are in the wrong order
-    < Please use - event <description> /from <start date> /to <end date>
+    <  - Invalid datetime format
+    <  - End datetime is before start datetime
+    < Please use - event <description> /from <01-01-1999> /to <01-01-1999>
 
 =================================================
 
@@ -321,7 +326,9 @@
     <  - More than one /from was found
     <  - More than one /to was found
     <  - /from and /to are in the wrong order
-    < Please use - event <description> /from <start date> /to <end date>
+    <  - Invalid datetime format
+    <  - End datetime is before start datetime
+    < Please use - event <description> /from <01-01-1999> /to <01-01-1999>
 
 =================================================
 
@@ -335,7 +342,9 @@
     <  - More than one /from was found
     <  - More than one /to was found
     <  - /from and /to are in the wrong order
-    < Please use - event <description> /from <start date> /to <end date>
+    <  - Invalid datetime format
+    <  - End datetime is before start datetime
+    < Please use - event <description> /from <01-01-1999> /to <01-01-1999>
 
 =================================================
 
@@ -349,7 +358,9 @@
     <  - More than one /from was found
     <  - More than one /to was found
     <  - /from and /to are in the wrong order
-    < Please use - event <description> /from <start date> /to <end date>
+    <  - Invalid datetime format
+    <  - End datetime is before start datetime
+    < Please use - event <description> /from <01-01-1999> /to <01-01-1999>
 
 =================================================
 
@@ -357,7 +368,7 @@
 =================================================
 
     < Noted. I've removed this task. Less work for you:
-    <   [D][ ] bake bread (by: Sunday)
+    <   [D][ ] bake bread (by: 08 Feb 2026 2359)
     < Now you have 7 tasks in the list.
 
 =================================================
@@ -375,7 +386,7 @@
 =================================================
 
     < Noted. I've removed this task. Less work for you:
-    <   [E][ ] project meeting (From: Mon 2pm To: 4pm)
+    <   [E][ ] project meeting (From: 04 Feb 2026 1200 To: 04 Feb 2026 1400)
     < Now you have 5 tasks in the list.
 
 =================================================
@@ -384,7 +395,7 @@
 =================================================
 
     < Noted. I've removed this task. Less work for you:
-    <   [D][X] return book (by: Sunday)
+    <   [D][X] return book (by: 04 Feb 2026 2359)
     < Now you have 4 tasks in the list.
 
 =================================================
@@ -393,7 +404,7 @@
 =================================================
 
     < 1. [T][ ] borrow book
-    < 2. [E][X] project meeting (From: A To: mazon)
+    < 2. [E][X] project meeting (From: 05 Feb 2026 0000 To: 06 Feb 2026 2359)
     < 3. [T][X] return book
     < 4. [T][ ] asd 321
 

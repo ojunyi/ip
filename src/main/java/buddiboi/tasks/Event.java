@@ -1,26 +1,34 @@
 package buddiboi.tasks;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Event extends Task {
 
-    protected String startDate;
-    protected String endDate;
+    protected LocalDateTime startDate;
+    protected LocalDateTime endDate;
 
-    public Event(String description, String startDate, String endDate) {
+    private static final DateTimeFormatter OUTPUT_FORMAT =
+            DateTimeFormatter.ofPattern("dd MMM yyyy HHmm");
+
+    public Event(String description, LocalDateTime startDate, LocalDateTime endDate) {
         super(description);
         this.startDate = startDate;
         this.endDate = endDate;
     }
 
-    public String getStartDate() {
+    public LocalDateTime getStartDate() {
         return startDate;
     }
 
-    public String getEndDate() {
+    public LocalDateTime getEndDate() {
         return endDate;
     }
 
     @Override
     public String toString() {
-        return "[E]" + super.toString() + " (From: " + startDate + " To: " + endDate + ")";
+        return "[E]" + super.toString()
+                + " (From: " + startDate.format(OUTPUT_FORMAT)
+                + " To: " + endDate.format(OUTPUT_FORMAT) + ")";
     }
 }

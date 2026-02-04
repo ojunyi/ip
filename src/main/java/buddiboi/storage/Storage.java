@@ -1,16 +1,18 @@
 package buddiboi.storage;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
 import buddiboi.tasks.Deadline;
 import buddiboi.tasks.Event;
 import buddiboi.tasks.Task;
 import buddiboi.tasks.TaskList;
 import buddiboi.tasks.Todo;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Storage {
     private static final Path FILE_PATH = Paths.get("data", "save.txt");
@@ -70,13 +72,13 @@ public class Storage {
             break;
 
         case "D":
-            String by = parts[3];
+            LocalDateTime by = LocalDateTime.parse(parts[3]);
             task = new Deadline(description, by);
             break;
 
         case "E":
-            String start = parts[3];
-            String end = parts[4];
+            LocalDateTime start = LocalDateTime.parse(parts[3]);
+            LocalDateTime end = LocalDateTime.parse(parts[4]);
             task = new Event(description, start, end);
             break;
 
