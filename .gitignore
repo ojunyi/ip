@@ -19,3 +19,6 @@ text-ui-test/EXPECTED-UNIX.TXT
 # Java class files
 *.class
 *.java~
+
+# JAR
+*.jar
