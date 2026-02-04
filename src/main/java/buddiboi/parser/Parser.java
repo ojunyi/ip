@@ -13,8 +13,8 @@ public class Parser {
             return new String[] {input};
         }
 
-        String command = input.substring(0, firstSpace);
-        String args = input.substring(firstSpace + 1);
+        String command = input.substring(0, firstSpace).trim();
+        String args = input.substring(firstSpace + 1).trim();
 
         return new String[] {command, args};
     }
