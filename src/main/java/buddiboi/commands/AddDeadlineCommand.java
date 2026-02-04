@@ -1,25 +1,37 @@
 package buddiboi.commands;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+
 import buddiboi.tasks.Deadline;
 
 public class AddDeadlineCommand extends Command {
     private String description;
-    private String by;
+    private LocalDateTime by;
+
+    private static final DateTimeFormatter INPUT_FORMAT =
+            DateTimeFormatter.ofPattern("dd-MM-yyyy HHmm");
 
     public AddDeadlineCommand(String args) {
         String[] parts = args.split(" /by ");
-        if (parts.length == 2) {
-            this.description = parts[0].trim();
-            this.by = parts[1].trim();
-        } else {
+        if (parts.length != 2) {
             this.description = "";
-            this.by = "";
+            return;
+        }
+
+        this.description = parts[0].trim();
+
+        try {
+            this.by = LocalDateTime.parse(parts[1].trim(), INPUT_FORMAT);
+        } catch (DateTimeParseException e) {
+            this.by = null;
         }
     }
 
     @Override
     public void execute(CommandContext context) {
-        if (description.isEmpty() || by.isEmpty()) {
+        if (description.isEmpty() || by == null) {
             context.ui.showErrorAddDeadline();
             return;
         }

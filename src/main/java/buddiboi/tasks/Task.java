@@ -1,8 +1,5 @@
 package buddiboi.tasks;
-/** 
- **Taken from "https://nus-cs2103-ay2526-s2.github.io/website/schedule/week2/project.html"
- Level 3 Extension: A-Classes
- **/
+
 public class Task { 
     protected String description;
     protected boolean isDone;

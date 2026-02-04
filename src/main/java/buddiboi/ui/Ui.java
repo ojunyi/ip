@@ -69,7 +69,8 @@ public class Ui {
                 + " - Empty input\n"
                 + " - No /by was found\n"
                 + " - More than one /by was found\n"
-                + "Please use - deadline <description> /by <deadline>");
+                + " - Invalid date/time format\n"
+                + "Please use - deadline <description> /by <01-01-1999>");
     }
 
     public void showErrorAddEvent() {
@@ -80,7 +81,9 @@ public class Ui {
                 + " - More than one /from was found\n"
                 + " - More than one /to was found\n"
                 + " - /from and /to are in the wrong order\n"
-                + "Please use - event <description> /from <start date> /to <end date>");
+                + " - Invalid datetime format\n"
+                + " - End datetime is before start datetime\n"
+                + "Please use - event <description> /from <01-01-1999> /to <01-01-1999>");
     }
 
     public void showErrorDelete() {

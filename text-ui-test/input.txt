@@ -1,9 +1,9 @@
 todo borrow book
-deadline return book /by Sunday
-event project meeting /from Mon 2pm /to 4pm
-event project meeting /from A /to mazon
+deadline return book /by 04-02-2026 2359
+event project meeting /from 04-02-2026 1200 /to 04-02-2026 1400
+event project meeting /from 05-02-2026 0000 /to 06-02-2026 2359
 todo return book
-deadline bake bread /by Sunday
+deadline bake bread /by 08-02-2026 2359
 testtest
 list
 mark 1

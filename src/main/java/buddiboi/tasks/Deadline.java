@@ -1,23 +1,26 @@
 package buddiboi.tasks;
-/** 
- **Taken from "https://nus-cs2103-ay2526-s2.github.io/website/schedule/week2/project.html"
- Level 4 Extension: A-Inheritance
- **/
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Deadline extends Task {
 
-    protected String deadline;
+    protected LocalDateTime deadline;
 
-    public Deadline(String description, String deadline) {
+    private static final DateTimeFormatter OUTPUT_FORMAT =
+            DateTimeFormatter.ofPattern("dd MMM yyyy HHmm");
+
+    public Deadline(String description, LocalDateTime deadline) {
         super(description);
         this.deadline = deadline;
     }
     
-    public String getDeadline() {
+    public LocalDateTime getDeadline() {
         return deadline;
     }
 
     @Override
     public String toString() {
-        return "[D]" + super.toString() + " (by: " + deadline + ")";
+        return "[D]" + super.toString() + " (by: " + deadline.format(OUTPUT_FORMAT) + ")";
     }
 }
