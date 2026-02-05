@@ -1,37 +1,38 @@
 package buddiboi;
 
+import java.util.Scanner;
+
 import buddiboi.commands.Command;
 import buddiboi.commands.CommandContext;
 import buddiboi.parser.ParseCommand;
 import buddiboi.storage.Storage;
 import buddiboi.tasks.TaskList;
 import buddiboi.ui.Ui;
-import java.util.Scanner;
 
 public class BuddiBoi {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         TaskList taskList = new TaskList();
         Ui ui = new Ui();
         
-        taskList = (TaskList) Storage.load();
+        taskList = Storage.load();
 
         ui.showWelcome();
 
         while (true) { 
-            String input = sc.nextLine().trim();
-            ParseCommand parser = new ParseCommand(input);
-            Command commandToExecute = parser.getCommand();
+            String input = scanner.nextLine().trim();
+            ParseCommand commandParser = new ParseCommand(input);
+            Command command = commandParser.getCommand();
             
             ui.showCommand(input);
-            commandToExecute.execute(new CommandContext(taskList, ui, sc));
+            command.execute(new CommandContext(taskList, ui, scanner));
             
-            if (commandToExecute.isExit()) {
+            if (command.isExit()) {
                 break;
             }
         }
 
-        sc.close();
+        scanner.close();
     }
 }
