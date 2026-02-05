@@ -1,5 +1,8 @@
 package buddiboi.tasks;
 
+/**
+ * Base class to be used for all tasks.
+ */
 public class Task { 
     protected String description;
     protected boolean isDone;

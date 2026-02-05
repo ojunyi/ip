@@ -2,6 +2,9 @@ package buddiboi.commands;
 
 import buddiboi.ui.Ui;
 
+/**
+ * Command to unmark a task as not completed.
+ */
 public class UnmarkCommand extends Command {
     private final String args;
 
@@ -9,6 +12,11 @@ public class UnmarkCommand extends Command {
         this.args = args;
     }
 
+    /**
+     * Executes the UnmarkCommand, unmarking a task as not completed in the task list.
+     * 
+     * @param context The command context containing the task list and other necessary information.
+     */
     @Override
     public void execute(CommandContext context) {
         if (args.trim().isEmpty() || !args.trim().matches("\\d+")) {

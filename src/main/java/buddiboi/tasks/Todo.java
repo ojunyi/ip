@@ -1,5 +1,8 @@
 package buddiboi.tasks;
 
+/**
+ * Represents a todo task with a description.
+ */
 public class Todo extends Task {
 
     public Todo(String description) {

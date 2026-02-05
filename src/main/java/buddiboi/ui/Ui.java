@@ -2,8 +2,10 @@ package buddiboi.ui;
 
 import buddiboi.tasks.Task;
 
+/**
+ * User interface class for displaying messages to the user.
+ */
 public class Ui {
-
     public static void showWelcome() {
         String logo = "______           _     _ _______       _ \n"
                     + "| ___ \\         | |   | (_) ___ \\     (_)\n"
@@ -40,6 +42,26 @@ public class Ui {
     public static void showUnmarkTask(Task task) {
         returnText("Okay. Task shall be unmarked:\n"
                 + "  " + task.toString());
+    }
+
+    public static void showExitNoCommand() {
+        returnText("No command was given.\n"
+                + "Your tasks were not saved.\n"
+                + "See you next timeee! Ciaoooo ~~~");
+    }
+
+    public static void showExitSaveCommand(Boolean isSave) {
+        StringBuilder reply = new StringBuilder();
+        reply.append("> Command: yes\n");
+        if (isSave) {
+            reply.append("Your tasks have been saved.\n");
+        } else {
+            reply.append("Your tasks have not been saved.");
+        }
+
+        reply.append("See you next timeee! Ciaoooo ~~~");
+
+        returnText(reply.toString());
     }
 
     public static void showErrorMark() {
@@ -95,7 +117,11 @@ public class Ui {
     }
 
     public static void showErrorStorageIo() {
-        returnText("An I/O Error occurred while accessing the storage file: ");
+        returnText("An I/O error occurred while trying to load storage file: ");
+    }
+
+    public static void showErrorStorageLoad() {
+        returnText("An error occurred while trying to load storage file: ");
     }
 
     public static void showMessage(String message) {

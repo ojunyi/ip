@@ -7,6 +7,9 @@ import java.time.format.DateTimeParseException;
 import buddiboi.tasks.Event;
 import buddiboi.ui.Ui;
 
+/**
+ * Command to add an event task.
+ */
 public class AddEventCommand extends Command {
     private String description;
     private LocalDateTime from;
@@ -15,6 +18,11 @@ public class AddEventCommand extends Command {
     private static final DateTimeFormatter INPUT_FORMAT =
             DateTimeFormatter.ofPattern("dd-MM-yyyy HHmm");
 
+    /**
+     * Constructs an AddEventCommand with the given arguments.
+     * 
+     * @param args The arguments containing the description, start time, and end time.
+     */
     public AddEventCommand(String args) {
         String[] parts = args.split(" /from ");
         if (parts.length != 2) {
@@ -44,6 +52,11 @@ public class AddEventCommand extends Command {
         }
     }
 
+    /**
+     * Executes the AddEventCommand, adding a new event task to the task list.
+     * 
+     * @param context The command context containing the task list and other necessary information.
+     */
     @Override
     public void execute(CommandContext context) {
         if (description.isEmpty() || from == null || to == null) {
