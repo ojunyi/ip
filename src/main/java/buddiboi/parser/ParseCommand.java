@@ -12,17 +12,17 @@ import buddiboi.commands.MarkCommand;
 import buddiboi.commands.UnmarkCommand;
 
 public class ParseCommand {
-    private String command;
-    private String args;
+    private final String command;
+    private final String args;
 
     public ParseCommand(String input) {
         String[] parsedInput = Parser.parse(input);
-        this.command = parsedInput[0];
+        this.command = parsedInput[0].toLowerCase();
         this.args = parsedInput.length > 1 ? parsedInput[1] : "";
     }
 
     public Command getCommand() {
-        switch (command.toLowerCase()) {
+        switch (command) {
         case "bye":
             return new ExitCommand();
         case "list":

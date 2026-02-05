@@ -5,6 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
 import buddiboi.tasks.Event;
+import buddiboi.ui.Ui;
 
 public class AddEventCommand extends Command {
     private String description;
@@ -46,11 +47,11 @@ public class AddEventCommand extends Command {
     @Override
     public void execute(CommandContext context) {
         if (description.isEmpty() || from == null || to == null) {
-            context.ui.showErrorAddEvent();
+            Ui.showErrorAddEvent();
             return;
         }
         Event event = new Event(description, from, to);
         context.taskList.addTask(event);
-        context.ui.showAddTask(event);
+        Ui.showAddTask(event);
     }
 }

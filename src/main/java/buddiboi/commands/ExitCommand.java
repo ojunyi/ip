@@ -1,14 +1,15 @@
 package buddiboi.commands;
 
 import buddiboi.storage.Storage;
+import buddiboi.ui.Ui;
 
 public class ExitCommand extends Command {
 
     @Override
     public void execute(CommandContext context) {
-        context.ui.showMessage("Would you like me to save your tasks before exiting? (yes/no)");
+        Ui.showMessage("Would you like me to save your tasks before exiting? (yes/no)");
         if (!context.sc.hasNextLine()) {
-            context.ui.showMessage("No command was given.\n"
+            Ui.showMessage("No command was given.\n"
                     + "Your tasks were not saved.\n"
                     + "See you next timeee! Ciaoooo ~~~");
         }
@@ -25,7 +26,7 @@ public class ExitCommand extends Command {
         }
 
         reply.append("\nSee you next timeee! Ciaoooo ~~~");
-        context.ui.showMessage(reply.toString());
+        Ui.showMessage(reply.toString());
     }
     
     @Override

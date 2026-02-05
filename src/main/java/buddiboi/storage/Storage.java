@@ -13,10 +13,11 @@ import buddiboi.tasks.Event;
 import buddiboi.tasks.Task;
 import buddiboi.tasks.TaskList;
 import buddiboi.tasks.Todo;
+import buddiboi.ui.Ui;
 
 public class Storage {
     private static final Path FILE_PATH = Paths.get("data", "save.txt");
-
+    
     public static TaskList load() {
         ArrayList<Task> tasks = new ArrayList<>();
 
@@ -32,9 +33,11 @@ public class Storage {
                     Task task = parseLine(line);
                     tasks.add(task);
                 } catch (Exception e) {
+                    // Will change later to log invalid lines
                 }
             }
-        } catch (Exception e) {
+        } catch (IOException e) {
+            Ui.showErrorStorageIo();
         }
 
         return new TaskList(tasks);
@@ -98,11 +101,9 @@ public class Storage {
 
         if (task instanceof Todo) {
             return "T | " + status + " | " + task.getDescription();
-        } else if (task instanceof Deadline) {
-            Deadline d = (Deadline) task;
+        } else if (task instanceof Deadline d) {
             return "D | " + status + " | " + task.getDescription() + " | " + d.getDeadline();
-        } else if (task instanceof Event) {
-            Event e = (Event) task;
+        } else if (task instanceof Event e) {
             return "E | " + status + " | " + task.getDescription() + " | " + e.getStartDate() + " | " + e.getEndDate();
         } else {
             return "";

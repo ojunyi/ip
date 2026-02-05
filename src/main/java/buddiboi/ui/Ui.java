@@ -4,45 +4,45 @@ import buddiboi.tasks.Task;
 
 public class Ui {
 
-    String sender = "> ";
-    String logo = "______           _     _ _______       _ \n"
+    public static void showWelcome() {
+        String logo = "______           _     _ _______       _ \n"
                     + "| ___ \\         | |   | (_) ___ \\     (_)\n"
                     + "| |_/ /_   _  __| | __| |_| |_/ / ___  _ \n"
                     + "| ___ \\ | | |/ _` |/ _` | | ___ \\/ _ \\| |\n"
                     + "| |_/ / |_| | (_| | (_| | | |_/ / (_) | |\n"
                     + "\\____/ \\__,_|\\__,_|\\__,_|_\\____/ \\___/|_|\n";
-
-    public void showWelcome() {
+                    
         returnText(logo + "\n"
                 + "Hello! I'm BuddiBoi\n"
                 + "What can I do for you?");
     }
 
-    public void showCommand(String command) {
+    public static void showCommand(String command) {
+        String sender = "> ";
         System.out.println(sender + "Command: " + command);
     }
 
-    public void showAddTask(Task task) {
+    public static void showAddTask(Task task) {
         returnText("Added: "  + task.toString());
     }
 
-    public void showDeleteTask(Task task, int itemCount) {
+    public static void showDeleteTask(Task task, int itemCount) {
         returnText("Noted. I've removed this task. Less work for you:\n"
                 + "  " + task.toString() + "\n"
                 + "Now you have " + (itemCount - 1) + " tasks in the list.");
     }
 
-    public void showMarkTask(Task task) {
+    public static void showMarkTask(Task task) {
         returnText("Alrightyy! Congratz on completing that task!:\n"
                 + "  " + task.toString());
     }
 
-    public void showUnmarkTask(Task task) {
+    public static void showUnmarkTask(Task task) {
         returnText("Okay. Task shall be unmarked:\n"
                 + "  " + task.toString());
     }
 
-    public void showErrorMark() {
+    public static void showErrorMark() {
         returnText("Invalid command due to possible reasons:\n"
                 + " - Empty input\n"
                 + " - Index out of bounds\n"
@@ -50,7 +50,7 @@ public class Ui {
                 + "Please use - mark <task number>");
     }
 
-    public void showErrorUnmark() {
+    public static void showErrorUnmark() {
         returnText("Invalid command due to possible reasons:\n"
                 + " - Empty input\n"
                 + " - Index out of bounds\n"
@@ -58,13 +58,13 @@ public class Ui {
                 + "Please use - unmark <task number>");
     }
 
-    public void showErrorAddTodo() {
+    public static void showErrorAddTodo() {
         returnText("Invalid command due to possible reasons:\n"
                 + " - Empty input\n"
                 + "Please use - todo <description>");
     }
 
-    public void showErrorAddDeadline() {
+    public static void showErrorAddDeadline() {
         returnText("Invalid command due to possible reasons:\n"
                 + " - Empty input\n"
                 + " - No /by was found\n"
@@ -73,7 +73,7 @@ public class Ui {
                 + "Please use - deadline <description> /by <01-01-1999>");
     }
 
-    public void showErrorAddEvent() {
+    public static void showErrorAddEvent() {
         returnText("Invalid command due to possible reasons:\n"
                 + " - Empty input\n"
                 + " - No /from was found\n"
@@ -86,7 +86,7 @@ public class Ui {
                 + "Please use - event <description> /from <01-01-1999> /to <01-01-1999>");
     }
 
-    public void showErrorDelete() {
+    public static void showErrorDelete() {
         returnText("Invalid command due to possible reasons:\n"
                 + " - Empty input\n"
                 + " - Index out of bounds\n"
@@ -94,7 +94,11 @@ public class Ui {
                 + "Please use - delete <task number>");
     }
 
-    public void showMessage(String message) {
+    public static void showErrorStorageIo() {
+        returnText("An I/O Error occurred while accessing the storage file: ");
+    }
+
+    public static void showMessage(String message) {
         returnText(message);
     }
 

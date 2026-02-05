@@ -12,27 +12,23 @@ import buddiboi.ui.Ui;
 public class BuddiBoi {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        TaskList taskList = new TaskList();
-        Ui ui = new Ui();
-        
-        taskList = Storage.load();
-
-        ui.showWelcome();
-
-        while (true) { 
-            String input = scanner.nextLine().trim();
-            ParseCommand commandParser = new ParseCommand(input);
-            Command command = commandParser.getCommand();
+        try (Scanner scanner = new Scanner(System.in)) {
+            TaskList taskList = Storage.load();
             
-            ui.showCommand(input);
-            command.execute(new CommandContext(taskList, ui, scanner));
+            Ui.showWelcome();
             
-            if (command.isExit()) {
-                break;
+            while (true) {
+                String input = scanner.nextLine().trim();
+                ParseCommand commandParser = new ParseCommand(input);
+                Command command = commandParser.getCommand();
+                
+                Ui.showCommand(input);
+                command.execute(new CommandContext(taskList, scanner));
+                
+                if (command.isExit()) {
+                    break;
+                }
             }
         }
-
-        scanner.close();
     }
 }

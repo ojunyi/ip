@@ -1,9 +1,11 @@
 package buddiboi.commands;
 
+import buddiboi.ui.Ui;
+
 public class ListCommand extends Command {
 
     @Override
     public void execute(CommandContext context) {
-        context.ui.showMessage(context.taskList.toString());
+        Ui.showMessage(context.taskList.toString());
     }
 }

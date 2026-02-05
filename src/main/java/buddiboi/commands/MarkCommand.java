@@ -1,7 +1,9 @@
 package buddiboi.commands;
 
+import buddiboi.ui.Ui;
+
 public class MarkCommand extends Command {
-    private String args;
+    private final String args;
 
     public MarkCommand(String args) {
         this.args = args;
@@ -10,16 +12,16 @@ public class MarkCommand extends Command {
     @Override
     public void execute(CommandContext context) {
         if (args.trim().isEmpty() || !args.trim().matches("\\d+")) {
-            context.ui.showErrorMark();
+            Ui.showErrorMark();
             return;
         }
         
         int taskIndex = Integer.parseInt(args.trim()) - 1;
         if (taskIndex < 0 || taskIndex >= context.taskList.getTasks().size()) {
-            context.ui.showErrorMark();
+            Ui.showErrorMark();
             return;
         }
         context.taskList.markTask(taskIndex);
-        context.ui.showMarkTask(context.taskList.getTasks().get(taskIndex));
+        Ui.showMarkTask(context.taskList.getTasks().get(taskIndex));
     }
 }
