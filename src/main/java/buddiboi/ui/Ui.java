@@ -52,11 +52,12 @@ public class Ui {
 
     public static void showExitSaveCommand(Boolean isSave) {
         StringBuilder reply = new StringBuilder();
-        reply.append("> Command: yes\n");
         if (isSave) {
-            reply.append("Your tasks have been saved.\n");
+            System.out.println("> Command: yes");
+            reply.append("Your tasks have been saved\n");
         } else {
-            reply.append("Your tasks have not been saved.");
+            System.out.println("> Command: no");
+            reply.append("Your tasks have not been saved\n");
         }
 
         reply.append("See you next timeee! Ciaoooo ~~~");
