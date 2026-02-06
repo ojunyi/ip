@@ -6,10 +6,10 @@ import buddiboi.tasks.TaskList;
 
 public class CommandContext {
     public TaskList taskList;
-    public Scanner sc;
+    public Scanner scanner;
 
-    public CommandContext(TaskList taskList, Scanner sc) {
+    public CommandContext(TaskList taskList, Scanner scanner) {
         this.taskList = taskList;
-        this.sc = sc;
+        this.scanner = scanner;
     }
 }

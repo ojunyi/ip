@@ -8,13 +8,13 @@ public class ExitCommand extends Command {
     @Override
     public void execute(CommandContext context) {
         Ui.showMessage("Would you like me to save your tasks before exiting? (yes/no)");
-        if (!context.sc.hasNextLine()) {
+        if (!context.scanner.hasNextLine()) {
             Ui.showMessage("No command was given.\n"
                     + "Your tasks were not saved.\n"
                     + "See you next timeee! Ciaoooo ~~~");
         }
 
-        String input = context.sc.nextLine();
+        String input = context.scanner.nextLine();
         System.out.println("> Command: " + input);
         StringBuilder reply = new StringBuilder();
 

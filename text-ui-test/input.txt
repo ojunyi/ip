@@ -6,6 +6,10 @@ todo return book
 deadline bake bread /by 08-02-2026 2359
 testtest
 list
+find project
+find project meeting
+find book
+find bood
 mark 1
 mark 3
 mark 5
