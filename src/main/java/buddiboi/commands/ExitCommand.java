@@ -16,12 +16,13 @@ public class ExitCommand extends Command {
     @Override
     public void execute(CommandContext context) {
         Ui.showMessage("Would you like me to save your tasks before exiting? (yes/no)");
-        if (!context.sc.hasNextLine()) {
+        if (!context.scanner.hasNextLine()) {
             Ui.showExitNoCommand();
             return;
         }
+        
+        String input = context.scanner.nextLine();
 
-        String input = context.sc.nextLine();
         if (input.toLowerCase().equals("yes")) {
             Ui.showExitSaveCommand(true);
             Storage.save(context.taskList.getTasks());

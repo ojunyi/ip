@@ -6,6 +6,7 @@ import buddiboi.commands.AddTodoCommand;
 import buddiboi.commands.Command;
 import buddiboi.commands.DeleteCommand;
 import buddiboi.commands.ExitCommand;
+import buddiboi.commands.FindCommand;
 import buddiboi.commands.InvalidCommand;
 import buddiboi.commands.ListCommand;
 import buddiboi.commands.MarkCommand;
@@ -47,6 +48,8 @@ public class ParseCommand {
             return new AddEventCommand(args);
         case "delete":
             return new DeleteCommand(args);
+        case "find":
+            return new FindCommand(args);
         default:
             return new InvalidCommand();
         }

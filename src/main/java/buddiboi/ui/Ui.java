@@ -45,7 +45,7 @@ public class Ui {
     }
 
     public static void showExitNoCommand() {
-        returnText("No command was given.\n"
+        returnText("No save command was given.\n"
                 + "Your tasks were not saved.\n"
                 + "See you next timeee! Ciaoooo ~~~");
     }
