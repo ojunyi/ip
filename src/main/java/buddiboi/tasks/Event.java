@@ -3,6 +3,9 @@ package buddiboi.tasks;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Represents an event task with a description, start time, and end time.
+ */
 public class Event extends Task {
 
     protected LocalDateTime startDate;

@@ -2,8 +2,11 @@ package buddiboi.tasks;
 
 import java.util.ArrayList;
 
+/**
+ * Represents a list of tasks and provides methods to manipulate them.
+ */
 public class TaskList {
-    private ArrayList<Task> tasks;
+    private final ArrayList<Task> tasks;
     private int itemCount = 0;
 
     public TaskList() {

@@ -3,30 +3,31 @@ package buddiboi.commands;
 import buddiboi.storage.Storage;
 import buddiboi.ui.Ui;
 
+/**
+ * Command to exit the application.
+ */
 public class ExitCommand extends Command {
 
+    /**
+     * Executes the ExitCommand, prompting the user to save tasks before exiting.
+     * 
+     * @param context The command context containing the task list and other necessary information.
+     */
     @Override
     public void execute(CommandContext context) {
         Ui.showMessage("Would you like me to save your tasks before exiting? (yes/no)");
         if (!context.sc.hasNextLine()) {
-            Ui.showMessage("No command was given.\n"
-                    + "Your tasks were not saved.\n"
-                    + "See you next timeee! Ciaoooo ~~~");
+            Ui.showExitNoCommand();
+            return;
         }
 
         String input = context.sc.nextLine();
-        System.out.println("> Command: " + input);
-        StringBuilder reply = new StringBuilder();
-
         if (input.toLowerCase().equals("yes")) {
-            reply.append("Your tasks have been saved.");
+            Ui.showExitSaveCommand(true);
             Storage.save(context.taskList.getTasks());
         } else {
-            reply.append("Your tasks have not been saved.");
+            Ui.showExitSaveCommand(false);
         }
-
-        reply.append("\nSee you next timeee! Ciaoooo ~~~");
-        Ui.showMessage(reply.toString());
     }
     
     @Override

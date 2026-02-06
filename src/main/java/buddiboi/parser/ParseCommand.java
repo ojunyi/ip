@@ -11,6 +11,9 @@ import buddiboi.commands.ListCommand;
 import buddiboi.commands.MarkCommand;
 import buddiboi.commands.UnmarkCommand;
 
+/**
+ * Parses user input into corresponding Command objects and executes them.
+ */
 public class ParseCommand {
     private final String command;
     private final String args;
@@ -21,6 +24,11 @@ public class ParseCommand {
         this.args = parsedInput.length > 1 ? parsedInput[1] : "";
     }
 
+    /**
+     * Returns the Command object corresponding to the parsed user input.
+     * 
+     * @return The Command object to be executed.
+     */
     public Command getCommand() {
         switch (command) {
         case "bye":

@@ -2,6 +2,9 @@ package buddiboi.commands;
 
 import buddiboi.ui.Ui;
 
+/**
+ * Command to delete a task.
+ */
 public class DeleteCommand extends Command {
     private final String args;
 
@@ -9,6 +12,11 @@ public class DeleteCommand extends Command {
         this.args = args;
     }
 
+    /**
+     * Executes the DeleteCommand, removing a task from the task list.
+     * 
+     * @param context The command context containing the task list and other necessary information.
+     */
     @Override
     public void execute(CommandContext context) {
         if (args.trim().isEmpty() || !args.trim().matches("\\d+")) {

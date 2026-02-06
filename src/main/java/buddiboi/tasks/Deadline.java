@@ -3,6 +3,9 @@ package buddiboi.tasks;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Represents a deadline task with a description and a deadline time.
+ */
 public class Deadline extends Task {
 
     protected LocalDateTime deadline;

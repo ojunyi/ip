@@ -9,6 +9,9 @@ import buddiboi.storage.Storage;
 import buddiboi.tasks.TaskList;
 import buddiboi.ui.Ui;
 
+/**
+ * Main class for the BuddiBoi application.
+ */
 public class BuddiBoi {
 
     public static void main(String[] args) {

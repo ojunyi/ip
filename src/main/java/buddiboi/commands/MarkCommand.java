@@ -2,6 +2,9 @@ package buddiboi.commands;
 
 import buddiboi.ui.Ui;
 
+/**
+ * Command to mark a task as completed.
+ */
 public class MarkCommand extends Command {
     private final String args;
 
@@ -9,6 +12,11 @@ public class MarkCommand extends Command {
         this.args = args;
     }
 
+    /**
+     * Executes the MarkCommand, marking a task as completed in the task list.
+     * 
+     * @param context The command context containing the task list and other necessary information.
+     */
     @Override
     public void execute(CommandContext context) {
         if (args.trim().isEmpty() || !args.trim().matches("\\d+")) {
