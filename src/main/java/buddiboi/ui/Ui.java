@@ -35,6 +35,17 @@ public class Ui {
     }
 
     /**
+     * Prints the variables again
+     */
+    public static void showEchoCommand(String[] args) {
+        StringBuilder reply = new StringBuilder();
+        for (String line : args) {
+            reply.append(line).append(" ~ ~ ~\n");
+        }
+        returnText(reply.toString());
+    }
+
+    /**
      * Prints the user input command
      *
      * @param command The users input
@@ -200,7 +211,7 @@ public class Ui {
      * Prints message and surrounds them with a divider
      */
     public static void returnText(String input) {
-        String divider = "=================================================\n";
+        String divider = "____________________________________\n";
         String indent = "    < ";
 
         System.out.println(divider);

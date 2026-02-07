@@ -5,6 +5,7 @@ import buddiboi.commands.AddEventCommand;
 import buddiboi.commands.AddTodoCommand;
 import buddiboi.commands.Command;
 import buddiboi.commands.DeleteCommand;
+import buddiboi.commands.EchoCommand;
 import buddiboi.commands.ExitCommand;
 import buddiboi.commands.FindCommand;
 import buddiboi.commands.InvalidCommand;
@@ -55,6 +56,9 @@ public class ParseCommand {
             return new DeleteCommand(args);
         case "find":
             return new FindCommand(args);
+        case "echo":
+            String[] argArray = args.split(", ");
+            return new EchoCommand(argArray);
         default:
             return new InvalidCommand();
         }

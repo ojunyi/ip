@@ -1,3 +1,4 @@
+echo hey there, my name is XXX
 todo borrow book
 deadline return book /by 04-02-2026 2359
 event project meeting /from 04-02-2026 1200 /to 04-02-2026 1400
@@ -20,13 +21,13 @@ unmark 3
 mark 2
 mark 4
 list
-mark 
+mark
 mark 101
 mark asd
-unmark 
+unmark
 unmark 101
 unmark das
-todo 
+todo
 todo 123asd
 todo asd 321
 list
@@ -43,7 +44,7 @@ delete 3
 delete 2
 list
 delete 10
-delete 
+delete
 delete 1 asd
 bye
 no
