@@ -14,7 +14,7 @@ public class MarkCommand extends Command {
 
     /**
      * Executes the MarkCommand, marking a task as completed in the task list.
-     * 
+     *
      * @param context The command context containing the task list and other necessary information.
      */
     @Override
@@ -23,13 +23,13 @@ public class MarkCommand extends Command {
             Ui.showErrorMark();
             return;
         }
-        
+
         int taskIndex = Integer.parseInt(args.trim()) - 1;
-        if (taskIndex < 0 || taskIndex >= context.taskList.getTasks().size()) {
+        if (taskIndex < 0 || taskIndex >= context.getTaskList().getTasks().size()) {
             Ui.showErrorMark();
             return;
         }
-        context.taskList.markTask(taskIndex);
-        Ui.showMarkTask(context.taskList.getTasks().get(taskIndex));
+        context.getTaskList().markTask(taskIndex);
+        Ui.showMarkTask(context.getTaskList().getTasks().get(taskIndex));
     }
 }

@@ -14,7 +14,7 @@ public class UnmarkCommand extends Command {
 
     /**
      * Executes the UnmarkCommand, unmarking a task as not completed in the task list.
-     * 
+     *
      * @param context The command context containing the task list and other necessary information.
      */
     @Override
@@ -23,13 +23,13 @@ public class UnmarkCommand extends Command {
             Ui.showErrorUnmark();
             return;
         }
-        
+
         int taskIndex = Integer.parseInt(args.trim()) - 1;
-        if (taskIndex < 0 || taskIndex >= context.taskList.getTasks().size()) {
+        if (taskIndex < 0 || taskIndex >= context.getTaskList().getTasks().size()) {
             Ui.showErrorUnmark();
             return;
         }
-        context.taskList.unmarkTask(taskIndex);
-        Ui.showUnmarkTask(context.taskList.getTasks().get(taskIndex));
+        context.getTaskList().unmarkTask(taskIndex);
+        Ui.showUnmarkTask(context.getTaskList().getTasks().get(taskIndex));
     }
 }

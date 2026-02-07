@@ -7,7 +7,7 @@ public class Parser {
 
     /**
      * Parses the input string into a command and its arguments.
-     * 
+     *
      * @param input The user input string.
      * @return String array where 1st element is command and 2nd element is arguments.
      */

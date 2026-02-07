@@ -15,7 +15,7 @@ public class AddTodoCommand extends Command {
 
     /**
      * Executes the AddTodoCommand, adding a new todo task to the task list.
-     * 
+     *
      * @param context The command context containing the task list and other necessary information.
      */
     @Override
@@ -25,7 +25,7 @@ public class AddTodoCommand extends Command {
             return;
         }
         Todo todo = new Todo(description);
-        context.taskList.addTask(todo);
+        context.getTaskList().addTask(todo);
         Ui.showAddTask(todo);
     }
 }

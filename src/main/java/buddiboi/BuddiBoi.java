@@ -17,17 +17,17 @@ public class BuddiBoi {
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
             TaskList taskList = Storage.load();
-            
+
             Ui.showWelcome();
-            
+
             while (true) {
                 String input = scanner.nextLine().trim();
                 ParseCommand commandParser = new ParseCommand(input);
                 Command command = commandParser.getCommand();
-                
+
                 Ui.showCommand(input);
                 command.execute(new CommandContext(taskList, scanner));
-                
+
                 if (command.isExit()) {
                     break;
                 }

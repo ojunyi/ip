@@ -13,5 +13,21 @@
     "editor.detectIndentation": false,
     "editor.trimAutoWhitespace": true,
     "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.completion.importOrder": [
+        "#",
+        "java",
+        "javax",
+        "org",
+        "com"
+    ],
+    "java.format.settings.url": "",
+    "[java]": {
+        "editor.defaultFormatter": "redhat.java",
+        "editor.formatOnSave": false
+    },
+    "java.saveActions.organizeImports": false,
+    "jdk.java.onSave.organizeImports": true
 }

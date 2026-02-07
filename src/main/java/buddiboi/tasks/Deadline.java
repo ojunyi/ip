@@ -8,16 +8,22 @@ import java.time.format.DateTimeFormatter;
  */
 public class Deadline extends Task {
 
-    protected LocalDateTime deadline;
-
     private static final DateTimeFormatter OUTPUT_FORMAT =
             DateTimeFormatter.ofPattern("dd MMM yyyy HHmm");
 
+    protected LocalDateTime deadline;
+
+    /**
+     * Construct a Deadline task with the given variables
+     *
+     * @param description Description of Deadline
+     * @param deadline Deadline date of Deadline
+     */
     public Deadline(String description, LocalDateTime deadline) {
         super(description);
         this.deadline = deadline;
     }
-    
+
     public LocalDateTime getDeadline() {
         return deadline;
     }

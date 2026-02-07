@@ -19,6 +19,11 @@ public class ParseCommand {
     private final String command;
     private final String args;
 
+    /**
+     * Constructor for ParseCommand
+     *
+     * @param input Command to be parsed
+     */
     public ParseCommand(String input) {
         String[] parsedInput = Parser.parse(input);
         this.command = parsedInput[0].toLowerCase();
@@ -27,7 +32,7 @@ public class ParseCommand {
 
     /**
      * Returns the Command object corresponding to the parsed user input.
-     * 
+     *
      * @return The Command object to be executed.
      */
     public Command getCommand() {

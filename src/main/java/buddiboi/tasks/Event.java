@@ -8,12 +8,19 @@ import java.time.format.DateTimeFormatter;
  */
 public class Event extends Task {
 
-    protected LocalDateTime startDate;
-    protected LocalDateTime endDate;
-
     private static final DateTimeFormatter OUTPUT_FORMAT =
             DateTimeFormatter.ofPattern("dd MMM yyyy HHmm");
 
+    protected LocalDateTime startDate;
+    protected LocalDateTime endDate;
+
+    /**
+     * Construct an Event task with the given variables
+     *
+     * @param description Description of Event
+     * @param startDate Start date of Event
+     * @param endDate End date of Event
+     */
     public Event(String description, LocalDateTime startDate, LocalDateTime endDate) {
         super(description);
         this.startDate = startDate;

@@ -11,11 +11,12 @@ import buddiboi.ui.Ui;
  * Command to add a deadline task.
  */
 public class AddDeadlineCommand extends Command {
-    private String description;
-    private LocalDateTime by;
 
     private static final DateTimeFormatter INPUT_FORMAT =
             DateTimeFormatter.ofPattern("dd-MM-yyyy HHmm");
+
+    private String description;
+    private LocalDateTime by;
 
     /**
      * Constructs an AddDeadlineCommand with the given arguments.
@@ -40,7 +41,7 @@ public class AddDeadlineCommand extends Command {
 
     /**
      * Executes the AddDeadlineCommand, adding a new deadline task to the task list.
-     * 
+     *
      * @param context The command context containing the task list and other necessary information.
      */
     @Override
@@ -50,8 +51,8 @@ public class AddDeadlineCommand extends Command {
             return;
         }
         Deadline deadline = new Deadline(description, by);
-        context.taskList.addTask(deadline);
+        context.getTaskList().addTask(deadline);
         Ui.showAddTask(deadline);
     }
-    
+
 }

@@ -21,10 +21,10 @@ import buddiboi.ui.Ui;
  */
 public class Storage {
     private static final Path FILE_PATH = Paths.get("data", "save.txt");
-    
+
     /**
      * Loads the task list from persistent storage.
-     * 
+     *
      * @return The loaded TaskList or an empty TaskList if nothing or failure to load.
      */
     public static TaskList load() {
@@ -45,11 +45,11 @@ public class Storage {
                 tasks.add(task);
             }
         } catch (IOException e) {
-            Ui.showErrorStorageIo();
+            Ui.showErrorStorageIo(e);
             tasks = new ArrayList<>();
             return new TaskList(tasks);
         } catch (ArrayIndexOutOfBoundsException | DateTimeParseException | IllegalArgumentException e) {
-            Ui.showErrorStorageLoad();
+            Ui.showErrorStorageLoad(e);
             tasks = new ArrayList<>();
             return new TaskList(tasks);
         }
@@ -59,7 +59,7 @@ public class Storage {
 
     /**
      * Saves the task list to persistent storage.
-     * 
+     *
      * @param tasks The list of tasks to be saved.
      */
     public static void save(List<Task> tasks) {
@@ -76,12 +76,13 @@ public class Storage {
 
             Files.write(FILE_PATH, lines);
         } catch (IOException e) {
+            Ui.showErrorStorageIo(e);
         }
     }
 
     /**
      * Helper method to parses a line from the storage file into a Task object.
-     * 
+     *
      * @param line The line to be parsed.
      * @return The corresponding Task object.
      * @throws DateTimeParseException If there is an error parsing date and time.
@@ -124,7 +125,7 @@ public class Storage {
 
     /**
      * Helper method to converts a Task object into a line for the storage file.
-     * 
+     *
      * @param task The Task object to be converted.
      * @return The corresponding line for the storage file.
      */

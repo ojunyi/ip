@@ -6,7 +6,7 @@ import buddiboi.ui.Ui;
 /**
  * Finds and lists all tasks that contain the given keyword.
  */
-public class FindCommand extends Command{
+public class FindCommand extends Command {
 
     private final String args;
 
@@ -19,7 +19,7 @@ public class FindCommand extends Command{
         int count = 0;
         StringBuilder taskList = new StringBuilder();
         taskList.append("Here are the matching tasks in your list:\n");
-        for (Task task : context.taskList.getTasks()) {
+        for (Task task : context.getTaskList().getTasks()) {
             if (task.getDescription().contains(args)) {
                 taskList.append(count)
                         .append(". ")
@@ -27,7 +27,7 @@ public class FindCommand extends Command{
                 count++;
             }
         }
-        
+
         if (count == 0) {
             taskList.append("No matching tasks found");
         }

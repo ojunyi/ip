@@ -11,16 +11,17 @@ import buddiboi.ui.Ui;
  * Command to add an event task.
  */
 public class AddEventCommand extends Command {
-    private String description;
-    private LocalDateTime from;
-    private LocalDateTime to;
 
     private static final DateTimeFormatter INPUT_FORMAT =
             DateTimeFormatter.ofPattern("dd-MM-yyyy HHmm");
 
+    private String description;
+    private LocalDateTime from;
+    private LocalDateTime to;
+
     /**
      * Constructs an AddEventCommand with the given arguments.
-     * 
+     *
      * @param args The arguments containing the description, start time, and end time.
      */
     public AddEventCommand(String args) {
@@ -37,7 +38,7 @@ public class AddEventCommand extends Command {
             from = null;
             to = null;
         }
-            
+
         try {
             this.from = LocalDateTime.parse(subParts[0].trim(), INPUT_FORMAT);
             this.to = LocalDateTime.parse(subParts[1].trim(), INPUT_FORMAT);
@@ -54,7 +55,7 @@ public class AddEventCommand extends Command {
 
     /**
      * Executes the AddEventCommand, adding a new event task to the task list.
-     * 
+     *
      * @param context The command context containing the task list and other necessary information.
      */
     @Override
@@ -64,7 +65,7 @@ public class AddEventCommand extends Command {
             return;
         }
         Event event = new Event(description, from, to);
-        context.taskList.addTask(event);
+        context.getTaskList().addTask(event);
         Ui.showAddTask(event);
     }
 }
