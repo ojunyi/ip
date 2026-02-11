@@ -1,18 +1,29 @@
 package buddiboi.ui;
 
+import java.io.IOException;
+
+import buddiboi.BuddiBoi;
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class Gui extends Application{
 
-    @Override
-    public void start(Stage stage) {
-        Label helloWorld = new Label("Hello World!");
-        Scene scene = new Scene(helloWorld);
+    private BuddiBoi buddiBoi = new BuddiBoi();
 
-        stage.setScene(scene);
-        stage.show();
+    @Override
+     public void start(Stage stage) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(Gui.class.getResource("/view/MainWindow.fxml"));
+            AnchorPane ap = fxmlLoader.load();
+            Scene scene = new Scene(ap);
+            stage.setScene(scene);
+            fxmlLoader.<MainWindow>getController().setBuddiBoi(buddiBoi);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

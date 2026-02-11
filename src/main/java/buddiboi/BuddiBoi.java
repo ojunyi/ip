@@ -1,37 +1,40 @@
 package buddiboi;
 
-import java.util.Scanner;
-
 import buddiboi.commands.Command;
 import buddiboi.commands.CommandContext;
 import buddiboi.parser.ParseCommand;
 import buddiboi.storage.Storage;
 import buddiboi.tasks.TaskList;
-import buddiboi.ui.Ui;
 
 /**
  * Main class for the BuddiBoi application.
  */
 public class BuddiBoi {
 
-    public static void main(String[] args) {
-        try (Scanner scanner = new Scanner(System.in)) {
-            TaskList taskList = Storage.load();
+    private final TaskList taskList;
 
-            Ui.showWelcome();
+    public BuddiBoi() {
+        this.taskList = Storage.load();
+    }
 
-            while (true) {
-                String input = scanner.nextLine().trim();
-                ParseCommand commandParser = new ParseCommand(input);
-                Command command = commandParser.getCommand();
+    /**
+     * Generates a response for the user's chat message.
+     */
+    public String getResponse(String input) {
+        try {
+            ParseCommand commandParser = new ParseCommand(input);
+            Command command = commandParser.getCommand();
 
-                Ui.showCommand(input);
-                command.execute(new CommandContext(taskList, scanner));
+            String response = command.execute(new CommandContext(taskList));
 
-                if (command.isExit()) {
-                    break;
-                }
+            if (command.isExit()) {
+                Storage.save(taskList.getTasks());
             }
+
+            return response;
+
+        } catch (Exception e) {
+            return e.getMessage();
         }
     }
 }
