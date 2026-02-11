@@ -19,13 +19,12 @@ public class AddTodoCommand extends Command {
      * @param context The command context containing the task list and other necessary information.
      */
     @Override
-    public void execute(CommandContext context) {
+    public String execute(CommandContext context) {
         if (description.isEmpty()) {
-            Ui.showErrorAddTodo();
-            return;
+            return Ui.showErrorAddTodo();
         }
         Todo todo = new Todo(description);
         context.getTaskList().addTask(todo);
-        Ui.showAddTask(todo);
+        return Ui.showAddTask(todo);
     }
 }

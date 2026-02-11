@@ -18,19 +18,17 @@ public class DeleteCommand extends Command {
      * @param context The command context containing the task list and other necessary information.
      */
     @Override
-    public void execute(CommandContext context) {
+    public String execute(CommandContext context) {
         if (args.trim().isEmpty() || !args.trim().matches("\\d+")) {
-            Ui.showErrorDelete();
-            return;
+            return Ui.showErrorDelete();
         }
 
         int taskIndex = Integer.parseInt(args.trim()) - 1;
         if (taskIndex < 0 || taskIndex >= context.getTaskList().getItemCount()) {
-            Ui.showErrorDelete();
-            return;
+            return Ui.showErrorDelete();
         }
-        Ui.showDeleteTask(context.getTaskList().getTasks().get(taskIndex),
-                context.getTaskList().getItemCount());
         context.getTaskList().deleteTask(taskIndex);
+        return Ui.showDeleteTask(context.getTaskList().getTasks().get(taskIndex),
+                context.getTaskList().getItemCount());
     }
 }

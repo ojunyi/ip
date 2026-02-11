@@ -13,7 +13,7 @@ public class InvalidCommand extends Command {
      * @param context The command context containing the task list and other necessary information.
      */
     @Override
-    public void execute(CommandContext context) {
-        Ui.showMessage("Invalid command");
+    public String execute(CommandContext context) {
+        return Ui.showMessage("Invalid command");
     }
 }

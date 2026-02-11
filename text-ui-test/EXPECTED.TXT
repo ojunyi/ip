@@ -1,4 +1,4 @@
-=================================================
+----------------------------------
 
     < ______           _     _ _______       _
     < | ___ \         | |   | (_) ___ \     (_)
@@ -6,63 +6,63 @@
     < | ___ \ | | |/ _` |/ _` | | ___ \/ _ \| |
     < | |_/ / |_| | (_| | (_| | | |_/ / (_) | |
     < \____/ \__,_|\__,_|\__,_|_\____/ \___/|_|
-    < 
+    <
     < Hello! I'm BuddiBoi
     < What can I do for you?
 
-=================================================
+----------------------------------
 
-> Command: todo borrow book
-=================================================
+ > Command: todo borrow book
+----------------------------------
 
     < Added: [T][ ] borrow book
 
-=================================================
+----------------------------------
 
-> Command: deadline return book /by 04-02-2026 2359
-=================================================
+ > Command: deadline return book /by 04-02-2026 2359
+----------------------------------
 
     < Added: [D][ ] return book (by: 04 Feb 2026 2359)
 
-=================================================
+----------------------------------
 
-> Command: event project meeting /from 04-02-2026 1200 /to 04-02-2026 1400
-=================================================
+ > Command: event project meeting /from 04-02-2026 1200 /to 04-02-2026 1400
+----------------------------------
 
     < Added: [E][ ] project meeting (From: 04 Feb 2026 1200 To: 04 Feb 2026 1400)
 
-=================================================
+----------------------------------
 
-> Command: event project meeting /from 05-02-2026 0000 /to 06-02-2026 2359
-=================================================
+ > Command: event project meeting /from 05-02-2026 0000 /to 06-02-2026 2359
+----------------------------------
 
     < Added: [E][ ] project meeting (From: 05 Feb 2026 0000 To: 06 Feb 2026 2359)
 
-=================================================
+----------------------------------
 
-> Command: todo return book
-=================================================
+ > Command: todo return book
+----------------------------------
 
     < Added: [T][ ] return book
 
-=================================================
+----------------------------------
 
-> Command: deadline bake bread /by 08-02-2026 2359
-=================================================
+ > Command: deadline bake bread /by 08-02-2026 2359
+----------------------------------
 
     < Added: [D][ ] bake bread (by: 08 Feb 2026 2359)
 
-=================================================
+----------------------------------
 
-> Command: testtest
-=================================================
+ > Command: testtest
+----------------------------------
 
     < Invalid command
 
-=================================================
+----------------------------------
 
-> Command: list
-=================================================
+ > Command: list
+----------------------------------
 
     < 1. [T][ ] borrow book
     < 2. [D][ ] return book (by: 04 Feb 2026 2359)
@@ -71,34 +71,70 @@
     < 5. [T][ ] return book
     < 6. [D][ ] bake bread (by: 08 Feb 2026 2359)
 
-=================================================
+----------------------------------
 
-> Command: mark 1
-=================================================
+ > Command: find project
+----------------------------------
+
+    < Here are the matching tasks in your list:
+    < 0. [E][ ] project meeting (From: 04 Feb 2026 1200 To: 04 Feb 2026 1400)
+    < 1. [E][ ] project meeting (From: 05 Feb 2026 0000 To: 06 Feb 2026 2359)
+
+----------------------------------
+
+ > Command: find project meeting
+----------------------------------
+
+    < Here are the matching tasks in your list:
+    < 0. [E][ ] project meeting (From: 04 Feb 2026 1200 To: 04 Feb 2026 1400)
+    < 1. [E][ ] project meeting (From: 05 Feb 2026 0000 To: 06 Feb 2026 2359)
+
+----------------------------------
+
+ > Command: find book
+----------------------------------
+
+    < Here are the matching tasks in your list:
+    < 0. [T][ ] borrow book
+    < 1. [D][ ] return book (by: 04 Feb 2026 2359)
+    < 2. [T][ ] return book
+
+----------------------------------
+
+ > Command: find bood
+----------------------------------
+
+    < Here are the matching tasks in your list:
+    < No matching tasks found
+
+----------------------------------
+
+ > Command: mark 1
+----------------------------------
 
     < Alrightyy! Congratz on completing that task!:
     <   [T][X] borrow book
 
-=================================================
+----------------------------------
 
-> Command: mark 3
-=================================================
+ > Command: mark 3
+----------------------------------
 
     < Alrightyy! Congratz on completing that task!:
     <   [E][X] project meeting (From: 04 Feb 2026 1200 To: 04 Feb 2026 1400)
 
-=================================================
+----------------------------------
 
-> Command: mark 5
-=================================================
+ > Command: mark 5
+----------------------------------
 
     < Alrightyy! Congratz on completing that task!:
     <   [T][X] return book
 
-=================================================
+----------------------------------
 
-> Command: list
-=================================================
+ > Command: list
+----------------------------------
 
     < 1. [T][X] borrow book
     < 2. [D][ ] return book (by: 04 Feb 2026 2359)
@@ -107,50 +143,50 @@
     < 5. [T][X] return book
     < 6. [D][ ] bake bread (by: 08 Feb 2026 2359)
 
-=================================================
+----------------------------------
 
-> Command: unmark 1
-=================================================
+ > Command: unmark 1
+----------------------------------
 
     < Okay. Task shall be unmarked:
     <   [T][ ] borrow book
 
-=================================================
+----------------------------------
 
-> Command: unmark 2
-=================================================
+ > Command: unmark 2
+----------------------------------
 
     < Okay. Task shall be unmarked:
     <   [D][ ] return book (by: 04 Feb 2026 2359)
 
-=================================================
+----------------------------------
 
-> Command: unmark 3
-=================================================
+ > Command: unmark 3
+----------------------------------
 
     < Okay. Task shall be unmarked:
     <   [E][ ] project meeting (From: 04 Feb 2026 1200 To: 04 Feb 2026 1400)
 
-=================================================
+----------------------------------
 
-> Command: mark 2
-=================================================
+ > Command: mark 2
+----------------------------------
 
     < Alrightyy! Congratz on completing that task!:
     <   [D][X] return book (by: 04 Feb 2026 2359)
 
-=================================================
+----------------------------------
 
-> Command: mark 4
-=================================================
+ > Command: mark 4
+----------------------------------
 
     < Alrightyy! Congratz on completing that task!:
     <   [E][X] project meeting (From: 05 Feb 2026 0000 To: 06 Feb 2026 2359)
 
-=================================================
+----------------------------------
 
-> Command: list
-=================================================
+ > Command: list
+----------------------------------
 
     < 1. [T][ ] borrow book
     < 2. [D][X] return book (by: 04 Feb 2026 2359)
@@ -159,21 +195,10 @@
     < 5. [T][X] return book
     < 6. [D][ ] bake bread (by: 08 Feb 2026 2359)
 
-=================================================
+----------------------------------
 
-> Command: mark
-=================================================
-
-    < Invalid command due to possible reasons:
-    <  - Empty input
-    <  - Index out of bounds
-    <  - Not a number
-    < Please use - mark <task number>
-
-=================================================
-
-> Command: mark 101
-=================================================
+ > Command: mark
+----------------------------------
 
     < Invalid command due to possible reasons:
     <  - Empty input
@@ -181,10 +206,10 @@
     <  - Not a number
     < Please use - mark <task number>
 
-=================================================
+----------------------------------
 
-> Command: mark asd
-=================================================
+ > Command: mark 101
+----------------------------------
 
     < Invalid command due to possible reasons:
     <  - Empty input
@@ -192,10 +217,21 @@
     <  - Not a number
     < Please use - mark <task number>
 
-=================================================
+----------------------------------
 
-> Command: unmark
-=================================================
+ > Command: mark asd
+----------------------------------
+
+    < Invalid command due to possible reasons:
+    <  - Empty input
+    <  - Index out of bounds
+    <  - Not a number
+    < Please use - mark <task number>
+
+----------------------------------
+
+ > Command: unmark
+----------------------------------
 
     < Invalid command due to possible reasons:
     <  - Empty input
@@ -203,21 +239,10 @@
     <  - Not a number
     < Please use - unmark <task number>
 
-=================================================
+----------------------------------
 
-> Command: unmark 101
-=================================================
-
-    < Invalid command due to possible reasons:
-    <  - Empty input
-    <  - Index out of bounds
-    <  - Not a number
-    < Please use - unmark <task number>
-
-=================================================
-
-> Command: unmark das
-=================================================
+ > Command: unmark 101
+----------------------------------
 
     < Invalid command due to possible reasons:
     <  - Empty input
@@ -225,33 +250,44 @@
     <  - Not a number
     < Please use - unmark <task number>
 
-=================================================
+----------------------------------
 
-> Command: todo
-=================================================
+ > Command: unmark das
+----------------------------------
+
+    < Invalid command due to possible reasons:
+    <  - Empty input
+    <  - Index out of bounds
+    <  - Not a number
+    < Please use - unmark <task number>
+
+----------------------------------
+
+ > Command: todo
+----------------------------------
 
     < Invalid command due to possible reasons:
     <  - Empty input
     < Please use - todo <description>
 
-=================================================
+----------------------------------
 
-> Command: todo 123asd
-=================================================
+ > Command: todo 123asd
+----------------------------------
 
     < Added: [T][ ] 123asd
 
-=================================================
+----------------------------------
 
-> Command: todo asd 321
-=================================================
+ > Command: todo asd 321
+----------------------------------
 
     < Added: [T][ ] asd 321
 
-=================================================
+----------------------------------
 
-> Command: list
-=================================================
+ > Command: list
+----------------------------------
 
     < 1. [T][ ] borrow book
     < 2. [D][X] return book (by: 04 Feb 2026 2359)
@@ -262,22 +298,10 @@
     < 7. [T][ ] 123asd
     < 8. [T][ ] asd 321
 
-=================================================
+----------------------------------
 
-> Command: deadline error by today
-=================================================
-
-    < Invalid command due to possible reasons:
-    <  - Empty input
-    <  - No /by was found
-    <  - More than one /by was found
-    <  - Invalid date/time format
-    < Please use - deadline <description> /by <01-01-1999>
-
-=================================================
-
-> Command: deadline error /by today /by next week
-=================================================
+ > Command: deadline error by today
+----------------------------------
 
     < Invalid command due to possible reasons:
     <  - Empty input
@@ -286,10 +310,10 @@
     <  - Invalid date/time format
     < Please use - deadline <description> /by <01-01-1999>
 
-=================================================
+----------------------------------
 
-> Command: deadline error /by today /by next week /by next month
-=================================================
+ > Command: deadline error /by today /by next week
+----------------------------------
 
     < Invalid command due to possible reasons:
     <  - Empty input
@@ -298,10 +322,22 @@
     <  - Invalid date/time format
     < Please use - deadline <description> /by <01-01-1999>
 
-=================================================
+----------------------------------
 
-> Command: event error from today to next week
-=================================================
+ > Command: deadline error /by today /by next week /by next month
+----------------------------------
+
+    < Invalid command due to possible reasons:
+    <  - Empty input
+    <  - No /by was found
+    <  - More than one /by was found
+    <  - Invalid date/time format
+    < Please use - deadline <description> /by <01-01-1999>
+
+----------------------------------
+
+ > Command: event error from today to next week
+----------------------------------
 
     < Invalid command due to possible reasons:
     <  - Empty input
@@ -314,26 +350,10 @@
     <  - End datetime is before start datetime
     < Please use - event <description> /from <01-01-1999> /to <01-01-1999>
 
-=================================================
+----------------------------------
 
-> Command: event error /from today /to next week /from tomorrow
-=================================================
-
-    < Invalid command due to possible reasons:
-    <  - Empty input
-    <  - No /from was found
-    <  - No /to was found
-    <  - More than one /from was found
-    <  - More than one /to was found
-    <  - /from and /to are in the wrong order
-    <  - Invalid datetime format
-    <  - End datetime is before start datetime
-    < Please use - event <description> /from <01-01-1999> /to <01-01-1999>
-
-=================================================
-
-> Command: event error /from today /to next week /to tomorrow
-=================================================
+ > Command: event error /from today /to next week /from tomorrow
+----------------------------------
 
     < Invalid command due to possible reasons:
     <  - Empty input
@@ -346,10 +366,10 @@
     <  - End datetime is before start datetime
     < Please use - event <description> /from <01-01-1999> /to <01-01-1999>
 
-=================================================
+----------------------------------
 
-> Command: event error /to today /from next week
-=================================================
+ > Command: event error /from today /to next week /to tomorrow
+----------------------------------
 
     < Invalid command due to possible reasons:
     <  - Empty input
@@ -362,67 +382,72 @@
     <  - End datetime is before start datetime
     < Please use - event <description> /from <01-01-1999> /to <01-01-1999>
 
-=================================================
+----------------------------------
 
-> Command: delete 6
-=================================================
+ > Command: event error /to today /from next week
+----------------------------------
 
-    < Noted. I've removed this task. Less work for you:
-    <   [D][ ] bake bread (by: 08 Feb 2026 2359)
-    < Now you have 7 tasks in the list.
+    < Invalid command due to possible reasons:
+    <  - Empty input
+    <  - No /from was found
+    <  - No /to was found
+    <  - More than one /from was found
+    <  - More than one /to was found
+    <  - /from and /to are in the wrong order
+    <  - Invalid datetime format
+    <  - End datetime is before start datetime
+    < Please use - event <description> /from <01-01-1999> /to <01-01-1999>
 
-=================================================
+----------------------------------
 
-> Command: delete 6
-=================================================
+ > Command: delete 6
+----------------------------------
 
     < Noted. I've removed this task. Less work for you:
     <   [T][ ] 123asd
     < Now you have 6 tasks in the list.
 
-=================================================
+----------------------------------
 
-> Command: delete 3
-=================================================
+ > Command: delete 6
+----------------------------------
 
     < Noted. I've removed this task. Less work for you:
-    <   [E][ ] project meeting (From: 04 Feb 2026 1200 To: 04 Feb 2026 1400)
+    <   [T][ ] asd 321
     < Now you have 5 tasks in the list.
 
-=================================================
+----------------------------------
 
-> Command: delete 2
-=================================================
+ > Command: delete 3
+----------------------------------
 
     < Noted. I've removed this task. Less work for you:
-    <   [D][X] return book (by: 04 Feb 2026 2359)
+    <   [E][X] project meeting (From: 05 Feb 2026 0000 To: 06 Feb 2026 2359)
     < Now you have 4 tasks in the list.
 
-=================================================
+----------------------------------
 
-> Command: list
-=================================================
+ > Command: delete 2
+----------------------------------
+
+    < Noted. I've removed this task. Less work for you:
+    <   [E][X] project meeting (From: 05 Feb 2026 0000 To: 06 Feb 2026 2359)
+    < Now you have 3 tasks in the list.
+
+----------------------------------
+
+ > Command: list
+----------------------------------
 
     < 1. [T][ ] borrow book
     < 2. [E][X] project meeting (From: 05 Feb 2026 0000 To: 06 Feb 2026 2359)
     < 3. [T][X] return book
     < 4. [T][ ] asd 321
 
-=================================================
+----------------------------------
 
-> Command: delete 10
-=================================================
-
-    < Invalid command due to possible reasons:
-    <  - Empty input
-    <  - Index out of bounds
-    <  - Not a number
-    < Please use - delete <task number>
-
-=================================================
-
-> Command: delete
-=================================================
+ > Command: delete 10
+----------------------------------
 
     < Invalid command due to possible reasons:
     <  - Empty input
@@ -430,10 +455,10 @@
     <  - Not a number
     < Please use - delete <task number>
 
-=================================================
+----------------------------------
 
-> Command: delete 1 asd
-=================================================
+ > Command: delete
+----------------------------------
 
     < Invalid command due to possible reasons:
     <  - Empty input
@@ -441,20 +466,36 @@
     <  - Not a number
     < Please use - delete <task number>
 
-=================================================
+----------------------------------
 
-> Command: bye
-=================================================
+ > Command: delete 1 asd
+----------------------------------
+
+    < Invalid command due to possible reasons:
+    <  - Empty input
+    <  - Index out of bounds
+    <  - Not a number
+    < Please use - delete <task number>
+
+----------------------------------
+
+ > Command: bye
+----------------------------------
+
+    < Preparing to exit...
+
+----------------------------------
+
+----------------------------------
 
     < Would you like me to save your tasks before exiting? (yes/no)
 
-=================================================
+----------------------------------
 
 > Command: no
-=================================================
+----------------------------------
 
-    < Your tasks have not been saved.
+    < Your tasks have not been saved
     < See you next timeee! Ciaoooo ~~~
 
-=================================================
-
+----------------------------------

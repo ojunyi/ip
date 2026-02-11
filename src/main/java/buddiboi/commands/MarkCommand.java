@@ -18,18 +18,16 @@ public class MarkCommand extends Command {
      * @param context The command context containing the task list and other necessary information.
      */
     @Override
-    public void execute(CommandContext context) {
+    public String execute(CommandContext context) {
         if (args.trim().isEmpty() || !args.trim().matches("\\d+")) {
-            Ui.showErrorMark();
-            return;
+            return Ui.showErrorMark();
         }
 
         int taskIndex = Integer.parseInt(args.trim()) - 1;
         if (taskIndex < 0 || taskIndex >= context.getTaskList().getTasks().size()) {
-            Ui.showErrorMark();
-            return;
+            return Ui.showErrorMark();
         }
         context.getTaskList().markTask(taskIndex);
-        Ui.showMarkTask(context.getTaskList().getTasks().get(taskIndex));
+        return Ui.showMarkTask(context.getTaskList().getTasks().get(taskIndex));
     }
 }

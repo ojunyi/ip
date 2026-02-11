@@ -1,7 +1,5 @@
 package buddiboi.commands;
 
-import java.util.Scanner;
-
 import buddiboi.tasks.TaskList;
 
 /**
@@ -9,24 +7,17 @@ import buddiboi.tasks.TaskList;
  */
 public class CommandContext {
     private final TaskList taskList;
-    private final Scanner scanner;
 
     /**
      * Constructor for Command Context
      *
      * @param taskList Task list context for commands
-     * @param scanner Scanner context for commands
      */
-    public CommandContext(TaskList taskList, Scanner scanner) {
+    public CommandContext(TaskList taskList) {
         this.taskList = taskList;
-        this.scanner = scanner;
     }
 
     public TaskList getTaskList() {
         return taskList;
-    }
-
-    public Scanner getScanner() {
-        return scanner;
     }
 }

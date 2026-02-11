@@ -18,18 +18,16 @@ public class UnmarkCommand extends Command {
      * @param context The command context containing the task list and other necessary information.
      */
     @Override
-    public void execute(CommandContext context) {
+    public String execute(CommandContext context) {
         if (args.trim().isEmpty() || !args.trim().matches("\\d+")) {
-            Ui.showErrorUnmark();
-            return;
+            return Ui.showErrorUnmark();
         }
 
         int taskIndex = Integer.parseInt(args.trim()) - 1;
         if (taskIndex < 0 || taskIndex >= context.getTaskList().getTasks().size()) {
-            Ui.showErrorUnmark();
-            return;
+            return Ui.showErrorUnmark();
         }
         context.getTaskList().unmarkTask(taskIndex);
-        Ui.showUnmarkTask(context.getTaskList().getTasks().get(taskIndex));
+        return Ui.showUnmarkTask(context.getTaskList().getTasks().get(taskIndex));
     }
 }

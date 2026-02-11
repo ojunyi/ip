@@ -12,7 +12,7 @@ public class Ui {
     /**
      * Prints the greetings of the program
      */
-    public static void showWelcome() {
+    public static String showWelcome() {
         String logo = "______           _     _ _______       _ \n"
                     + "| ___ \\         | |   | (_) ___ \\     (_)\n"
                     + "| |_/ /_   _  __| | __| |_| |_/ / ___  _ \n"
@@ -20,7 +20,7 @@ public class Ui {
                     + "| |_/ / |_| | (_| | (_| | | |_/ / (_) | |\n"
                     + "\\____/ \\__,_|\\__,_|\\__,_|_\\____/ \\___/|_|\n";
 
-        returnText(logo + "\n"
+        return formatText(logo + "\n"
                 + "Hello! I'm BuddiBoi\n"
                 + "What can I do for you?");
     }
@@ -28,8 +28,8 @@ public class Ui {
     /**
      * Prints the goodbyes of the program
      */
-    public static void showExitNoCommand() {
-        returnText("No save command was given.\n"
+    public static String showExitNoCommand() {
+        return formatText("No save command was given.\n"
                 + "Your tasks were not saved.\n"
                 + "See you next timeee! Ciaoooo ~~~");
     }
@@ -39,9 +39,8 @@ public class Ui {
      *
      * @param command The users input
      */
-    public static void showCommand(String command) {
-        String sender = "> ";
-        System.out.println(sender + "Command: " + command);
+    public static String showCommand(String command) {
+        return " > Command: " + command + "\n";
     }
 
     /**
@@ -49,8 +48,8 @@ public class Ui {
      *
      * @param task The task to be added
      */
-    public static void showAddTask(Task task) {
-        returnText("Added: " + task.toString());
+    public static String showAddTask(Task task) {
+        return formatText("Added: " + task.toString());
     }
 
     /**
@@ -59,8 +58,8 @@ public class Ui {
      * @param task Task to be deleted
      * @param itemCount Total task left in the list after deleting the task
      */
-    public static void showDeleteTask(Task task, int itemCount) {
-        returnText("Noted. I've removed this task. Less work for you:\n"
+    public static String showDeleteTask(Task task, int itemCount) {
+        return formatText("Noted. I've removed this task. Less work for you:\n"
                 + "  " + task.toString() + "\n"
                 + "Now you have " + (itemCount - 1) + " tasks in the list.");
     }
@@ -70,8 +69,8 @@ public class Ui {
      *
      * @param task The task to be marked
      */
-    public static void showMarkTask(Task task) {
-        returnText("Alrightyy! Congratz on completing that task!:\n"
+    public static String showMarkTask(Task task) {
+        return formatText("Alrightyy! Congratz on completing that task!:\n"
                 + "  " + task.toString());
     }
 
@@ -80,8 +79,8 @@ public class Ui {
      *
      * @param task The task to be unmarked
      */
-    public static void showUnmarkTask(Task task) {
-        returnText("Okay. Task shall be unmarked:\n"
+    public static String showUnmarkTask(Task task) {
+        return formatText("Okay. Task shall be unmarked:\n"
                 + "  " + task.toString());
     }
 
@@ -90,7 +89,7 @@ public class Ui {
      *
      * @param isSave Yes/No input on whether the user wants to save the task list
      */
-    public static void showExitSaveCommand(Boolean isSave) {
+    public static String showExitSaveCommand(Boolean isSave) {
         StringBuilder reply = new StringBuilder();
         if (isSave) {
             System.out.println("> Command: yes");
@@ -102,14 +101,14 @@ public class Ui {
 
         reply.append("See you next timeee! Ciaoooo ~~~");
 
-        returnText(reply.toString());
+        return formatText(reply.toString());
     }
 
     /**
      * Prints possible errors for the 'Mark' command
      */
-    public static void showErrorMark() {
-        returnText("Invalid command due to possible reasons:\n"
+    public static String showErrorMark() {
+        return formatText("Invalid command due to possible reasons:\n"
                 + " - Empty input\n"
                 + " - Index out of bounds\n"
                 + " - Not a number\n"
@@ -119,8 +118,8 @@ public class Ui {
     /**
      * Prints possible errors for 'Unmark' command
      */
-    public static void showErrorUnmark() {
-        returnText("Invalid command due to possible reasons:\n"
+    public static String showErrorUnmark() {
+        return formatText("Invalid command due to possible reasons:\n"
                 + " - Empty input\n"
                 + " - Index out of bounds\n"
                 + " - Not a number\n"
@@ -130,8 +129,8 @@ public class Ui {
     /**
      * Prints possible errors for 'Todo' command
      */
-    public static void showErrorAddTodo() {
-        returnText("Invalid command due to possible reasons:\n"
+    public static String showErrorAddTodo() {
+        return formatText("Invalid command due to possible reasons:\n"
                 + " - Empty input\n"
                 + "Please use - todo <description>");
     }
@@ -139,8 +138,8 @@ public class Ui {
     /**
      * Prints possible errors for 'Deadline' command
      */
-    public static void showErrorAddDeadline() {
-        returnText("Invalid command due to possible reasons:\n"
+    public static String showErrorAddDeadline() {
+        return formatText("Invalid command due to possible reasons:\n"
                 + " - Empty input\n"
                 + " - No /by was found\n"
                 + " - More than one /by was found\n"
@@ -151,8 +150,8 @@ public class Ui {
     /**
      * Prints possible errors for 'Event' command
      */
-    public static void showErrorAddEvent() {
-        returnText("Invalid command due to possible reasons:\n"
+    public static String showErrorAddEvent() {
+        return formatText("Invalid command due to possible reasons:\n"
                 + " - Empty input\n"
                 + " - No /from was found\n"
                 + " - No /to was found\n"
@@ -167,8 +166,8 @@ public class Ui {
     /**
      * Prints possible errors for 'Delete' command
      */
-    public static void showErrorDelete() {
-        returnText("Invalid command due to possible reasons:\n"
+    public static String showErrorDelete() {
+        return formatText("Invalid command due to possible reasons:\n"
                 + " - Empty input\n"
                 + " - Index out of bounds\n"
                 + " - Not a number\n"
@@ -178,35 +177,38 @@ public class Ui {
     /**
      * Prints error for I/O on save/load
      */
-    public static void showErrorStorageIo(IOException e) {
-        returnText("An error occurred while trying to save/load storage file: " + e);
+    public static String showErrorStorageIo(IOException e) {
+        return formatText("An error occurred while trying to save/load storage file: " + e);
     }
 
     /**
      * Prints other errors on load
      */
-    public static void showErrorStorageLoad(Exception e) {
-        returnText("An error occurred while trying to load storage file: " + e);
+    public static String showErrorStorageLoad(Exception e) {
+        return formatText("An error occurred while trying to load storage file: " + e);
     }
 
     /**
      * Prints any message
      */
-    public static void showMessage(String message) {
-        returnText(message);
+    public static String showMessage(String message) {
+        return formatText(message);
     }
 
     /**
      * Prints message and surrounds them with a divider
      */
-    public static void returnText(String input) {
-        String divider = "=================================================\n";
+    public static String formatText(String input) {
+        StringBuilder sb = new StringBuilder();
+        String divider = "----------------------------------\n";
         String indent = "    < ";
 
-        System.out.println(divider);
+        sb.append(divider).append("\n");
         for (String line : input.split("\n")) {
-            System.out.println(indent + line.replaceAll("\\s+$", ""));
+            sb.append(indent).append(line.replaceAll("\\s+$", "")).append("\n");
         }
-        System.out.println("\n" + divider);
+        sb.append("\n").append(divider);
+
+        return sb.toString();
     }
 }
