@@ -1,5 +1,6 @@
 package buddiboi.commands;
 
+import buddiboi.tasks.Task;
 import buddiboi.ui.Ui;
 
 /**
@@ -27,8 +28,8 @@ public class DeleteCommand extends Command {
         if (taskIndex < 0 || taskIndex >= context.getTaskList().getItemCount()) {
             return Ui.showErrorDelete();
         }
+        Task deletedTask = context.getTaskList().getTasks().get(taskIndex);
         context.getTaskList().deleteTask(taskIndex);
-        return Ui.showDeleteTask(context.getTaskList().getTasks().get(taskIndex),
-                context.getTaskList().getItemCount());
+        return Ui.showDeleteTask(deletedTask, context.getTaskList().getItemCount());
     }
 }

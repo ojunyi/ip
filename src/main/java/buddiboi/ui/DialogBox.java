@@ -55,6 +55,7 @@ public class DialogBox extends HBox {
     public static DialogBox getBuddiBoiDialog(String text, Image img) {
         var db = new DialogBox(text, img);
         db.flip();
+        db.dialog.setStyle(db.dialog.getStyle() + "; -fx-text-fill: #4A90E2;");
         return db;
     }
 }
