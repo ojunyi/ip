@@ -59,13 +59,12 @@ public class AddEventCommand extends Command {
      * @param context The command context containing the task list and other necessary information.
      */
     @Override
-    public void execute(CommandContext context) {
+    public String execute(CommandContext context) {
         if (description.isEmpty() || from == null || to == null) {
-            Ui.showErrorAddEvent();
-            return;
+            return Ui.showErrorAddEvent();
         }
         Event event = new Event(description, from, to);
         context.getTaskList().addTask(event);
-        Ui.showAddTask(event);
+        return Ui.showAddTask(event);
     }
 }

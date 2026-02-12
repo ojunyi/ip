@@ -45,14 +45,13 @@ public class AddDeadlineCommand extends Command {
      * @param context The command context containing the task list and other necessary information.
      */
     @Override
-    public void execute(CommandContext context) {
+    public String execute(CommandContext context) {
         if (description.isEmpty() || by == null) {
-            Ui.showErrorAddDeadline();
-            return;
+            return Ui.showErrorAddDeadline();
         }
         Deadline deadline = new Deadline(description, by);
         context.getTaskList().addTask(deadline);
-        Ui.showAddTask(deadline);
+        return Ui.showAddTask(deadline);
     }
 
 }

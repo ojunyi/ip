@@ -47,7 +47,7 @@ public class TaskList {
      * @param taskNumber Task number to be deleted
      */
     public void deleteTask(int taskNumber) {
-        if (taskNumber < 0 || taskNumber >= itemCount) {
+        if (taskNumber < 0 || taskNumber > itemCount) {
             throw new IndexOutOfBoundsException();
         }
         tasks.remove(taskNumber);
@@ -86,6 +86,11 @@ public class TaskList {
                     .append(tasks.get(i).toString())
                     .append("\n");
         }
+
+        if (result.isEmpty()) {
+            result.append("List is empty");
+        }
+
         return result.toString();
     }
 }

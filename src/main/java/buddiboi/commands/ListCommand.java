@@ -13,7 +13,7 @@ public class ListCommand extends Command {
      * @param context The command context containing the task list and other necessary information.
      */
     @Override
-    public void execute(CommandContext context) {
-        Ui.showMessage(context.getTaskList().toString());
+    public String execute(CommandContext context) {
+        return Ui.showMessage(context.getTaskList().toString());
     }
 }

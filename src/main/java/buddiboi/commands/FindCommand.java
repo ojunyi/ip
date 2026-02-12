@@ -4,7 +4,7 @@ import buddiboi.tasks.Task;
 import buddiboi.ui.Ui;
 
 /**
- * Finds and lists all tasks that contain the given keyword.
+ * Command to finds and lists all tasks that contain the given keyword.
  */
 public class FindCommand extends Command {
 
@@ -15,7 +15,7 @@ public class FindCommand extends Command {
     }
 
     @Override
-    public void execute(CommandContext context) {
+    public String execute(CommandContext context) {
         int count = 0;
         StringBuilder taskList = new StringBuilder();
         taskList.append("Here are the matching tasks in your list:\n");
@@ -32,6 +32,6 @@ public class FindCommand extends Command {
             taskList.append("No matching tasks found");
         }
 
-        Ui.showMessage(taskList.toString());
+        return Ui.showMessage(taskList.toString());
     }
 }
