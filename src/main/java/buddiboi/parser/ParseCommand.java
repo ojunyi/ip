@@ -11,6 +11,7 @@ import buddiboi.commands.InvalidCommand;
 import buddiboi.commands.ListCommand;
 import buddiboi.commands.MarkCommand;
 import buddiboi.commands.UnmarkCommand;
+import buddiboi.exceptions.BuddiBoiException;
 
 /**
  * Parses user input into corresponding Command objects and executes them.
@@ -35,7 +36,7 @@ public class ParseCommand {
      *
      * @return The Command object to be executed.
      */
-    public Command getCommand() {
+    public Command getCommand() throws BuddiBoiException {
         switch (command) {
         case "bye":
             return new ExitCommand();
