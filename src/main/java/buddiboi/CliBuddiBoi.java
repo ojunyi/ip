@@ -30,13 +30,6 @@ public class CliBuddiBoi {
 
                 assert command != null : "Parser should never return null command";
 
-                System.out.print(Ui.showCommand(input));
-                String response = command.execute(new CommandContext(taskList));
-
-                assert response != null : "Command execution should always return a response";
-
-                System.out.println(response);
-
                 if (command.isExit()) {
                     System.out.print(Ui.showCommand(input));
                     System.out.println(Ui.showMessage("Preparing to exit..."));
@@ -59,7 +52,11 @@ public class CliBuddiBoi {
                 }
 
                 System.out.print(Ui.showCommand(input));
-                System.out.println(command.execute(new CommandContext(taskList)));
+                String response = command.execute(new CommandContext(taskList));
+
+                assert response != null : "Command execution should always return a response";
+
+                System.out.println(response);
             }
         } catch (BuddiBoiException e) {
             e.getMessage();
