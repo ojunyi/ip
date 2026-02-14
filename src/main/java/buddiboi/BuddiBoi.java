@@ -15,6 +15,7 @@ public class BuddiBoi {
 
     public BuddiBoi() {
         this.taskList = Storage.load();
+        assert taskList != null : "TaskList should never be null after loading from storage";
     }
 
     /**
@@ -24,8 +25,9 @@ public class BuddiBoi {
         try {
             ParseCommand commandParser = new ParseCommand(input);
             Command command = commandParser.getCommand();
-
+            assert command != null : "Parser should never return null command";
             String response = command.execute(new CommandContext(taskList));
+            assert response != null : "Command execution should always return a response";
 
             if (command.isExit()) {
                 Storage.save(taskList.getTasks());
