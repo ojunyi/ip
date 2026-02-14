@@ -10,6 +10,7 @@ REM compile the code into the bin folder
 javac -Xlint:none -d ..\bin ^
     ..\src\main\java\buddiboi\CliBuddiBoi.java ^
     ..\src\main\java\buddiboi\commands\*.java ^
+    ..\src\main\java\buddiboi\exceptions\*.java ^
     ..\src\main\java\buddiboi\parser\*.java ^
     ..\src\main\java\buddiboi\storage\*.java ^
     ..\src\main\java\buddiboi\tasks\*.java ^

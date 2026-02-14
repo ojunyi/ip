@@ -6,7 +6,7 @@
     < | ___ \ | | |/ _` |/ _` | | ___ \/ _ \| |
     < | |_/ / |_| | (_| | (_| | | |_/ / (_) | |
     < \____/ \__,_|\__,_|\__,_|_\____/ \___/|_|
-    <
+    < 
     < Hello! I'm BuddiBoi
     < What can I do for you?
 
@@ -404,8 +404,8 @@
 ----------------------------------
 
     < Noted. I've removed this task. Less work for you:
-    <   [T][ ] 123asd
-    < Now you have 6 tasks in the list.
+    <   [D][ ] bake bread (by: 08 Feb 2026 2359)
+    < Now you have 7 tasks in the list.
 
 ----------------------------------
 
@@ -413,8 +413,8 @@
 ----------------------------------
 
     < Noted. I've removed this task. Less work for you:
-    <   [T][ ] asd 321
-    < Now you have 5 tasks in the list.
+    <   [T][ ] 123asd
+    < Now you have 6 tasks in the list.
 
 ----------------------------------
 
@@ -422,8 +422,8 @@
 ----------------------------------
 
     < Noted. I've removed this task. Less work for you:
-    <   [E][X] project meeting (From: 05 Feb 2026 0000 To: 06 Feb 2026 2359)
-    < Now you have 4 tasks in the list.
+    <   [E][ ] project meeting (From: 04 Feb 2026 1200 To: 04 Feb 2026 1400)
+    < Now you have 5 tasks in the list.
 
 ----------------------------------
 
@@ -431,8 +431,8 @@
 ----------------------------------
 
     < Noted. I've removed this task. Less work for you:
-    <   [E][X] project meeting (From: 05 Feb 2026 0000 To: 06 Feb 2026 2359)
-    < Now you have 3 tasks in the list.
+    <   [D][X] return book (by: 04 Feb 2026 2359)
+    < Now you have 4 tasks in the list.
 
 ----------------------------------
 
@@ -492,10 +492,11 @@
 
 ----------------------------------
 
-> Command: no
+ > Command: no
 ----------------------------------
 
     < Your tasks have not been saved
     < See you next timeee! Ciaoooo ~~~
 
 ----------------------------------
+

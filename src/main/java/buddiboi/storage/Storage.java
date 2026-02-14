@@ -20,7 +20,13 @@ import buddiboi.ui.Ui;
  * Handles loading and saving tasks to persistent storage.
  */
 public class Storage {
+
     private static final Path FILE_PATH = Paths.get("data", "save.txt");
+    private static final String TODO_TYPE = "T";
+    private static final String DEADLINE_TYPE = "D";
+    private static final String EVENT_TYPE = "E";
+    private static final String DELIMITER = " | ";
+    private static final String DONE_STATUS = "1";
 
     /**
      * Loads the task list from persistent storage.
@@ -88,7 +94,7 @@ public class Storage {
      * @throws DateTimeParseException If there is an error parsing date and time.
      */
     private static Task parseLine(String line) throws DateTimeParseException {
-        String[] parts = line.split(" \\| ");
+        String[] parts = line.split(DELIMITER);
 
         String type = parts[0];
         boolean isDone = parts[1].equals("1");
@@ -97,16 +103,16 @@ public class Storage {
         Task task;
 
         switch (type) {
-        case "T":
+        case TODO_TYPE:
             task = new Todo(description);
             break;
 
-        case "D":
+        case DEADLINE_TYPE:
             LocalDateTime by = LocalDateTime.parse(parts[3]);
             task = new Deadline(description, by);
             break;
 
-        case "E":
+        case EVENT_TYPE:
             LocalDateTime start = LocalDateTime.parse(parts[3]);
             LocalDateTime end = LocalDateTime.parse(parts[4]);
             task = new Event(description, start, end);
@@ -133,11 +139,14 @@ public class Storage {
         String status = task.getStatus();
 
         if (task instanceof Todo) {
-            return "T | " + status + " | " + task.getDescription();
+            return TODO_TYPE + DELIMITER + status + DELIMITER + task.getDescription();
         } else if (task instanceof Deadline d) {
-            return "D | " + status + " | " + task.getDescription() + " | " + d.getDeadline();
+            return DEADLINE_TYPE + DELIMITER + status + DELIMITER
+                    + task.getDescription() + DELIMITER + d.getDeadline();
         } else if (task instanceof Event e) {
-            return "E | " + status + " | " + task.getDescription() + " | " + e.getStartDate() + " | " + e.getEndDate();
+            return EVENT_TYPE + DELIMITER + status + DELIMITER
+                    + task.getDescription() + DELIMITER
+                    + e.getStartDate() + DELIMITER + e.getEndDate();
         } else {
             return "";
         }

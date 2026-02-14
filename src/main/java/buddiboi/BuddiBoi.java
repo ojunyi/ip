@@ -2,6 +2,7 @@ package buddiboi;
 
 import buddiboi.commands.Command;
 import buddiboi.commands.CommandContext;
+import buddiboi.exceptions.BuddiBoiException;
 import buddiboi.parser.ParseCommand;
 import buddiboi.storage.Storage;
 import buddiboi.tasks.TaskList;
@@ -33,8 +34,11 @@ public class BuddiBoi {
 
             return response;
 
-        } catch (Exception e) {
+        } catch (BuddiBoiException e) {
             return e.getMessage();
+
+        } catch (Exception e) {
+            return "An unexpected error occurred. Please try again.";
         }
     }
 }

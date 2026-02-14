@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import buddiboi.commands.Command;
 import buddiboi.commands.CommandContext;
+import buddiboi.exceptions.BuddiBoiException;
 import buddiboi.parser.ParseCommand;
 import buddiboi.storage.Storage;
 import buddiboi.tasks.TaskList;
@@ -13,6 +14,8 @@ import buddiboi.ui.Ui;
  * CLI app to test BuddiBoi using runtest.bat
  */
 public class CliBuddiBoi {
+
+    private static final String SAVE_CONFIRMATION = "yes";
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
             TaskList taskList = Storage.load();
@@ -31,11 +34,11 @@ public class CliBuddiBoi {
                     System.out.println(Ui.showMessage("Would you like me to save your tasks before exiting? (yes/no)"));
                     if (scanner.hasNextLine()) {
                         String saveChoice = scanner.nextLine().trim();
-                        if (saveChoice.toLowerCase().equals("yes")) {
-                            System.out.println(Ui.showExitSaveCommand(true));
+                        if (saveChoice.toLowerCase().equals(SAVE_CONFIRMATION)) {
+                            System.out.println(Ui.showExitSaveCommand(true, saveChoice));
                             Storage.save(taskList.getTasks());
                         } else {
-                            System.out.println(Ui.showExitSaveCommand(false));
+                            System.out.println(Ui.showExitSaveCommand(false, saveChoice));
                         }
                     } else {
                         System.out.println(Ui.showExitNoCommand());
@@ -43,6 +46,8 @@ public class CliBuddiBoi {
                     break;
                 }
             }
+        } catch (BuddiBoiException e) {
+            e.getMessage();
         }
     }
 }
