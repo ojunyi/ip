@@ -19,6 +19,7 @@ public class CliBuddiBoi {
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
             TaskList taskList = Storage.load();
+            assert taskList != null : "TaskList should never be null after loading from storage";
 
             System.out.println(Ui.showWelcome());
 
@@ -26,6 +27,15 @@ public class CliBuddiBoi {
                 String input = scanner.nextLine().trim();
                 ParseCommand commandParser = new ParseCommand(input);
                 Command command = commandParser.getCommand();
+
+                assert command != null : "Parser should never return null command";
+
+                System.out.print(Ui.showCommand(input));
+                String response = command.execute(new CommandContext(taskList));
+
+                assert response != null : "Command execution should always return a response";
+
+                System.out.println(response);
 
                 if (command.isExit()) {
                     System.out.print(Ui.showCommand(input));
