@@ -19,10 +19,10 @@
 
 ----------------------------------
 
- > Command: deadline return book /by 04-02-2026 2359
+ > Command: deadline return book /by Mon
 ----------------------------------
 
-    < Added: [D][ ] return book (by: 04 Feb 2026 2359)
+    < Added: [D][ ] return book (by: 16 Feb 2026 0000)
 
 ----------------------------------
 
@@ -65,7 +65,7 @@
 ----------------------------------
 
     < 1. [T][ ] borrow book
-    < 2. [D][ ] return book (by: 04 Feb 2026 2359)
+    < 2. [D][ ] return book (by: 16 Feb 2026 0000)
     < 3. [E][ ] project meeting (From: 04 Feb 2026 1200 To: 04 Feb 2026 1400)
     < 4. [E][ ] project meeting (From: 05 Feb 2026 0000 To: 06 Feb 2026 2359)
     < 5. [T][ ] return book
@@ -96,7 +96,7 @@
 
     < Here are the matching tasks in your list:
     < 0. [T][ ] borrow book
-    < 1. [D][ ] return book (by: 04 Feb 2026 2359)
+    < 1. [D][ ] return book (by: 16 Feb 2026 0000)
     < 2. [T][ ] return book
 
 ----------------------------------
@@ -137,7 +137,7 @@
 ----------------------------------
 
     < 1. [T][X] borrow book
-    < 2. [D][ ] return book (by: 04 Feb 2026 2359)
+    < 2. [D][ ] return book (by: 16 Feb 2026 0000)
     < 3. [E][X] project meeting (From: 04 Feb 2026 1200 To: 04 Feb 2026 1400)
     < 4. [E][ ] project meeting (From: 05 Feb 2026 0000 To: 06 Feb 2026 2359)
     < 5. [T][X] return book
@@ -157,7 +157,7 @@
 ----------------------------------
 
     < Okay. Task shall be unmarked:
-    <   [D][ ] return book (by: 04 Feb 2026 2359)
+    <   [D][ ] return book (by: 16 Feb 2026 0000)
 
 ----------------------------------
 
@@ -173,7 +173,7 @@
 ----------------------------------
 
     < Alrightyy! Congratz on completing that task!:
-    <   [D][X] return book (by: 04 Feb 2026 2359)
+    <   [D][X] return book (by: 16 Feb 2026 0000)
 
 ----------------------------------
 
@@ -189,7 +189,7 @@
 ----------------------------------
 
     < 1. [T][ ] borrow book
-    < 2. [D][X] return book (by: 04 Feb 2026 2359)
+    < 2. [D][X] return book (by: 16 Feb 2026 0000)
     < 3. [E][ ] project meeting (From: 04 Feb 2026 1200 To: 04 Feb 2026 1400)
     < 4. [E][X] project meeting (From: 05 Feb 2026 0000 To: 06 Feb 2026 2359)
     < 5. [T][X] return book
@@ -290,7 +290,7 @@
 ----------------------------------
 
     < 1. [T][ ] borrow book
-    < 2. [D][X] return book (by: 04 Feb 2026 2359)
+    < 2. [D][X] return book (by: 16 Feb 2026 0000)
     < 3. [E][ ] project meeting (From: 04 Feb 2026 1200 To: 04 Feb 2026 1400)
     < 4. [E][X] project meeting (From: 05 Feb 2026 0000 To: 06 Feb 2026 2359)
     < 5. [T][X] return book
@@ -371,132 +371,7 @@
  > Command: event error /from today /to next week /to tomorrow
 ----------------------------------
 
-    < Invalid command due to possible reasons:
-    <  - Empty input
-    <  - No /from was found
-    <  - No /to was found
-    <  - More than one /from was found
-    <  - More than one /to was found
-    <  - /from and /to are in the wrong order
-    <  - Invalid datetime format
-    <  - End datetime is before start datetime
-    < Please use - event <description> /from <01-01-1999> /to <01-01-1999>
-
-----------------------------------
-
- > Command: event error /to today /from next week
-----------------------------------
-
-    < Invalid command due to possible reasons:
-    <  - Empty input
-    <  - No /from was found
-    <  - No /to was found
-    <  - More than one /from was found
-    <  - More than one /to was found
-    <  - /from and /to are in the wrong order
-    <  - Invalid datetime format
-    <  - End datetime is before start datetime
-    < Please use - event <description> /from <01-01-1999> /to <01-01-1999>
-
-----------------------------------
-
- > Command: delete 6
-----------------------------------
-
-    < Noted. I've removed this task. Less work for you:
-    <   [D][ ] bake bread (by: 08 Feb 2026 2359)
-    < Now you have 7 tasks in the list.
-
-----------------------------------
-
- > Command: delete 6
-----------------------------------
-
-    < Noted. I've removed this task. Less work for you:
-    <   [T][ ] 123asd
-    < Now you have 6 tasks in the list.
-
-----------------------------------
-
- > Command: delete 3
-----------------------------------
-
-    < Noted. I've removed this task. Less work for you:
-    <   [E][ ] project meeting (From: 04 Feb 2026 1200 To: 04 Feb 2026 1400)
-    < Now you have 5 tasks in the list.
-
-----------------------------------
-
- > Command: delete 2
-----------------------------------
-
-    < Noted. I've removed this task. Less work for you:
-    <   [D][X] return book (by: 04 Feb 2026 2359)
-    < Now you have 4 tasks in the list.
-
-----------------------------------
-
- > Command: list
-----------------------------------
-
-    < 1. [T][ ] borrow book
-    < 2. [E][X] project meeting (From: 05 Feb 2026 0000 To: 06 Feb 2026 2359)
-    < 3. [T][X] return book
-    < 4. [T][ ] asd 321
-
-----------------------------------
-
- > Command: delete 10
-----------------------------------
-
-    < Invalid command due to possible reasons:
-    <  - Empty input
-    <  - Index out of bounds
-    <  - Not a number
-    < Please use - delete <task number>
-
-----------------------------------
-
- > Command: delete
-----------------------------------
-
-    < Invalid command due to possible reasons:
-    <  - Empty input
-    <  - Index out of bounds
-    <  - Not a number
-    < Please use - delete <task number>
-
-----------------------------------
-
- > Command: delete 1 asd
-----------------------------------
-
-    < Invalid command due to possible reasons:
-    <  - Empty input
-    <  - Index out of bounds
-    <  - Not a number
-    < Please use - delete <task number>
-
-----------------------------------
-
- > Command: bye
-----------------------------------
-
-    < Preparing to exit...
-
-----------------------------------
-
-----------------------------------
-
-    < Would you like me to save your tasks before exiting? (yes/no)
-
-----------------------------------
-
- > Command: no
-----------------------------------
-
-    < Your tasks have not been saved
-    < See you next timeee! Ciaoooo ~~~
+    < Added: [E][ ] error (From: 14 Feb 2026 0000 To: 21 Feb 2026 0000)
 
 ----------------------------------
 

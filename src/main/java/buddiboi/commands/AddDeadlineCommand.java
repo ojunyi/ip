@@ -1,9 +1,9 @@
 package buddiboi.commands;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
+import buddiboi.parser.NaturalDateParser;
 import buddiboi.tasks.Deadline;
 import buddiboi.ui.Ui;
 
@@ -11,9 +11,6 @@ import buddiboi.ui.Ui;
  * Command to add a deadline task.
  */
 public class AddDeadlineCommand extends Command {
-
-    private static final DateTimeFormatter INPUT_FORMAT =
-            DateTimeFormatter.ofPattern("dd-MM-yyyy HHmm");
 
     private String description;
     private LocalDateTime by;
@@ -33,7 +30,7 @@ public class AddDeadlineCommand extends Command {
         this.description = parts[0].trim();
 
         try {
-            this.by = LocalDateTime.parse(parts[1].trim(), INPUT_FORMAT);
+            this.by = NaturalDateParser.parse(parts[1].trim());
         } catch (DateTimeParseException e) {
             this.by = null;
         }

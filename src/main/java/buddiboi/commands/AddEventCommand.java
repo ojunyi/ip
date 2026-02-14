@@ -1,9 +1,9 @@
 package buddiboi.commands;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
+import buddiboi.parser.NaturalDateParser;
 import buddiboi.tasks.Event;
 import buddiboi.ui.Ui;
 
@@ -11,9 +11,6 @@ import buddiboi.ui.Ui;
  * Command to add an event task.
  */
 public class AddEventCommand extends Command {
-
-    private static final DateTimeFormatter INPUT_FORMAT =
-            DateTimeFormatter.ofPattern("dd-MM-yyyy HHmm");
 
     private String description;
     private LocalDateTime from;
@@ -37,11 +34,12 @@ public class AddEventCommand extends Command {
         if (subParts.length != 2) {
             from = null;
             to = null;
+            return;
         }
 
         try {
-            this.from = LocalDateTime.parse(subParts[0].trim(), INPUT_FORMAT);
-            this.to = LocalDateTime.parse(subParts[1].trim(), INPUT_FORMAT);
+            this.from = NaturalDateParser.parse(subParts[0].trim());
+            this.to = NaturalDateParser.parse(subParts[1].trim());
         } catch (DateTimeParseException e) {
             this.from = null;
             this.to = null;
