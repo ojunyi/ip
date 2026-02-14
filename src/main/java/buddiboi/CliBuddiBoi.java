@@ -27,24 +27,29 @@ public class CliBuddiBoi {
                 ParseCommand commandParser = new ParseCommand(input);
                 Command command = commandParser.getCommand();
 
-                System.out.print(Ui.showCommand(input));
-                System.out.println(command.execute(new CommandContext(taskList)));
-
                 if (command.isExit()) {
+                    System.out.print(Ui.showCommand(input));
+                    System.out.println(Ui.showMessage("Preparing to exit..."));
                     System.out.println(Ui.showMessage("Would you like me to save your tasks before exiting? (yes/no)"));
+
                     if (scanner.hasNextLine()) {
                         String saveChoice = scanner.nextLine().trim();
+                        System.out.print(Ui.showCommand(saveChoice));
+
                         if (saveChoice.toLowerCase().equals(SAVE_CONFIRMATION)) {
-                            System.out.println(Ui.showExitSaveCommand(true, saveChoice));
+                            System.out.println(Ui.showExitSaveCommand(true));
                             Storage.save(taskList.getTasks());
                         } else {
-                            System.out.println(Ui.showExitSaveCommand(false, saveChoice));
+                            System.out.println(Ui.showExitSaveCommand(false));
                         }
                     } else {
                         System.out.println(Ui.showExitNoCommand());
                     }
                     break;
                 }
+
+                System.out.print(Ui.showCommand(input));
+                System.out.println(command.execute(new CommandContext(taskList)));
             }
         } catch (BuddiBoiException e) {
             e.getMessage();

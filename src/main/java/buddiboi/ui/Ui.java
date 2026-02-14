@@ -65,7 +65,7 @@ public class Ui {
     public static String showDeleteTask(Task task, int itemCount) {
         return formatText("Noted. I've removed this task. Less work for you:\n"
                 + "  " + task.toString() + "\n"
-                + "Now you have " + (itemCount - 1) + " tasks in the list.");
+                + "Now you have " + itemCount + " tasks in the list.");
     }
 
     /**
@@ -93,17 +93,14 @@ public class Ui {
      *
      * @param isSave Yes/No input on whether the user wants to save the task list
      */
-    public static String showExitSaveCommand(Boolean isSave, String userInput) {
+    public static String showExitSaveCommand(Boolean isSave) {
         StringBuilder reply = new StringBuilder();
-        reply.append(showCommand(userInput));
         if (isSave) {
             reply.append("Your tasks have been saved\n");
         } else {
             reply.append("Your tasks have not been saved\n");
         }
-
         reply.append("See you next timeee! Ciaoooo ~~~");
-
         return formatText(reply.toString());
     }
 
