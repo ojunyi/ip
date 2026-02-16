@@ -1,7 +1,5 @@
 package buddiboi.ui;
 
-import java.io.IOException;
-
 import buddiboi.tasks.Task;
 import buddiboi.tasks.TaskList;
 
@@ -145,26 +143,6 @@ public class Ui {
     }
 
     /**
-     * Returns an error message for I/O failures during save or load operations.
-     *
-     * @param e The IOException that occurred.
-     * @return A formatted error message.
-     */
-    public static String showErrorStorageIo(IOException e) {
-        return formatText("An error occurred while trying to save/load storage file: " + e);
-    }
-
-    /**
-     * Returns an error message for failures during load operations.
-     *
-     * @param e The exception that occurred.
-     * @return A formatted error message.
-     */
-    public static String showErrorStorageLoad(Exception e) {
-        return formatText("An error occurred while trying to load storage file: " + e);
-    }
-
-    /**
      * Returns a formatted message.
      *
      * @param message The message to display.
@@ -172,6 +150,16 @@ public class Ui {
      */
     public static String showMessage(String message) {
         return formatText(message);
+    }
+
+    /**
+     * Returns a formatted internal error message.
+     *
+     * @param errorMessage The error message to display.
+     * @return A formatted error message.
+     */
+    public static String showBuddiBoiError(String errorMessage) {
+        return formatText("Internal Error: " + errorMessage);
     }
 
     /**
@@ -185,13 +173,13 @@ public class Ui {
     }
 
     /**
-     * Returns a formatted internal error message.
+     * Returns a formatted command error message.
      *
      * @param errorMessage The error message to display.
      * @return A formatted error message.
      */
-    public static String showBuddiBoiError(String errorMessage) {
-        return formatText("Internal Error: " + errorMessage);
+    public static String showStorageError(String errorMessage) {
+        return formatText("Storage Error: " + errorMessage);
     }
 
     /**

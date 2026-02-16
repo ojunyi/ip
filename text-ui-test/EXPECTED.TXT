@@ -4,7 +4,7 @@
     < | ___ \ | | |/ _` |/ _` | | ___ \/ _ \| |
     < | |_/ / |_| | (_| | (_| | | |_/ / (_) | |
     < \____/ \__,_|\__,_|\__,_|_\____/ \___/|_|
-    <
+    < 
     < Hello! I'm BuddiBoi
     < What can I do for you?
  > Command: todo borrow book

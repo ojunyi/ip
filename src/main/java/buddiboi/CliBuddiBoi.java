@@ -5,6 +5,7 @@ import java.util.Scanner;
 import buddiboi.commands.Command;
 import buddiboi.exceptions.BuddiBoiException;
 import buddiboi.exceptions.CommandException;
+import buddiboi.exceptions.StorageException;
 import buddiboi.parser.ParseCommand;
 import buddiboi.storage.Storage;
 import buddiboi.tasks.TaskList;
@@ -80,7 +81,13 @@ public class CliBuddiBoi {
 
         if (saveChoice.toLowerCase().equals(SAVE_CONFIRMATION)) {
             sb.append(Ui.showSaveConfirmation(true));
-            Storage.save(taskList.getTasks());
+            TaskList saveTaskList = taskList;
+            try {
+                Storage.save(saveTaskList);
+            } catch (StorageException e) {
+                System.err.println(Ui.showStorageError(e.getMessage()));
+                System.err.println("Failed to save task list.");
+            }
         } else {
             sb.append(Ui.showSaveConfirmation(false));
         }

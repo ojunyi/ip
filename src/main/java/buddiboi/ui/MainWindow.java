@@ -1,6 +1,8 @@
 package buddiboi.ui;
 
 import buddiboi.BuddiBoi;
+import javafx.animation.PauseTransition;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
@@ -8,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.util.Duration;
 
 /**
  * Controller for the main GUI.
@@ -23,9 +26,10 @@ public class MainWindow extends AnchorPane {
     private Button sendButton;
 
     private BuddiBoi buddiBoi;
+    private boolean awaitingSaveConfirmation = false;
 
-    private Image userImage = new Image(this.getClass().getResourceAsStream("/images/DaUser.png"));
-    private Image buddiBoiImage = new Image(this.getClass().getResourceAsStream("/images/BuddiBoi.png"));
+    private final Image userImage = new Image(this.getClass().getResourceAsStream("/images/DaUser.png"));
+    private final Image buddiBoiImage = new Image(this.getClass().getResourceAsStream("/images/BuddiBoi.png"));
 
     @FXML
     public void initialize() {
@@ -44,6 +48,13 @@ public class MainWindow extends AnchorPane {
     @FXML
     private void handleUserInput() {
         String input = userInput.getText();
+
+        if (awaitingSaveConfirmation) {
+            handleSaveConfirmation(input);
+            userInput.clear();
+            return;
+        }
+
         String response = buddiBoi.getResponse(input);
 
         dialogContainer.getChildren().addAll(
@@ -51,5 +62,31 @@ public class MainWindow extends AnchorPane {
                 DialogBox.getBuddiBoiDialog(response, buddiBoiImage)
         );
         userInput.clear();
+
+        if (buddiBoi.shouldExit()) {
+            awaitingSaveConfirmation = true;
+        }
+    }
+
+    private void handleSaveConfirmation(String input) {
+
+        dialogContainer.getChildren().add(
+                DialogBox.getUserDialog(input, userImage)
+        );
+
+        if (input.equalsIgnoreCase("yes")) {
+            buddiBoi.save();
+            dialogContainer.getChildren().add(
+                    DialogBox.getBuddiBoiDialog(Ui.showSaveConfirmation(true), buddiBoiImage)
+            );
+        } else {
+            dialogContainer.getChildren().add(
+                    DialogBox.getBuddiBoiDialog(Ui.showSaveConfirmation(false), buddiBoiImage)
+            );
+        }
+
+        PauseTransition pause = new PauseTransition(Duration.seconds(2));
+        pause.setOnFinished(event -> Platform.exit());
+        pause.play();
     }
 }
