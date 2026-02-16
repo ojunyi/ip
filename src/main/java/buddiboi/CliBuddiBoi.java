@@ -5,6 +5,7 @@ import java.util.Scanner;
 import buddiboi.commands.Command;
 import buddiboi.commands.CommandContext;
 import buddiboi.exceptions.BuddiBoiException;
+import buddiboi.exceptions.CommandException;
 import buddiboi.parser.ParseCommand;
 import buddiboi.storage.Storage;
 import buddiboi.tasks.TaskList;
@@ -16,6 +17,7 @@ import buddiboi.ui.Ui;
 public class CliBuddiBoi {
 
     private static final String SAVE_CONFIRMATION = "yes";
+
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
             TaskList taskList = Storage.load();
@@ -52,11 +54,16 @@ public class CliBuddiBoi {
                 }
 
                 System.out.print(Ui.showCommand(input));
-                String response = command.execute(new CommandContext(taskList));
-
-                assert response != null : "Command execution should always return a response";
-
-                System.out.println(response);
+                try {
+                    String response = command.execute(new CommandContext(taskList));
+                    assert response != null : "Command execution should always return a response";
+                    System.out.println(response);
+                } catch (CommandException e) {
+                    Ui.showCommandError(e.getMessage());
+                } catch (Exception e) {
+                    Ui.showError("An unexpected error occurred");
+                    e.printStackTrace();
+                }
             }
         } catch (BuddiBoiException e) {
             e.getMessage();

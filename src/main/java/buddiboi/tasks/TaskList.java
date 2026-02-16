@@ -47,9 +47,6 @@ public class TaskList {
      * @param taskNumber Task number to be deleted
      */
     public void deleteTask(int taskNumber) {
-        if (taskNumber < 0 || taskNumber > itemCount) {
-            throw new IndexOutOfBoundsException();
-        }
         tasks.remove(taskNumber);
         itemCount--;
     }

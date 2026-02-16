@@ -1,5 +1,6 @@
 package buddiboi.commands;
 
+import buddiboi.exceptions.CommandException;
 import buddiboi.tasks.Task;
 import buddiboi.ui.Ui;
 
@@ -7,10 +8,27 @@ import buddiboi.ui.Ui;
  * Command to delete a task.
  */
 public class DeleteCommand extends Command {
-    private final String args;
+
+    private int taskIndex;
+    private String errorMessage;
+    private final String format = "Format: delete <task number>";
 
     public DeleteCommand(String args) {
-        this.args = args;
+        parseArguments(args);
+    }
+
+    /**
+     * Parses the command arguments and validates input.
+     *
+     * @param args The raw command arguments.
+     */
+    private void parseArguments(String args) {
+        if (args == null || args.trim().isEmpty() || !isIntegerRegex(args)) {
+            this.errorMessage = "Delete must be populated with a integer.";
+            return;
+        }
+
+        this.taskIndex = Integer.parseInt(args.trim()) - 1;
     }
 
     /**
@@ -19,15 +37,16 @@ public class DeleteCommand extends Command {
      * @param context The command context containing the task list and other necessary information.
      */
     @Override
-    public String execute(CommandContext context) {
-        if (args.trim().isEmpty() || !args.trim().matches("\\d+")) {
-            return Ui.showErrorDelete();
+    public String execute(CommandContext context) throws CommandException {
+        if (errorMessage != null) {
+            throw new CommandException(this.errorMessage + " " + format);
         }
 
-        int taskIndex = Integer.parseInt(args.trim()) - 1;
         if (taskIndex < 0 || taskIndex >= context.getTaskList().getItemCount()) {
-            return Ui.showErrorDelete();
+            this.errorMessage = "Delete must be populated with an integer inside the existing list.";
+            throw new CommandException(this.errorMessage + " " + format);
         }
+
         Task deletedTask = context.getTaskList().getTasks().get(taskIndex);
         context.getTaskList().deleteTask(taskIndex);
         return Ui.showDeleteTask(deletedTask, context.getTaskList().getItemCount());

@@ -1,11 +1,13 @@
 package buddiboi.commands;
 
-import buddiboi.ui.Ui;
+import buddiboi.exceptions.CommandException;
 
 /**
  * Command to handle invalid commands.
  */
 public class InvalidCommand extends Command {
+
+    private final String INVALID_COMMAND = "Invalid Command";
 
     /**
      * Executes the InvalidCommand, displaying an error message.
@@ -13,7 +15,7 @@ public class InvalidCommand extends Command {
      * @param context The command context containing the task list and other necessary information.
      */
     @Override
-    public String execute(CommandContext context) {
-        return Ui.showMessage("Invalid command");
+    public String execute(CommandContext context) throws CommandException {
+        throw new CommandException(INVALID_COMMAND);
     }
 }

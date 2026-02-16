@@ -14,6 +14,6 @@ public class ListCommand extends Command {
      */
     @Override
     public String execute(CommandContext context) {
-        return Ui.showMessage(context.getTaskList().toString());
+        return Ui.showListCommand(context.getTaskList());
     }
 }

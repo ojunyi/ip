@@ -26,7 +26,6 @@ public class Storage {
     private static final String DEADLINE_TYPE = "D";
     private static final String EVENT_TYPE = "E";
     private static final String DELIMITER = " | ";
-    private static final String DONE_STATUS = "1";
 
     /**
      * Loads the task list from persistent storage.

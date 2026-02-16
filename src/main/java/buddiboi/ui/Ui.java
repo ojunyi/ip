@@ -3,6 +3,7 @@ package buddiboi.ui;
 import java.io.IOException;
 
 import buddiboi.tasks.Task;
+import buddiboi.tasks.TaskList;
 
 /**
  * User interface class for displaying messages to the user.
@@ -27,6 +28,43 @@ public class Ui {
         return formatText(LOGO + "\n"
                 + "Hello! I'm BuddiBoi\n"
                 + "What can I do for you?");
+    }
+
+    /**
+     * Returns the string description of list
+     *
+     * @param tasksList List of tasks
+     * @returnA formatted string showing the matching tasks
+     */
+    public static String showListCommand(TaskList tasksList) {
+        return tasksList.toString();
+    };
+
+    /**
+     * Shows the results of a find command
+     *
+     * @param matchingTasksList List of tasks that match the search criteria
+     * @return A formatted string showing the matching tasks
+     */
+    public static String showFindCommand(TaskList matchingTasksList) {
+        return matchingTasksList.toString();
+        /*
+        StringBuilder result = new StringBuilder();
+        result.append("Here are the matching tasks in your list:\n");
+
+        if (matchingTasksList.isEmpty()) {
+            result.append("No matching tasks found");
+        } else {
+            for (int i = 0; i < matchingTasksList.size(); i++) {
+                result.append(i + 1)
+                    .append(". ")
+                    .append(matchingTasksList.get(i).toString())
+                    .append("\n");
+            }
+        }
+
+        return result.toString();
+        */
     }
 
     /**
@@ -74,7 +112,7 @@ public class Ui {
      * @param task The task to be marked
      */
     public static String showMarkTask(Task task) {
-        return formatText("Alrightyy! Congratz on completing that task!:\n"
+        return formatText("Well done completing that task:\n"
                 + "  " + task.toString());
     }
 
@@ -105,76 +143,6 @@ public class Ui {
     }
 
     /**
-     * Prints possible errors for the 'Mark' command
-     */
-    public static String showErrorMark() {
-        return showErrorWithReasons(
-                new String[]{"Empty input",
-                        "Index out of bounds",
-                        "Not a number"},
-                "mark <task number>");
-    }
-
-    /**
-     * Prints possible errors for 'Unmark' command
-     */
-    public static String showErrorUnmark() {
-        return showErrorWithReasons(
-                new String[]{"Empty input",
-                        "Index out of bounds",
-                        "Not a number"},
-                "unmark <task number>");
-    }
-
-    /**
-     * Prints possible errors for 'Todo' command
-     */
-    public static String showErrorAddTodo() {
-        return showErrorWithReasons(
-                new String[]{"Empty input"},
-                "todo <description>");
-    }
-
-    /**
-     * Prints possible errors for 'Deadline' command
-     */
-    public static String showErrorAddDeadline() {
-        return showErrorWithReasons(
-                new String[]{"Empty input",
-                        "No /by was found",
-                        "More than one /by was found",
-                        "Invalid date/time format"},
-                "deadline <description> /by <01-01-1999>");
-    }
-
-    /**
-     * Prints possible errors for 'Event' command
-     */
-    public static String showErrorAddEvent() {
-        return showErrorWithReasons(
-                new String[]{"Empty input",
-                        "No /from was found",
-                        "No /to was found",
-                        "More than one /from was found",
-                        "More than one /to was found",
-                        "/from and /to are in the wrong order",
-                        "Invalid datetime format",
-                        "End datetime is before start datetime"},
-                "event <description> /from <01-01-1999> /to <01-01-1999>");
-    }
-
-    /**
-     * Prints possible errors for 'Delete' command
-     */
-    public static String showErrorDelete() {
-        return showErrorWithReasons(
-                new String[]{"Empty input",
-                        "Index out of bounds",
-                        "Not a number"},
-                "delete <task number>");
-    }
-
-    /**
      * Prints error for I/O on save/load
      */
     public static String showErrorStorageIo(IOException e) {
@@ -193,6 +161,18 @@ public class Ui {
      */
     public static String showMessage(String message) {
         return formatText(message);
+    }
+
+    public static String showCommandError(String errorMessage) {
+        return formatText("Command Error: " + errorMessage);
+    }
+
+    public static String showBuddiBoiError(String errorMessage) {
+        return formatText("Internal Error: " + errorMessage);
+    }
+
+    public static String showError(String errorMessage) {
+        return formatText("Error: " + errorMessage);
     }
 
     /**

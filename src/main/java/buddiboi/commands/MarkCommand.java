@@ -1,15 +1,33 @@
 package buddiboi.commands;
 
+import buddiboi.exceptions.CommandException;
 import buddiboi.ui.Ui;
 
 /**
  * Command to mark a task as completed.
  */
 public class MarkCommand extends Command {
-    private final String args;
+
+    private int taskIndex;
+    private String errorMessage;
+    private final String format = "Format: mark <task number>";
 
     public MarkCommand(String args) {
-        this.args = args;
+        parseArguments(args);
+    }
+
+    /**
+     * Parses the command arguments and validates input.
+     *
+     * @param args The raw command arguments.
+     */
+    private void parseArguments(String args) {
+        if (args == null || args.trim().isEmpty() || !isIntegerRegex(args)) {
+            this.errorMessage = "Mark must be populated with a integer.";
+            return;
+        }
+
+        this.taskIndex = Integer.parseInt(args.trim()) - 1;
     }
 
     /**
@@ -18,15 +36,16 @@ public class MarkCommand extends Command {
      * @param context The command context containing the task list and other necessary information.
      */
     @Override
-    public String execute(CommandContext context) {
-        if (args.trim().isEmpty() || !args.trim().matches("\\d+")) {
-            return Ui.showErrorMark();
+    public String execute(CommandContext context) throws CommandException{
+        if (errorMessage != null) {
+            throw new CommandException(this.errorMessage + " " + format);
         }
 
-        int taskIndex = Integer.parseInt(args.trim()) - 1;
-        if (taskIndex < 0 || taskIndex >= context.getTaskList().getTasks().size()) {
-            return Ui.showErrorMark();
+        if (taskIndex < 0 || taskIndex >= context.getTaskList().getItemCount()) {
+            this.errorMessage = "Mark must be populated with an integer inside the existing list.";
+            throw new CommandException(this.errorMessage + " " + format);
         }
+
         context.getTaskList().markTask(taskIndex);
         return Ui.showMarkTask(context.getTaskList().getTasks().get(taskIndex));
     }
