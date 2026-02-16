@@ -126,6 +126,12 @@ public class Ui {
                 + "Would you like me to save your tasks before exiting? (yes/no)");
     }
 
+    /**
+     * Returns the save confirmation message based on whether user wants to save.
+     *
+     * @param isSave True if user wishes to save, false otherwise.
+     * @return A formatted save confirmation message.
+     */
     public static String showSaveConfirmation(Boolean isSave) {
         StringBuilder sb = new StringBuilder();
         if (isSave) {
@@ -139,40 +145,70 @@ public class Ui {
     }
 
     /**
-     * Prints error for I/O on save/load
+     * Returns an error message for I/O failures during save or load operations.
+     *
+     * @param e The IOException that occurred.
+     * @return A formatted error message.
      */
     public static String showErrorStorageIo(IOException e) {
         return formatText("An error occurred while trying to save/load storage file: " + e);
     }
 
     /**
-     * Prints other errors on load
+     * Returns an error message for failures during load operations.
+     *
+     * @param e The exception that occurred.
+     * @return A formatted error message.
      */
     public static String showErrorStorageLoad(Exception e) {
         return formatText("An error occurred while trying to load storage file: " + e);
     }
 
     /**
-     * Prints any message
+     * Returns a formatted message.
+     *
+     * @param message The message to display.
+     * @return A formatted string.
      */
     public static String showMessage(String message) {
         return formatText(message);
     }
 
+    /**
+     * Returns a formatted command error message.
+     *
+     * @param errorMessage The error message to display.
+     * @return A formatted error message.
+     */
     public static String showCommandError(String errorMessage) {
         return formatText("Command Error: " + errorMessage);
     }
 
+    /**
+     * Returns a formatted internal error message.
+     *
+     * @param errorMessage The error message to display.
+     * @return A formatted error message.
+     */
     public static String showBuddiBoiError(String errorMessage) {
         return formatText("Internal Error: " + errorMessage);
     }
 
-    public static String showError(String errorMessage) {
-        return formatText("Error: " + errorMessage);
+    /**
+     * Returns a formatted error message.
+     *
+     * @param errorMessage The error message to display.
+     * @return A formatted error message.
+     */
+    public static String showError() {
+        return formatText("Error: An unexpected error occurred");
     }
 
     /**
-     * Prints message and surrounds them with a divider
+     * Formats text by adding indentation to each line.
+     *
+     * @param input The text to format.
+     * @return A formatted string with indentation applied to each line.
      */
     public static String formatText(String input) {
         StringBuilder sb = new StringBuilder();

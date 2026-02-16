@@ -16,54 +16,73 @@ import buddiboi.ui.Ui;
 public class CliBuddiBoi {
 
     private static final String SAVE_CONFIRMATION = "yes";
+    // Ease of building response for testing purposes only
+    private static final StringBuilder sb = new StringBuilder();
 
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
-            StringBuilder stringBuilder = new StringBuilder();
-            TaskList taskList = Storage.load();
-            assert taskList != null : "TaskList should never be null after loading from storage";
-
-            stringBuilder.append(Ui.showWelcome());
-
-            while (true) {
-                String input = scanner.nextLine().trim();
-                ParseCommand commandParser = new ParseCommand(input);
-                Command command = commandParser.getCommand();
-
-                assert command != null : "Parser should never return null command";
-
-                try {
-                    System.out.print(Ui.showCommand(input));
-                    String response = command.execute(taskList);
-                    System.out.println(response);
-
-                    if (command.isExit()) {
-
-                        if (scanner.hasNextLine()) {
-                            String saveChoice = scanner.nextLine().trim();
-                            System.out.print(Ui.showCommand(saveChoice));
-
-                            if (saveChoice.toLowerCase().equals(SAVE_CONFIRMATION)) {
-                                System.out.println(Ui.showSaveConfirmation(true));
-                                Storage.save(taskList.getTasks());
-                            } else {
-                                System.out.println(Ui.showSaveConfirmation(false));
-                            }
-                        } else {
-                            System.out.println(Ui.showExitNoCommand());
-                        }
-                        break;
-                    }
-
-                } catch (CommandException e) {
-                    System.out.println(Ui.showCommandError(e.getMessage()));
-                } catch (Exception e) {
-                    Ui.showError("An unexpected error occurred");
-                    e.printStackTrace();
-                }
-            }
+            run(scanner);
         } catch (BuddiBoiException e) {
-            e.getMessage();
+            sb.append(Ui.showBuddiBoiError(e.getMessage()));
+        }
+    }
+
+    private static void run(Scanner scanner) throws BuddiBoiException {
+        TaskList taskList = Storage.load();
+        assert taskList != null : "TaskList should never be null after loading from storage";
+
+        sb.append(Ui.showWelcome());
+
+        while (true) {
+            String input = scanner.nextLine().trim();
+            ParseCommand commandParser = new ParseCommand(input);
+            Command command = commandParser.getCommand();
+
+            assert command != null : "Parser should never return null command";
+
+            if (handleCommand(scanner, sb, taskList, command, input)) {
+                break;
+            }
+        }
+
+        System.out.print(sb.toString());
+    }
+
+    private static boolean handleCommand(Scanner scanner, StringBuilder sb, TaskList taskList,
+            Command command, String input) {
+
+        try {
+            sb.append(Ui.showCommand(input));
+            String response = command.execute(taskList);
+            sb.append(response);
+
+            if (command.isExit()) {
+                handleExit(scanner, sb, taskList);
+                return true;
+            }
+
+            return false;
+
+        } catch (CommandException e) {
+            sb.append(Ui.showCommandError(e.getMessage()));
+            return false;
+        }
+    }
+
+    private static void handleExit(Scanner scanner, StringBuilder sb, TaskList taskList) {
+        if (!scanner.hasNextLine()) {
+            sb.append(Ui.showExitNoCommand());
+            return;
+        }
+
+        String saveChoice = scanner.nextLine().trim();
+        sb.append(Ui.showCommand(saveChoice));
+
+        if (saveChoice.toLowerCase().equals(SAVE_CONFIRMATION)) {
+            sb.append(Ui.showSaveConfirmation(true));
+            Storage.save(taskList.getTasks());
+        } else {
+            sb.append(Ui.showSaveConfirmation(false));
         }
     }
 }

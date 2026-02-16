@@ -2,9 +2,11 @@ package buddiboi;
 
 import buddiboi.commands.Command;
 import buddiboi.exceptions.BuddiBoiException;
+import buddiboi.exceptions.CommandException;
 import buddiboi.parser.ParseCommand;
 import buddiboi.storage.Storage;
 import buddiboi.tasks.TaskList;
+import buddiboi.ui.Ui;
 
 /**
  * Main class for the BuddiBoi application.
@@ -34,12 +36,10 @@ public class BuddiBoi {
             }
 
             return response;
-
+        } catch (CommandException e) {
+            return Ui.showCommandError(e.getMessage());
         } catch (BuddiBoiException e) {
-            return e.getMessage();
-
-        } catch (Exception e) {
-            return "An unexpected error occurred. Please try again.";
+            return Ui.showBuddiBoiError(e.getMessage());
         }
     }
 }
