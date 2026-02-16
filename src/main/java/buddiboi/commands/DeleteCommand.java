@@ -2,6 +2,7 @@ package buddiboi.commands;
 
 import buddiboi.exceptions.CommandException;
 import buddiboi.tasks.Task;
+import buddiboi.tasks.TaskList;
 import buddiboi.ui.Ui;
 
 /**
@@ -37,18 +38,18 @@ public class DeleteCommand extends Command {
      * @param context The command context containing the task list and other necessary information.
      */
     @Override
-    public String execute(CommandContext context) throws CommandException {
+    public String execute(TaskList taskList) throws CommandException {
         if (errorMessage != null) {
-            throw new CommandException(this.errorMessage + " " + format);
+            throw new CommandException(this.errorMessage + "\n" + format);
         }
 
-        if (taskIndex < 0 || taskIndex >= context.getTaskList().getItemCount()) {
+        if (taskIndex < 0 || taskIndex >= taskList.getItemCount()) {
             this.errorMessage = "Delete must be populated with an integer inside the existing list.";
-            throw new CommandException(this.errorMessage + " " + format);
+            throw new CommandException(this.errorMessage + "\n" + format);
         }
 
-        Task deletedTask = context.getTaskList().getTasks().get(taskIndex);
-        context.getTaskList().deleteTask(taskIndex);
-        return Ui.showDeleteTask(deletedTask, context.getTaskList().getItemCount());
+        Task deletedTask = taskList.getTasks().get(taskIndex);
+        taskList.deleteTask(taskIndex);
+        return Ui.showDeleteTask(deletedTask, taskList.getItemCount());
     }
 }

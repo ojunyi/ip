@@ -1,7 +1,6 @@
 package buddiboi;
 
 import buddiboi.commands.Command;
-import buddiboi.commands.CommandContext;
 import buddiboi.exceptions.BuddiBoiException;
 import buddiboi.parser.ParseCommand;
 import buddiboi.storage.Storage;
@@ -27,7 +26,7 @@ public class BuddiBoi {
             ParseCommand commandParser = new ParseCommand(input);
             Command command = commandParser.getCommand();
             assert command != null : "Parser should never return null command";
-            String response = command.execute(new CommandContext(taskList));
+            String response = command.execute(taskList);
             assert response != null : "Command execution should always return a response";
 
             if (command.isExit()) {

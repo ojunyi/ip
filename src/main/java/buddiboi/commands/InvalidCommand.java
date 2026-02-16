@@ -1,6 +1,7 @@
 package buddiboi.commands;
 
 import buddiboi.exceptions.CommandException;
+import buddiboi.tasks.TaskList;
 
 /**
  * Command to handle invalid commands.
@@ -15,7 +16,7 @@ public class InvalidCommand extends Command {
      * @param context The command context containing the task list and other necessary information.
      */
     @Override
-    public String execute(CommandContext context) throws CommandException {
+    public String execute(TaskList taskList) throws CommandException {
         throw new CommandException(INVALID_COMMAND);
     }
 }

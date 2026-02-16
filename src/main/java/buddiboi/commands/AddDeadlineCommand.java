@@ -6,6 +6,7 @@ import java.time.format.DateTimeParseException;
 import buddiboi.exceptions.CommandException;
 import buddiboi.parser.NaturalDateParser;
 import buddiboi.tasks.Deadline;
+import buddiboi.tasks.TaskList;
 import buddiboi.ui.Ui;
 
 /**
@@ -78,13 +79,13 @@ public class AddDeadlineCommand extends Command {
      * @param context The command context containing the task list and other necessary information.
      */
     @Override
-    public String execute(CommandContext context) throws CommandException {
+    public String execute(TaskList taskList) throws CommandException {
         if (errorMessage != null) {
-            throw new CommandException(this.errorMessage + " " + format);
+            throw new CommandException(this.errorMessage + "\n" + format);
         }
 
         Deadline deadline = new Deadline(description, by);
-        context.getTaskList().addTask(deadline);
+        taskList.addTask(deadline);
         return Ui.showAddTask(deadline);
     }
 

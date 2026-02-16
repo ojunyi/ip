@@ -33,13 +33,13 @@ public class FindCommand extends Command {
     }
 
     @Override
-    public String execute(CommandContext context) throws CommandException {
+    public String execute(TaskList taskList) throws CommandException {
         if (errorMessage != null) {
-            throw new CommandException(this.errorMessage + " " + format);
+            throw new CommandException(this.errorMessage + "\n" + format);
         }
 
         TaskList matchingTasksList = new TaskList();
-        for (Task task : context.getTaskList().getTasks()) {
+        for (Task task : taskList.getTasks()) {
             if (task.getDescription().contains(description)) {
                 matchingTasksList.addTask(task);
             }

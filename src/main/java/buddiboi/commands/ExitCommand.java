@@ -1,5 +1,6 @@
 package buddiboi.commands;
 
+import buddiboi.tasks.TaskList;
 import buddiboi.ui.Ui;
 
 /**
@@ -13,8 +14,8 @@ public class ExitCommand extends Command {
      * @param context The command context containing the task list and other necessary information.
      */
     @Override
-    public String execute(CommandContext context) {
-        return Ui.showMessage("Preparing to exit...");
+    public String execute(TaskList taskList) {
+        return Ui.showExitSaveCommand();
     }
 
     @Override

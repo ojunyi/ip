@@ -10,10 +10,7 @@ import buddiboi.tasks.TaskList;
  */
 public class Ui {
 
-    private static final String DIVIDER = "----------------------------------\n";
     private static final String INDENT = "    < ";
-    private static final String ERROR_PREFIX = "Invalid command due to possible reasons:\n";
-    private static final String USAGE_PREFIX = "Please use - ";
     private static final String LOGO = "______           _     _ _______       _ \n"
             + "| ___ \\         | |   | (_) ___ \\     (_)\n"
             + "| |_/ /_   _  __| | __| |_| |_/ / ___  _ \n"
@@ -22,7 +19,9 @@ public class Ui {
             + "\\____/ \\__,_|\\__,_|\\__,_|_\\____/ \\___/|_|\n";
 
     /**
-     * Prints the greetings of the program
+     * Returns the welcome message with the BuddiBoi logo.
+     *
+     * @return A formatted welcome message.
      */
     public static String showWelcome() {
         return formatText(LOGO + "\n"
@@ -31,44 +30,29 @@ public class Ui {
     }
 
     /**
-     * Returns the string description of list
+     * Returns a formatted list of all tasks.
      *
-     * @param tasksList List of tasks
-     * @returnA formatted string showing the matching tasks
+     * @param tasksList The task list to display.
+     * @return A formatted string showing all tasks.
      */
     public static String showListCommand(TaskList tasksList) {
-        return tasksList.toString();
+        return formatText(tasksList.toString());
     };
 
     /**
-     * Shows the results of a find command
+     * Returns the results of a find command.
      *
-     * @param matchingTasksList List of tasks that match the search criteria
-     * @return A formatted string showing the matching tasks
+     * @param matchingTasksList The list of tasks that match the search criteria.
+     * @return A formatted string showing the matching tasks.
      */
     public static String showFindCommand(TaskList matchingTasksList) {
-        return matchingTasksList.toString();
-        /*
-        StringBuilder result = new StringBuilder();
-        result.append("Here are the matching tasks in your list:\n");
-
-        if (matchingTasksList.isEmpty()) {
-            result.append("No matching tasks found");
-        } else {
-            for (int i = 0; i < matchingTasksList.size(); i++) {
-                result.append(i + 1)
-                    .append(". ")
-                    .append(matchingTasksList.get(i).toString())
-                    .append("\n");
-            }
-        }
-
-        return result.toString();
-        */
+        return formatText(matchingTasksList.toString());
     }
 
     /**
-     * Prints the goodbyes of the program
+     * Returns the exit message when no save command was given.
+     *
+     * @return A formatted exit message indicating tasks were not saved.
      */
     public static String showExitNoCommand() {
         return formatText("No save command was given.\n"
@@ -77,28 +61,31 @@ public class Ui {
     }
 
     /**
-     * Prints the user input command
+     * Returns a formatted display of the user's command.
      *
-     * @param command The users input
+     * @param command The user's input command.
+     * @return A formatted string showing the command.
      */
     public static String showCommand(String command) {
         return " > Command: " + command + "\n";
     }
 
     /**
-     * Prints the task that was added
+     * Returns a confirmation message for adding a task.
      *
-     * @param task The task to be added
+     * @param task The task that was added.
+     * @return A formatted confirmation message.
      */
     public static String showAddTask(Task task) {
         return formatText("Added: " + task.toString());
     }
 
     /**
-     * Prints the task to be deleted
+     * Returns a confirmation message for deleting a task.
      *
-     * @param task Task to be deleted
-     * @param itemCount Total task left in the list after deleting the task
+     * @param task The task that was deleted.
+     * @param itemCount The number of tasks remaining in the list.
+     * @return A formatted confirmation message.
      */
     public static String showDeleteTask(Task task, int itemCount) {
         return formatText("Noted. I've removed this task. Less work for you:\n"
@@ -107,9 +94,10 @@ public class Ui {
     }
 
     /**
-     * Prints the task to be marked
+     * Returns a confirmation message for marking a task as done.
      *
-     * @param task The task to be marked
+     * @param task The task that was marked.
+     * @return A formatted confirmation message.
      */
     public static String showMarkTask(Task task) {
         return formatText("Well done completing that task:\n"
@@ -117,9 +105,10 @@ public class Ui {
     }
 
     /**
-     * Prints the task to be unmarked
+     * Returns a confirmation message for unmarking a task.
      *
-     * @param task The task to be unmarked
+     * @param task The task that was unmarked.
+     * @return A formatted confirmation message.
      */
     public static String showUnmarkTask(Task task) {
         return formatText("Okay. Task shall be unmarked:\n"
@@ -127,19 +116,26 @@ public class Ui {
     }
 
     /**
-     * Prints whether the user saved the task list
+     * Returns the exit message based on whether tasks were saved.
      *
-     * @param isSave Yes/No input on whether the user wants to save the task list
+     * @param isSave True if tasks were saved, false otherwise.
+     * @return A formatted exit message.
      */
-    public static String showExitSaveCommand(Boolean isSave) {
-        StringBuilder reply = new StringBuilder();
+    public static String showExitSaveCommand() {
+        return formatText("Preparing to exit...\n"
+                + "Would you like me to save your tasks before exiting? (yes/no)");
+    }
+
+    public static String showSaveConfirmation(Boolean isSave) {
+        StringBuilder sb = new StringBuilder();
         if (isSave) {
-            reply.append("Your tasks have been saved\n");
+            sb.append("Your tasks have been saved\n");
         } else {
-            reply.append("Your tasks have not been saved\n");
+            sb.append("Your tasks have not been saved\n");
         }
-        reply.append("See you next timeee! Ciaoooo ~~~");
-        return formatText(reply.toString());
+        sb.append("See you next timeee! Ciaoooo ~~~");
+
+        return formatText(sb.toString());
     }
 
     /**
@@ -181,28 +177,10 @@ public class Ui {
     public static String formatText(String input) {
         StringBuilder sb = new StringBuilder();
 
-        sb.append(DIVIDER).append("\n");
         for (String line : input.split("\n")) {
             sb.append(INDENT).append(line.replaceAll("\\s+$", "")).append("\n");
         }
-        sb.append("\n").append(DIVIDER);
 
         return sb.toString();
-    }
-
-    /**
-     * Format error message to show as list
-     *
-     * @param reasons List of reasons associated with error
-     * @param usage Proper usage of command
-     * @return Returns a list of errors
-     */
-    private static String showErrorWithReasons(String[] reasons, String usage) {
-        StringBuilder sb = new StringBuilder(ERROR_PREFIX);
-        for (String reason : reasons) {
-            sb.append(" - ").append(reason).append("\n");
-        }
-        sb.append(USAGE_PREFIX).append(usage);
-        return formatText(sb.toString());
     }
 }

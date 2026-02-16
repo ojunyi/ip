@@ -1,5 +1,6 @@
 package buddiboi.commands;
 
+import buddiboi.tasks.TaskList;
 import buddiboi.ui.Ui;
 
 /**
@@ -13,7 +14,7 @@ public class ListCommand extends Command {
      * @param context The command context containing the task list and other necessary information.
      */
     @Override
-    public String execute(CommandContext context) {
-        return Ui.showListCommand(context.getTaskList());
+    public String execute(TaskList taskList) {
+        return Ui.showListCommand(taskList);
     }
 }

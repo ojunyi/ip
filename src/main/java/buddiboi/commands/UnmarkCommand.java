@@ -1,6 +1,7 @@
 package buddiboi.commands;
 
 import buddiboi.exceptions.CommandException;
+import buddiboi.tasks.TaskList;
 import buddiboi.ui.Ui;
 
 /**
@@ -35,17 +36,17 @@ public class UnmarkCommand extends Command {
      * @param context The command context containing the task list and other necessary information.
      */
     @Override
-    public String execute(CommandContext context) throws CommandException {
+    public String execute(TaskList taskList) throws CommandException {
         if (errorMessage != null) {
-            throw new CommandException(this.errorMessage + " " + format);
+            throw new CommandException(this.errorMessage + "\n" + format);
         }
 
-        if (taskIndex < 0 || taskIndex >= context.getTaskList().getItemCount()) {
+        if (taskIndex < 0 || taskIndex >= taskList.getItemCount()) {
             this.errorMessage = "Unmark must be populated with an integer inside the existing list.";
-            throw new CommandException(this.errorMessage + " " + format);
+            throw new CommandException(this.errorMessage + "\n" + format);
         }
 
-        context.getTaskList().unmarkTask(taskIndex);
-        return Ui.showUnmarkTask(context.getTaskList().getTasks().get(taskIndex));
+        taskList.unmarkTask(taskIndex);
+        return Ui.showUnmarkTask(taskList.getTasks().get(taskIndex));
     }
 }

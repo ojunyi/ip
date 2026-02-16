@@ -1,12 +1,13 @@
 package buddiboi.commands;
 
 import buddiboi.exceptions.CommandException;
+import buddiboi.tasks.TaskList;
 
 /**
  * Abstract base class to be used for all commands.
  */
 public abstract class Command {
-    public abstract String execute(CommandContext context) throws CommandException;
+    public abstract String execute(TaskList taskList) throws CommandException;
 
     public boolean isExit() {
         return false;

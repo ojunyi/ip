@@ -1,6 +1,7 @@
 package buddiboi.commands;
 
 import buddiboi.exceptions.CommandException;
+import buddiboi.tasks.TaskList;
 import buddiboi.tasks.Todo;
 import buddiboi.ui.Ui;
 
@@ -26,6 +27,8 @@ public class AddTodoCommand extends Command {
         if (args == null || args.trim().isEmpty()) {
             this.errorMessage = "Todo must be populated with a description.";
         }
+
+        this.description = args;
     }
 
     /**
@@ -34,13 +37,13 @@ public class AddTodoCommand extends Command {
      * @param context The command context containing the task list and other necessary information.
      */
     @Override
-    public String execute(CommandContext context) throws CommandException {
+    public String execute(TaskList taskList) throws CommandException {
         if (errorMessage != null) {
-            throw new CommandException(this.errorMessage + " " + format);
+            throw new CommandException(this.errorMessage + "\n" + format);
         }
 
         Todo todo = new Todo(description);
-        context.getTaskList().addTask(todo);
+        taskList.addTask(todo);
         return Ui.showAddTask(todo);
     }
 }
