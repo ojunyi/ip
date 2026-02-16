@@ -7,28 +7,20 @@
     <
     < Hello! I'm BuddiBoi
     < What can I do for you?
-
  > Command: todo borrow book
     < Added: [T][ ] borrow book
-
  > Command: deadline return book /by Mon
     < Added: [D][ ] return book (by: 23 Feb 2026 0000)
-
  > Command: event project meeting /from 04-02-2026 1200 /to 04-02-2026 1400
     < Added: [E][ ] project meeting (From: 04 Feb 2026 1200 To: 04 Feb 2026 1400)
-
  > Command: event project meeting /from 05-02-2026 0000 /to 06-02-2026 2359
     < Added: [E][ ] project meeting (From: 05 Feb 2026 0000 To: 06 Feb 2026 2359)
-
  > Command: todo return book
     < Added: [T][ ] return book
-
  > Command: deadline bake bread /by 08-02-2026 2359
     < Added: [D][ ] bake bread (by: 08 Feb 2026 2359)
-
  > Command: testtest
     < Command Error: Invalid Command
-
  > Command: list
     < 1. [T][ ] borrow book
     < 2. [D][ ] return book (by: 23 Feb 2026 0000)
@@ -36,35 +28,27 @@
     < 4. [E][ ] project meeting (From: 05 Feb 2026 0000 To: 06 Feb 2026 2359)
     < 5. [T][ ] return book
     < 6. [D][ ] bake bread (by: 08 Feb 2026 2359)
-
  > Command: find project
     < 1. [E][ ] project meeting (From: 04 Feb 2026 1200 To: 04 Feb 2026 1400)
     < 2. [E][ ] project meeting (From: 05 Feb 2026 0000 To: 06 Feb 2026 2359)
-
  > Command: find project meeting
     < 1. [E][ ] project meeting (From: 04 Feb 2026 1200 To: 04 Feb 2026 1400)
     < 2. [E][ ] project meeting (From: 05 Feb 2026 0000 To: 06 Feb 2026 2359)
-
  > Command: find book
     < 1. [T][ ] borrow book
     < 2. [D][ ] return book (by: 23 Feb 2026 0000)
     < 3. [T][ ] return book
-
  > Command: find bood
     < List is empty
-
  > Command: mark 1
     < Well done completing that task:
     <   [T][X] borrow book
-
  > Command: mark 3
     < Well done completing that task:
     <   [E][X] project meeting (From: 04 Feb 2026 1200 To: 04 Feb 2026 1400)
-
  > Command: mark 5
     < Well done completing that task:
     <   [T][X] return book
-
  > Command: list
     < 1. [T][X] borrow book
     < 2. [D][ ] return book (by: 23 Feb 2026 0000)
@@ -72,27 +56,21 @@
     < 4. [E][ ] project meeting (From: 05 Feb 2026 0000 To: 06 Feb 2026 2359)
     < 5. [T][X] return book
     < 6. [D][ ] bake bread (by: 08 Feb 2026 2359)
-
  > Command: unmark 1
     < Okay. Task shall be unmarked:
     <   [T][ ] borrow book
-
  > Command: unmark 2
     < Okay. Task shall be unmarked:
     <   [D][ ] return book (by: 23 Feb 2026 0000)
-
  > Command: unmark 3
     < Okay. Task shall be unmarked:
     <   [E][ ] project meeting (From: 04 Feb 2026 1200 To: 04 Feb 2026 1400)
-
  > Command: mark 2
     < Well done completing that task:
     <   [D][X] return book (by: 23 Feb 2026 0000)
-
  > Command: mark 4
     < Well done completing that task:
     <   [E][X] project meeting (From: 05 Feb 2026 0000 To: 06 Feb 2026 2359)
-
  > Command: list
     < 1. [T][ ] borrow book
     < 2. [D][X] return book (by: 23 Feb 2026 0000)
@@ -100,39 +78,31 @@
     < 4. [E][X] project meeting (From: 05 Feb 2026 0000 To: 06 Feb 2026 2359)
     < 5. [T][X] return book
     < 6. [D][ ] bake bread (by: 08 Feb 2026 2359)
-
  > Command: mark
     < Command Error: Mark must be populated with a integer.
     < Format: mark <task number>
-
  > Command: mark 101
-    < Command Error: Mark must be populated with an integer inside the existing list. Format: mark <task number>
-
+    < Command Error: Mark must be populated with an integer inside the existing list.
+    < Format: mark <task number>
  > Command: mark asd
     < Command Error: Mark must be populated with a integer.
     < Format: mark <task number>
-
  > Command: unmark
     < Command Error: Unmark must be populated with a integer.
     < Format: unmark <task number>
-
  > Command: unmark 101
-    < Command Error: Unmark must be populated with an integer inside the existing list. Format: unmark <task number>
-
+    < Command Error: Unmark must be populated with an integer inside the existing list.
+    < Format: unmark <task number>
  > Command: unmark das
     < Command Error: Unmark must be populated with a integer.
     < Format: unmark <task number>
-
  > Command: todo
     < Command Error: Todo must be populated with a description.
     < Format: todo <description>
-
  > Command: todo 123asd
     < Added: [T][ ] 123asd
-
  > Command: todo asd 321
     < Added: [T][ ] asd 321
-
  > Command: list
     < 1. [T][ ] borrow book
     < 2. [D][X] return book (by: 23 Feb 2026 0000)
@@ -142,77 +112,60 @@
     < 6. [D][ ] bake bread (by: 08 Feb 2026 2359)
     < 7. [T][ ] 123asd
     < 8. [T][ ] asd 321
-
  > Command: deadline error by today
     < Command Error: Deadline must specify a date using ' /by '.
     < Format: deadline <description> /by <date>
-
  > Command: deadline error /by today /by next week
     < Command Error: Deadline must specify a deadline using no more than one ' /by '.
     < Format: deadline <description> /by <date>
-
  > Command: deadline error /by today /by next week /by next month
     < Command Error: Deadline must specify a deadline using no more than one ' /by '.
     < Format: deadline <description> /by <date>
-
  > Command: event error from today to next week
     < Command Error: Event must specify a start date using ' /from '.
     < Format: event <description> /from <start date> /to <end date>
-
  > Command: event error /from today /to next week /from tomorrow
     < Command Error: Event must specify an event using no more than one ' /from '.
     < Format: event <description> /from <start date> /to <end date>
-
  > Command: event error /from today /to next week /to tomorrow
     < Command Error: Event must specify an event using no more than one ' /to '.
     < Format: event <description> /from <start date> /to <end date>
-
  > Command: event error /to today /from next week
     < Command Error: Event must specify ' /from ' before ' /to '.
     < Format: event <description> /from <start date> /to <end date>
-
  > Command: delete 6
     < Noted. I've removed this task. Less work for you:
     <   [D][ ] bake bread (by: 08 Feb 2026 2359)
     < Now you have 7 tasks in the list.
-
  > Command: delete 6
     < Noted. I've removed this task. Less work for you:
     <   [T][ ] 123asd
     < Now you have 6 tasks in the list.
-
  > Command: delete 3
     < Noted. I've removed this task. Less work for you:
     <   [E][ ] project meeting (From: 04 Feb 2026 1200 To: 04 Feb 2026 1400)
     < Now you have 5 tasks in the list.
-
  > Command: delete 2
     < Noted. I've removed this task. Less work for you:
     <   [D][X] return book (by: 23 Feb 2026 0000)
     < Now you have 4 tasks in the list.
-
  > Command: list
     < 1. [T][ ] borrow book
     < 2. [E][X] project meeting (From: 05 Feb 2026 0000 To: 06 Feb 2026 2359)
     < 3. [T][X] return book
     < 4. [T][ ] asd 321
-
  > Command: delete 10
-    < Command Error: Delete must be populated with an integer inside the existing list. Format: delete <task number>
-
+    < Command Error: Delete must be populated with an integer inside the existing list.
+    < Format: delete <task number>
  > Command: delete
     < Command Error: Delete must be populated with a integer.
     < Format: delete <task number>
-
  > Command: delete 1 asd
     < Command Error: Delete must be populated with a integer.
     < Format: delete <task number>
-
  > Command: bye
     < Preparing to exit...
-
     < Would you like me to save your tasks before exiting? (yes/no)
-
  > Command: no
     < Your tasks have not been saved
     < See you next timeee! Ciaoooo ~~~
