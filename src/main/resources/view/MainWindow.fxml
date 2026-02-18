@@ -56,7 +56,7 @@
         <Label fx:id="typingIndicator"
                text=""
                style="-fx-font-family: 'Courier New';
-                      -fx-font-size: 12px;
+                      -fx-font-size: 20px;
                       -fx-text-fill: #5BC8F5;
                       -fx-padding: 0 0 0 18;
                       -fx-opacity: 0.85;"
