@@ -9,17 +9,18 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class Gui extends Application{
+public class Gui extends Application {
 
     private BuddiBoi buddiBoi = new BuddiBoi();
 
     @Override
-     public void start(Stage stage) {
+    public void start(Stage stage) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(Gui.class.getResource("/view/MainWindow.fxml"));
             AnchorPane ap = fxmlLoader.load();
             Scene scene = new Scene(ap);
             stage.setScene(scene);
+            stage.setTitle("BuddiBoi");
             fxmlLoader.<MainWindow>getController().setBuddiBoi(buddiBoi);
             stage.show();
         } catch (IOException e) {

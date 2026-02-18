@@ -68,4 +68,8 @@ public class BuddiBoi {
             System.err.println("Failed to save task list.");
         }
     }
+
+    public String getWelcomeMessage() {
+        return Ui.showWelcome();
+    }
 }

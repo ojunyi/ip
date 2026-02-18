@@ -1,30 +1,26 @@
 package buddiboi.ui;
 
 import java.io.IOException;
-import java.util.Collections;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 /**
- * Represents a dialog box consisting of an ImageView to represent the speaker's face
- * and a label containing text from the speaker.
+ * Represents a dialog box
  */
-public class DialogBox extends HBox {
+public class DialogBox extends VBox {
+    @FXML
+    private Label speakerLabel;
     @FXML
     private Label dialog;
     @FXML
     private ImageView displayPicture;
 
-    private DialogBox(String text, Image img) {
+    private DialogBox(String speaker, String text, Image img, boolean isUser) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(MainWindow.class.getResource("/view/DialogBox.fxml"));
             fxmlLoader.setController(this);
@@ -34,28 +30,24 @@ public class DialogBox extends HBox {
             e.printStackTrace();
         }
 
+        speakerLabel.setText(isUser ? "YOU" : "BUDDIBOI");
         dialog.setText(text);
         displayPicture.setImage(img);
-    }
 
-    /**
-     * Flips the dialog box such that the ImageView is on the left and text on the right.
-     */
-    private void flip() {
-        ObservableList<Node> tmp = FXCollections.observableArrayList(this.getChildren());
-        Collections.reverse(tmp);
-        getChildren().setAll(tmp);
-        setAlignment(Pos.TOP_LEFT);
+        if (isUser) {
+            dialog.setStyle(dialog.getStyle() + "; -fx-text-fill: #FFFFFF;");
+            speakerLabel.setStyle(speakerLabel.getStyle() + "; -fx-text-fill: #AAFFAA;");
+        } else {
+            dialog.setStyle(dialog.getStyle() + "; -fx-text-fill: #5BC8F5;");
+            speakerLabel.setStyle(speakerLabel.getStyle() + "; -fx-text-fill: #FFD700;");
+        }
     }
 
     public static DialogBox getUserDialog(String text, Image img) {
-        return new DialogBox(text, img);
+        return new DialogBox("YOU", text, img, true);
     }
 
     public static DialogBox getBuddiBoiDialog(String text, Image img) {
-        var db = new DialogBox(text, img);
-        db.flip();
-        db.dialog.setStyle(db.dialog.getStyle() + "; -fx-text-fill: #4A90E2;");
-        return db;
+        return new DialogBox("BUDDIBOI", text, img, false);
     }
 }
