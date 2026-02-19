@@ -33,7 +33,7 @@ public class UnmarkCommand extends Command {
     /**
      * Executes the UnmarkCommand, unmarking a task as not completed in the task list.
      *
-     * @param context The command context containing the task list and other necessary information.
+     * @param taskList The taskList containing the task list and other necessary information.
      */
     @Override
     public String execute(TaskList taskList) throws CommandException {

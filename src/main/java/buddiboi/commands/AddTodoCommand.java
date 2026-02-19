@@ -34,7 +34,7 @@ public class AddTodoCommand extends Command {
     /**
      * Executes the AddTodoCommand, adding a new todo task to the task list.
      *
-     * @param context The command context containing the task list and other necessary information.
+     * @param taskList The taskList containing the task list and other necessary information.
      */
     @Override
     public String execute(TaskList taskList) throws CommandException {

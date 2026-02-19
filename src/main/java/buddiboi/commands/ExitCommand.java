@@ -11,7 +11,7 @@ public class ExitCommand extends Command {
     /**
      * Executes the ExitCommand, prompting the user to save tasks before exiting.
      *
-     * @param context The command context containing the task list and other necessary information.
+     * @param taskList The taskList containing the task list and other necessary information.
      */
     @Override
     public String execute(TaskList taskList) {

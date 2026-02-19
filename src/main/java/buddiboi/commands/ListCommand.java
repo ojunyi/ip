@@ -11,7 +11,7 @@ public class ListCommand extends Command {
     /**
      * Executes the ListCommand, displaying all tasks in the task list.
      *
-     * @param context The command context containing the task list and other necessary information.
+     * @param taskList The taskList containing the task list and other necessary information.
      */
     @Override
     public String execute(TaskList taskList) {
