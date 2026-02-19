@@ -39,6 +39,8 @@ If the launch is successfuly, you should see BuddiBoi greet you with an opening 
 | Find Tasks | `find <keyword>` | `find report` |
 | Exit | `bye` / `goodbye` / `exit` / `quit` | `bye` |
 
+Do take note that by `BCD-Extention` is `C-NaturalDates` which means that dates can be written in other formats such as: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`, `Today`, `Tomorrow`.
+
 ---
 
 # Known Issues
