@@ -13,8 +13,6 @@ BuddiBoi is designed for users who prefer typing over clicking and want a fast w
 
 # Features
 
----
-
 ## Greeting BuddiBoi
 
 Say hello to BuddiBoi to get started!
@@ -58,7 +56,7 @@ Now you have 1 task(s) in the list.
 Adds a task with a specific deadline.
 
 **Command:** `deadline <description> /by <date>`
-dd-MM-yyyy HHmm
+
 **Example:**
 ```
 deadline submit report /by 19-02-2026 1800
@@ -211,12 +209,12 @@ bye
 It looks like you are ready to wrap up for now.
 Would you like me to save your tasks before we go? (yes / no)
 ```
-Replying with yes
+**Replying with yes**
 ```
 Your tasks have been saved safely. They will be here waiting for you!
 Thank you for using BuddiBoi. See you next time!
 ```
-Replying with anything other than yes
+**Replying with anything other than yes**
 ```
 Alright, your tasks have not been saved this time.
 Thank you for using BuddiBoi. See you next time!

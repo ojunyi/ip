@@ -144,7 +144,7 @@ public class Ui {
     public static String showSaveConfirmation(Boolean isSave) {
         StringBuilder sb = new StringBuilder();
         if (isSave) {
-            sb.append("Your tasks have been saved safely. They will be here waiting for you!\n");
+            sb.append("Your tasks have been saved. They will be here waiting for you!\n");
         } else {
             sb.append("Alright, your tasks have not been saved this time.\n");
         }
