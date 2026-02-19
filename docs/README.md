@@ -11,6 +11,36 @@ BuddiBoi is designed for users who prefer typing over clicking and want a fast w
 
 ---
 
+# Installation
+
+> *(Installation guide coming soon. Please check back later.)*
+
+---
+
+# Command Summary
+
+| Command | Format | Usage Example |
+|---|---|---|
+| Hello | `hello` / `hi` / `hey` | `hello` |
+| Add Todo | `todo <description>` | `todo buy groceries` |
+| Add Deadline | `deadline <description> /by <date>` | `deadline submit report /by today 1800` |
+| Add Event | `event <description> /from <start> /to <end>` | `event team meeting /from tomorrow 1200 /to tomorrow 1300` |
+| List Tasks | `list` | `list` |
+| Mark Done | `mark <index>` | `mark 1` |
+| Unmark Task | `unmark <index>` | `unmark 1` |
+| Delete Task | `delete <index>` | `delete 1` |
+| Find Tasks | `find <keyword>` | `find report` |
+| Exit | `bye` / `goodbye` / `exit` / `quit` | `bye` |
+
+---
+
+# Known Issues
+
+1. When writing a date using the day (i.e. Mon or Tue), the date parser takes the following day that you input. i.e. If today is a Wednesday, and you write Wed, it will assume you mean next Wednesday, not today's Wednesday. Therefore, assuming today is Wednesday, if you write `event test /from Wed /to Thu`, it will assume you mean the event is from next Wednesday to tomorrow's Thursday and will throw an error because that is not possible. Instead, write `event test /from Today /to Thu` or `event test /from Today /to Tomorrow`.
+2. After calling `bye` at the end and after confirming whether you would like to save or not, there is a small delay before the application closes. That delay is intentional.
+
+---
+
 # Features
 
 ## Greeting BuddiBoi
