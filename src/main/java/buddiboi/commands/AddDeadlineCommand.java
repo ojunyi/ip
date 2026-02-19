@@ -86,7 +86,7 @@ public class AddDeadlineCommand extends Command {
 
         Deadline deadline = new Deadline(description, by);
         taskList.addTask(deadline);
-        return Ui.showAddTask(deadline);
+        return Ui.showAddTask(deadline, taskList.getItemCount());
     }
 
 }

@@ -44,6 +44,6 @@ public class AddTodoCommand extends Command {
 
         Todo todo = new Todo(description);
         taskList.addTask(todo);
-        return Ui.showAddTask(todo);
+        return Ui.showAddTask(todo, taskList.getItemCount());
     }
 }

@@ -52,7 +52,7 @@ application {
 }
 
 shadowJar {
-    archiveBaseName = "buddiboi-fat"
+    archiveBaseName = "BuddiBoi"
     archiveClassifier = null
 }
 

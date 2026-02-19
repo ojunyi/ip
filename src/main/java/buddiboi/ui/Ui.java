@@ -33,7 +33,7 @@ public class Ui {
      * @return A formatted hello message.
      */
     public static String showHello() {
-        return formatText("Hello friend!");
+        return formatText("Hello friend! I'm BuddiBoi! What can I do for you?");
     }
 
     /**
@@ -84,9 +84,10 @@ public class Ui {
      * @param task The task that was added.
      * @return A formatted confirmation message.
      */
-    public static String showAddTask(Task task) {
+    public static String showAddTask(Task task, int itemCount) {
         return formatText("Got it! I have added that to your list:\n"
-                + "  " + task.toString());
+                + "  " + task.toString() + "\n"
+                + "You now have " + itemCount + " task(s) in the list.");
     }
 
     /**
@@ -99,7 +100,7 @@ public class Ui {
     public static String showDeleteTask(Task task, int itemCount) {
         return formatText("Understood! I have removed that task for you:\n"
                 + "  " + task.toString() + "\n"
-                + "You now have " + itemCount + " task(s) remaining. Keep it up!");
+                + "You now have " + itemCount + " task(s) remaining.");
     }
 
     /**

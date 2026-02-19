@@ -117,6 +117,6 @@ public class AddEventCommand extends Command {
 
         Event event = new Event(description, start, end);
         taskList.addTask(event);
-        return Ui.showAddTask(event);
+        return Ui.showAddTask(event, taskList.getItemCount());
     }
 }

@@ -1,30 +1,224 @@
 # BuddiBoi User Guide
 
-// Update the title above to match the actual product name
+![Ui Screenshot](Ui.png)
 
-// Product screenshot goes here
+## Introduction
 
-// Product intro goes here
+**BuddiBoi** is a lightweight task management application with a friendly chat-based interface.
+It allows you to manage todos, deadlines, and events efficiently using simple commands.
 
-## Adding deadlines
+BuddiBoi is designed for users who prefer typing over clicking and want a fast way to manage tasks.
 
-// Describe the action and its outcome.
+---
 
-// Give examples of usage
+# Features
 
-Example: `keyword (optional arguments)`
+---
 
-// A description of the expected outcome goes here
+## Greeting BuddiBoi
 
+Say hello to BuddiBoi to get started!
+
+**Command:** `hello` / `hi` / `hey`
+
+**Example:**
 ```
-expected output
+hello
 ```
 
-## Feature ABC
+**Output:**
+```
+Hello friend! I'm BuddiBoi! What can I do for you?
+```
 
-// Feature details
+---
 
+## Adding a Todo task
 
-## Feature XYZ
+Adds a simple task without any date or time attached.
 
-// Feature details
+**Command:** `todo <description>`
+
+**Example:**
+```
+todo buy groceries
+```
+
+**Output:**
+```
+Got it! I have added that to your list:
+  [T][ ] buy groceries
+Now you have 1 task(s) in the list.
+```
+
+---
+
+## Adding a Deadline task
+
+Adds a task with a specific deadline.
+
+**Command:** `deadline <description> /by <date>`
+dd-MM-yyyy HHmm
+**Example:**
+```
+deadline submit report /by 19-02-2026 1800
+deadline submit report /by today 1800
+```
+
+**Output:**
+```
+Got it! I have added that to your list:
+  [D][ ] submit report (by: 19 Feb 2026 1800)
+Now you have 2 task(s) in the list.
+```
+
+---
+
+## Adding an Event
+
+Adds a task with a start and end time.
+
+**Command:** `event <description> /from <start> /to <end>`
+
+**Example:**
+```
+event team meeting /from 20-02-2026 1200 /to 20-02-2026 1300
+event team meeting /from tomorrow 1200 /to tomorrow 1300
+```
+
+**Output:**
+```
+Got it. I have added that to your list:
+  [E][ ] team meeting (From: 20 Feb 2026 1200 To: 20 Feb 2026 1300)
+Now you have 3 task(s) in the list.
+```
+
+---
+
+## Listing All Tasks
+
+Displays all tasks currently in your task list.
+
+**Command:** `list`
+
+**Example:**
+```
+list
+```
+
+**Output:**
+```
+Here is everything on your list right now:
+
+1. [T][ ] buy groceries
+2. [D][ ] submit report (by: 19 Feb 2026)
+3. [E][ ] team meeting (From: 20 Feb 2026 1200 To: 20 Feb 2026 1300)
+```
+
+---
+
+## Marking a Task as Done
+
+Marks the task at the specified index as completed.
+
+**Command:** `mark <index>`
+
+**Example:**
+```
+mark 1
+```
+
+**Output:**
+```
+Wonderful work! I have marked that as complete:
+  [T][X] buy groceries
+```
+
+---
+
+## Unmarking a Task
+
+Marks the task at the specified index as not yet completed.
+
+**Command:** `unmark <index>`
+
+**Example:**
+```
+unmark 1
+```
+
+**Output:**
+```
+No problem at all! I have unmarked that task for you:
+  [T][ ] buy groceries
+```
+
+---
+
+## Deleting a Task
+
+Removes the task at the specified index from your task list.
+
+**Command:** `delete <index>`
+
+**Example:**
+```
+delete 1
+```
+
+**Output:**
+```
+Understood. I have removed that task for you:
+  [T][ ] buy groceries
+Now you have 2 task(s) in the list.
+```
+
+---
+
+## Finding Tasks
+
+Searches for all tasks whose descriptions contain the given keyword.
+
+**Command:** `find <keyword>`
+
+**Example:**
+```
+find report
+```
+
+**Output:**
+```
+Here is what I found for you:
+
+1. [D][ ] submit report (by: 19 Feb 2026 1800)
+```
+
+---
+
+## Exiting BuddiBoi
+
+Exits the application. Goodbye!
+
+**Command:** `bye` / `goodbye` / `exit` / `quit`
+
+**Example:**
+```
+bye
+```
+
+**Output:**
+```
+It looks like you are ready to wrap up for now.
+Would you like me to save your tasks before we go? (yes / no)
+```
+Replying with yes
+```
+Your tasks have been saved safely. They will be here waiting for you!
+Thank you for using BuddiBoi. See you next time!
+```
+Replying with anything other than yes
+```
+Alright, your tasks have not been saved this time.
+Thank you for using BuddiBoi. See you next time!
+```
+---
