@@ -38,14 +38,14 @@ If the launch is successful, you should see BuddiBoi greet you with an opening m
 | Find Tasks | `find <keyword>` | `find report` |
 | Exit | `bye` / `goodbye` / `exit` / `quit` | `bye` |
 
-Do take note that by `BCD-Extention` is `C-NaturalDates` which means that dates can be written in other formats such as: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`, `Today`, `Tomorrow`.
+> **Note:** Dates can also be written using natural language such as `today`, `tomorrow`, or day names like `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
 
 ---
 
 # Known Issues
 
 1. When writing a date using the day (i.e. Mon or Tue), the date parser takes the following day that you input. i.e. If today is a Wednesday, and you write Wed, it will assume you mean next Wednesday, not today's Wednesday. Therefore, assuming today is Wednesday, if you write `event test /from Wed /to Thu`, it will assume you mean the event is from next Wednesday to tomorrow's Thursday and will throw an error because that is not possible. Instead, write `event test /from Today /to Thu` or `event test /from Today /to Tomorrow`.
-2. After calling `bye` at the end and after confirming whether you would like to save or not, there is a small delay before the application closes. That delay is intentional.
+2. After calling `bye` and confirming whether you would like to save, there is a small delay before the application closes. This is intentional as `BuddiBoi` will first respond with a save confirmation message, followed by a farewell message, before the application fully exits.
 
 ---
 
@@ -95,6 +95,8 @@ Adds a task with a specific deadline.
 
 **Command:** `deadline <description> /by <date>`
 
+**Date Format:** `DD-MM-YYYY HHmm` (e.g. `19-02-2026 1800`) or natural language (e.g. `today 1800`, `tomorrow 1800`)
+
 **Example:**
 ```
 deadline submit report /by 19-02-2026 1800
@@ -115,6 +117,8 @@ Now you have 2 task(s) in the list.
 Adds a task with a start and end time.
 
 **Command:** `event <description> /from <start> /to <end>`
+
+**Date Format:** `DD-MM-YYYY HHmm` (e.g. `19-02-2026 1800`) or natural language (e.g. `today 1800`, `tomorrow 1800`)
 
 **Example:**
 ```
