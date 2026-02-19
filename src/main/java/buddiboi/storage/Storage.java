@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,11 +22,12 @@ import buddiboi.tasks.Todo;
  */
 public class Storage {
 
-    private static final Path FILE_PATH = Paths.get("data", "save.txt");
+    private static final Path FILE_PATH = resolveFilePath();
     private static final String TODO_TYPE = "T";
     private static final String DEADLINE_TYPE = "D";
     private static final String EVENT_TYPE = "E";
     private static final String DELIMITER = " | ";
+    private static final DateTimeFormatter STORAGE_FORMAT = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
 
     /**
      * Loads the task list from persistent storage.
@@ -106,13 +108,13 @@ public class Storage {
             break;
 
         case DEADLINE_TYPE:
-            LocalDateTime by = LocalDateTime.parse(parts[3]);
+            LocalDateTime by = LocalDateTime.parse(parts[3].trim(), STORAGE_FORMAT);
             task = new Deadline(description, by);
             break;
 
         case EVENT_TYPE:
-            LocalDateTime start = LocalDateTime.parse(parts[3]);
-            LocalDateTime end = LocalDateTime.parse(parts[4]);
+            LocalDateTime start = LocalDateTime.parse(parts[3].trim(), STORAGE_FORMAT);
+            LocalDateTime end = LocalDateTime.parse(parts[4].trim(), STORAGE_FORMAT);
             task = new Event(description, start, end);
             break;
 
@@ -140,13 +142,33 @@ public class Storage {
             return TODO_TYPE + DELIMITER + status + DELIMITER + t.getDescription();
         } else if (task instanceof Deadline d) {
             return DEADLINE_TYPE + DELIMITER + status + DELIMITER
-                    + task.getDescription() + DELIMITER + d.getDeadline();
+                    + task.getDescription() + DELIMITER + d.getDeadline().format(STORAGE_FORMAT);
         } else if (task instanceof Event e) {
             return EVENT_TYPE + DELIMITER + status + DELIMITER
                     + task.getDescription() + DELIMITER
-                    + e.getStartDate() + DELIMITER + e.getEndDate();
+                    + e.getStartDate().format(STORAGE_FORMAT) + DELIMITER
+                    + e.getEndDate().format(STORAGE_FORMAT);
         } else {
             return "";
+        }
+    }
+
+    /**
+     * Tries to find the appropriate location to save data
+     *
+     * @return The path to save data
+     */
+    private static Path resolveFilePath() {
+        try {
+            Path jarDir = Paths.get(Storage.class
+                    .getProtectionDomain()
+                    .getCodeSource()
+                    .getLocation()
+                    .toURI())
+                    .getParent();
+            return jarDir.resolve(Paths.get("data", "save.txt"));
+        } catch (Exception e) {
+            return Paths.get("data", "save.txt"); // fallback
         }
     }
 }

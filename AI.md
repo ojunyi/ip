@@ -36,3 +36,10 @@ Results
 Various JavaDocs following the Java Coding Standard
 Manual update
 No updates
+
+Prompt - Storage.java
+Encountered problem when trying to save and load data when testing via the .jar file
+Result
+Added resolveFilePath() method in Storage.java
+Manual update
+Added JavaDocs
