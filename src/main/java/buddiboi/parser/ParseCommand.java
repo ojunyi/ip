@@ -7,6 +7,7 @@ import buddiboi.commands.Command;
 import buddiboi.commands.DeleteCommand;
 import buddiboi.commands.ExitCommand;
 import buddiboi.commands.FindCommand;
+import buddiboi.commands.HelloCommand;
 import buddiboi.commands.InvalidCommand;
 import buddiboi.commands.ListCommand;
 import buddiboi.commands.MarkCommand;
@@ -38,6 +39,8 @@ public class ParseCommand {
      */
     public Command getCommand() throws BuddiBoiException {
         switch (command) {
+        case "hello":
+            return new HelloCommand();
         case "bye":
             return new ExitCommand();
         case "list":

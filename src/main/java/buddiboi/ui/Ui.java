@@ -28,6 +28,15 @@ public class Ui {
     }
 
     /**
+     * Returns a hellow message.
+     *
+     * @return A formatted hello message.
+     */
+    public static String showHello() {
+        return formatText("Hello friend!");
+    }
+
+    /**
      * Returns a formatted list of all tasks.
      *
      * @param tasksList The task list to display.
