@@ -23,8 +23,8 @@ public class Ui {
      */
     public static String showWelcome() {
         return formatText(LOGO + "\n"
-                + "Hello! I'm BuddiBoi\n"
-                + "What can I do for you?");
+                + "Welcome back! I'm BuddiBoi, your personal task companion.\n"
+                + "I'm here to help you stay on top of things. What shall we tackle today?");
     }
 
     /**
@@ -34,7 +34,8 @@ public class Ui {
      * @return A formatted string showing all tasks.
      */
     public static String showListCommand(TaskList tasksList) {
-        return formatText(tasksList.toString());
+        return formatText("Here is everything on your list right now:\n\n"
+                + tasksList.toString());
     };
 
     /**
@@ -44,7 +45,8 @@ public class Ui {
      * @return A formatted string showing the matching tasks.
      */
     public static String showFindCommand(TaskList matchingTasksList) {
-        return formatText(matchingTasksList.toString());
+        return formatText("Here is what I found for you:\n\n"
+                + matchingTasksList.toString());
     }
 
     /**
@@ -53,9 +55,8 @@ public class Ui {
      * @return A formatted exit message indicating tasks were not saved.
      */
     public static String showExitNoCommand() {
-        return formatText("No save command was given.\n"
-                + "Your tasks were not saved.\n"
-                + "See you next timeee! Ciaoooo ~~~");
+        return formatText("Just a heads up - your tasks were not saved this time.\n"
+                + "I hope to see you again soon. Take care!");
     }
 
     /**
@@ -75,7 +76,8 @@ public class Ui {
      * @return A formatted confirmation message.
      */
     public static String showAddTask(Task task) {
-        return formatText("Added: " + task.toString());
+        return formatText("Got it! I have added that to your list:\n"
+                + "  " + task.toString());
     }
 
     /**
@@ -86,9 +88,9 @@ public class Ui {
      * @return A formatted confirmation message.
      */
     public static String showDeleteTask(Task task, int itemCount) {
-        return formatText("Noted. I've removed this task. Less work for you:\n"
+        return formatText("Understood! I have removed that task for you:\n"
                 + "  " + task.toString() + "\n"
-                + "Now you have " + itemCount + " tasks in the list.");
+                + "You now have " + itemCount + " task(s) remaining. Keep it up!");
     }
 
     /**
@@ -98,7 +100,7 @@ public class Ui {
      * @return A formatted confirmation message.
      */
     public static String showMarkTask(Task task) {
-        return formatText("Well done completing that task:\n"
+        return formatText("Wonderful work! I have marked that as complete:\n"
                 + "  " + task.toString());
     }
 
@@ -109,7 +111,7 @@ public class Ui {
      * @return A formatted confirmation message.
      */
     public static String showUnmarkTask(Task task) {
-        return formatText("Okay. Task shall be unmarked:\n"
+        return formatText("No problem at all! I have unmarked that task for you:\n"
                 + "  " + task.toString());
     }
 
@@ -120,8 +122,8 @@ public class Ui {
      * @return A formatted exit message.
      */
     public static String showExitSaveCommand() {
-        return formatText("Preparing to exit...\n"
-                + "Would you like me to save your tasks before exiting? (yes/no)");
+        return formatText("It looks like you are ready to wrap up for now.\n"
+                + "Would you like me to save your tasks before we go? (yes / no)");
     }
 
     /**
@@ -133,11 +135,11 @@ public class Ui {
     public static String showSaveConfirmation(Boolean isSave) {
         StringBuilder sb = new StringBuilder();
         if (isSave) {
-            sb.append("Your tasks have been saved\n");
+            sb.append("Your tasks have been saved safely. They will be here waiting for you!\n");
         } else {
-            sb.append("Your tasks have not been saved\n");
+            sb.append("Alright, your tasks have not been saved this time.\n");
         }
-        sb.append("See you next timeee! Ciaoooo ~~~");
+        sb.append("Thank you for using BuddiBoi. See you next time!");
 
         return formatText(sb.toString());
     }
@@ -159,7 +161,9 @@ public class Ui {
      * @return A formatted error message.
      */
     public static String showBuddiBoiError(String errorMessage) {
-        return formatText("Internal Error: " + errorMessage);
+        return formatText("Oh no, something went wrong on my end. Here are the details:\n"
+                + errorMessage + "\n"
+                + "Please try again, and let me know if this keeps happening!");
     }
 
     /**
@@ -169,17 +173,21 @@ public class Ui {
      * @return A formatted error message.
      */
     public static String showCommandError(String errorMessage) {
-        return formatText("Command Error: " + errorMessage);
+        return formatText("Hmm, I did not quite understand that command. Here is what went wrong:\n"
+                + errorMessage + "\n"
+                + "Please give it another try - I am happy to help!");
     }
 
     /**
-     * Returns a formatted command error message.
+     * Returns a formatted storage error message.
      *
      * @param errorMessage The error message to display.
      * @return A formatted error message.
      */
     public static String showStorageError(String errorMessage) {
-        return formatText("Storage Error: " + errorMessage);
+        return formatText("I ran into a problem accessing your saved data. Here are the details:\n"
+                + errorMessage + "\n"
+                + "You may want to check your save file and try again.");
     }
 
     /**
@@ -189,7 +197,8 @@ public class Ui {
      * @return A formatted error message.
      */
     public static String showError() {
-        return formatText("Error: An unexpected error occurred");
+        return formatText("Something unexpected happened and I am not quite sure what went wrong.\n"
+                + "Please try again, and I will do my best to help you out!");
     }
 
     /**

@@ -114,9 +114,6 @@ public class MainWindow extends AnchorPane {
 
             if (buddiBoi.shouldExit()) {
                 awaitingSaveConfirmation = true;
-                dialogContainer.getChildren().add(
-                    DialogBox.getBuddiBoiDialog(Ui.showExitSaveCommand(), buddiBoiImage)
-                );
             }
         });
         thinkDelay.play();
