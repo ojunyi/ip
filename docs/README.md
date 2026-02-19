@@ -13,7 +13,14 @@ BuddiBoi is designed for users who prefer typing over clicking and want a fast w
 
 # Installation
 
-> *(Installation guide coming soon. Please check back later.)*
+1. Ensure you have Java version 17 or higher. You can check via `jave -version`
+2. Download `[BuddiBoi.jar](https://github.com/ojunyi/ip/releases)`
+3. Place `BuddiBoi.jar` in any empty folder
+4. Open your terminal and navigate to that empty folder
+    4.1 Alternatively, you can try to run `BuddiBoi.jar` via double clicking it
+5. Run `java -jar "BuddiBoi.jar"`
+
+If the launch is successfuly, you should see BuddiBoi greet you with an opening message.
 
 ---
 
