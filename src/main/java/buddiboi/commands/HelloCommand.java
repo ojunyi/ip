@@ -3,6 +3,9 @@ package buddiboi.commands;
 import buddiboi.tasks.TaskList;
 import buddiboi.ui.Ui;
 
+/**
+ * Command to say hello.
+ */
 public class HelloCommand extends Command {
 
     /**

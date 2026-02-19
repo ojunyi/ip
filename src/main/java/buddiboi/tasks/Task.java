@@ -3,10 +3,16 @@ package buddiboi.tasks;
 /**
  * Base class to be used for all tasks.
  */
-public class Task {
+public abstract class Task {
+
     protected String description;
     protected boolean isDone;
 
+    /**
+     * Constructs a task with the following params
+     *
+     * @param description Description of the task.
+     */
     public Task(String description) {
         this.description = description;
         this.isDone = false;

@@ -37,7 +37,7 @@ public class MarkCommand extends Command {
      * @param taskList The taskList containing the task list and other necessary information.
      */
     @Override
-    public String execute(TaskList taskList) throws CommandException{
+    public String execute(TaskList taskList) throws CommandException {
         if (errorMessage != null) {
             throw new CommandException(this.errorMessage + "\n" + format);
         }

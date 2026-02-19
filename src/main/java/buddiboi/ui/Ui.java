@@ -127,7 +127,6 @@ public class Ui {
     /**
      * Returns the exit message based on whether tasks were saved.
      *
-     * @param isSave True if tasks were saved, false otherwise.
      * @return A formatted exit message.
      */
     public static String showExitSaveCommand() {
@@ -202,7 +201,6 @@ public class Ui {
     /**
      * Returns a formatted error message.
      *
-     * @param errorMessage The error message to display.
      * @return A formatted error message.
      */
     public static String showError() {

@@ -13,6 +13,12 @@ public class Deadline extends Task {
 
     protected LocalDateTime deadline;
 
+    /**
+     * Constructs a deadline task with the following params.
+     *
+     * @param description Description of the task.
+     * @param deadline Deadline of the task.
+     */
     public Deadline(String description, LocalDateTime deadline) {
         super(description);
         this.deadline = deadline;

@@ -9,6 +9,10 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+/**
+ * Entry point for the JavaFX GUI application.
+ * Loads the main window layout from FXML and initialises the application.
+ */
 public class Gui extends Application {
 
     private BuddiBoi buddiBoi = new BuddiBoi();

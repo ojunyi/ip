@@ -62,7 +62,7 @@ public class Storage {
     /**
      * Saves the task list to persistent storage.
      *
-     * @param tasks The list of tasks to save.
+     * @param taskList The list of tasks to save.
      * @throws StorageException If there are errors writing to the file.
      */
     public static void save(TaskList taskList) throws StorageException {

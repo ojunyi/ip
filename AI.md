@@ -29,3 +29,10 @@ Result
 Added a parseMilitaryTime(String) method and added a section that splits the input String into day of the week and the military time to be parsed
 Manual update
 No updates
+
+Prompt - General
+Wrote several prompts to generate the JavaDocs for certain classes or methods
+Results
+Various JavaDocs following the Java Coding Standard
+Manual update
+No updates

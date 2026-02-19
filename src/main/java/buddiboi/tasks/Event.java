@@ -14,6 +14,13 @@ public class Event extends Task {
     protected LocalDateTime startDate;
     protected LocalDateTime endDate;
 
+    /**
+     * Constructs a event task with the following params.
+     *
+     * @param description Description of the task.
+     * @param startDate Start date of the tast.
+     * @param endDate End date of the task.
+     */
     public Event(String description, LocalDateTime startDate, LocalDateTime endDate) {
         super(description);
         this.startDate = startDate;

@@ -19,6 +19,9 @@ public class BuddiBoi {
     private final TaskList taskList;
     private boolean exitRequested = false;
 
+    /**
+     * Construct BuddiBoi instance
+     */
     public BuddiBoi() {
         TaskList loadedTaskList;
         try {
@@ -59,6 +62,9 @@ public class BuddiBoi {
         return exitRequested;
     }
 
+    /**
+     * Handles the saving process for BuddiBoi
+     */
     public void save() {
         TaskList saveTaskList = this.taskList;
         try {

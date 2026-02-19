@@ -40,6 +40,10 @@ public class MainWindow extends AnchorPane {
     private Timeline typingTimeline;
     private int typingDotCount = 1;
 
+    /**
+     * Initialises the controller after the FXML layout has been loaded.
+     * Binds the scroll pane to always scroll to the bottom as new messages are added
+     */
     @FXML
     public void initialize() {
         scrollPane.vvalueProperty().bind(dialogContainer.heightProperty());
@@ -82,7 +86,9 @@ public class MainWindow extends AnchorPane {
     @FXML
     private void handleUserInput() {
         String input = userInput.getText().trim();
-        if (input.isEmpty()) return;
+        if (input.isEmpty()) {
+            return;
+        }
 
         userInput.setDisable(true);
         sendButton.setDisable(true);

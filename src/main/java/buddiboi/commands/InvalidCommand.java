@@ -8,7 +8,7 @@ import buddiboi.tasks.TaskList;
  */
 public class InvalidCommand extends Command {
 
-    private final String INVALID_COMMAND = "Invalid Command";
+    private static final String INVALID_COMMAND = "Invalid Command";
 
     /**
      * Executes the InvalidCommand, displaying an error message.
