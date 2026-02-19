@@ -16,9 +16,16 @@ Updated MainWindow.java and MainWindow.fxml to include a small delay along with 
 Manual update
 Increase delay by 1 second
 
-Promot - A-Personality
+Prompt - A-Personality
 Could you help me change the text that BuddiBoi returns so that it sounds more like its name?
 Result
 Made BuddiBoi much more affirming using responses like 'Got it!' or "Understood'. Added supportive responses as well such as 'Keep it up!' or 'Wonderful!'.
+Manual update
+No updates
+
+Prompt - C-NaturalDates
+My current program allows me write dates as day names. i.e. "Mon" or "Tue". But I would like if those dates also accept military time behind them as an optional argument. i.e. "Mon 1500" or "Tue 2359".
+Result
+Added a parseMilitaryTime(String) method and added a section that splits the input String into day of the week and the military time to be parsed
 Manual update
 No updates
