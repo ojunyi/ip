@@ -44,7 +44,7 @@ public class DeleteCommand extends Command {
         }
 
         if (taskIndex < 0 || taskIndex >= taskList.getItemCount()) {
-            this.errorMessage = "Delete must be populated with an integer inside the existing list.";
+            this.errorMessage = "Delete must be populated with an integer within the existing list.";
             throw new CommandException(this.errorMessage + "\n" + format);
         }
 
