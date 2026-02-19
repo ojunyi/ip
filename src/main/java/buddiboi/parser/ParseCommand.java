@@ -39,7 +39,7 @@ public class ParseCommand {
      */
     public Command getCommand() throws BuddiBoiException {
         switch (command) {
-        case "hello", "hi":
+        case "hello", "hi", "hey":
             return new HelloCommand();
         case "bye", "goodbye", "exit", "quit":
             return new ExitCommand();

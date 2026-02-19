@@ -23,7 +23,7 @@
     <!-- Speaker label row with avatar -->
     <HBox spacing="8" alignment="CENTER_LEFT">
         <ImageView fx:id="displayPicture"
-                   fitWidth="28" fitHeight="28"
+                   fitWidth="40" fitHeight="40"
                    preserveRatio="true"
                    style="-fx-effect: dropshadow(one-pass-box, #5BC8F5, 4, 0.5, 0, 0);"/>
         <Label fx:id="speakerLabel"
@@ -40,6 +40,6 @@
            style="-fx-font-family: 'Courier New';
                   -fx-font-size: 18px;
                   -fx-text-fill: #FFFFFF;
-                  -fx-padding: 2 0 0 36;
+                  -fx-padding: 2 0 0 48;
                   -fx-line-spacing: 3;"/>
 </fx:root>
